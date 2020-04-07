@@ -1,0 +1,8 @@
+  <view class="warp clear addpicWarp" >
+    <block wx:for="{{picUrl}}" wx:key="{{index}}">
+      <view class="addpicmain left">
+        <image src="{{item.val == '' ? '/image/addpic.png' : src+item.val}}" class="addpic {{item.showdele ? 'picBorder' : ''}}" data-index="{{index}}" wx:key="index" bindtap="addpic" wx:if="{{item.isshow}}" mode="aspectFill"></image>
+        <image src="/image/delete.png" class="delepic" bindtap="deletePic" mode="aspectFill" data-index="{{index}}" wx:if="{{item.showdele}}"></image>   
+      </view>
+    </block>
+  </view>

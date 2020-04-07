@@ -1,0 +1,73 @@
+<view class="main">
+  
+  <view class="section">
+    <text class="title">报修单号:</text>
+    <text>{{deviceDetail.RepairsCode}}</text>
+  </view>
+  <view class="section">
+    <text class="title">所属学校:</text>
+    <text>{{deviceDetail.SchoolName}}</text>
+  </view>
+    <view class="section">
+    <text class="title">设备状态:</text>
+    <text>{{deviceDetail.EquipmentStateStr}}</text>
+  </view>
+  <view class="section">
+    <text class="title">设备类型:</text>
+    <text>{{deviceDetail.TypeName}}</text>
+  </view>
+  <view class="section">
+    <text class="title">在线状态:</text>
+    <text>{{deviceDetail.isjkStr}}</text>
+  </view>
+  
+  <view class="section">
+    <text class="title">安装位置:</text>
+    <text>{{deviceDetail.azPlace}}</text>
+  </view>
+  <view class="section">
+    <text class="title">接单状态:</text>
+    <text>{{deviceDetail.TakeOrderStateStr}}</text>
+  </view>
+ 
+  <view class="section">
+    <text class="title">维修人员:</text>
+    <text>{{deviceDetail.ServiceManName}}</text>
+  </view>
+ 
+  
+  <view class="remarkWarp clear">
+    <text class="title left">报修备注:</text>
+    <text class="bzStyle left">{{deviceDetail.Remark}}</text>
+  </view> 
+  
+  <view class="remarkWarp clear">
+    <text class="title left">解决方案:</text>
+    <text class="bzStyle left">{{deviceDetail.SolveReMark == null ? '无' : deviceDetail.SolveReMark}}</text>
+  </view>
+  <view class="section">
+    <text class="title">报修人:</text>
+    <text>{{deviceDetail.UserName}}</text>
+  </view>
+  <view class="section">
+    <text class="title">预计维修时间:</text>
+    <text>{{deviceDetail.PlanMainTainTimeStr == null ? '无' : deviceDetail.PlanMainTainTimeStr}}</text>
+  </view>
+  <view class="section">
+    <text class="title">实际维修时间:</text>
+    <text>{{deviceDetail.MainTainTimeStr == null ? '无' : deviceDetail.MainTainTimeStr}}</text>
+  </view>
+  <view class="clear imgwarp">
+    <text class="title left">报修图片:</text>
+    <view class="left itemwarp">
+      <image wx:if="{{item != ''}}" class="left imgItem" data-type='1' catchtap="previewImg" data-url="{{item}}" wx:for="{{imgList}}" wx:key="index" src="{{item}}"></image>
+    </view>
+   
+  </view>
+  <view class="clear imgwarp">
+    <text class="title left">维修图片:</text>
+    <view class="left itemwarp">
+      <image wx:if="{{item != ''}}" class="left imgItem" data-type='2' catchtap="previewImg" data-url="{{item}}" wx:for="{{MainTainImgURL}}" wx:key="index" src="{{item}}"></image>
+    </view>
+  </view>
+</view>

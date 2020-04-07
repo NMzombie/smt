@@ -1,0 +1,28 @@
+<!-- <view class="mySignIn" catchtap='renderMySignIn' wx:for="{{listInfo}}" wx:key="index" data-mainnum="{{item.Mail_num}}" data-otherusername="{{item.Username}}">
+  <view class="clear">
+    <image class="headImg left" src="{{item.Headpic}}"></image>
+    <text class="myName">{{item.Xm}}</text>
+    <text class="myTime">签到{{item.QDnum}}次 </text>
+  </view>
+</view> -->
+
+
+<view class="tab clear">
+  <view catchtap="changeTab" data-tab="1" class="left normalTab tabLeft {{tab==1 ? 'activeTab': ''}}">已签到</view>
+  <view catchtap="changeTab" data-tab="2" class="left normalTab tabRight {{tab==2 ? 'activeTab': ''}}">未签到</view>
+</view>
+<view class="clear item-warp" wx:if="{{listInfo.length != 0}}"> 
+<form bindsubmit="formSubmit" report-submit="true">
+  <view catchtap='{{tab==1 ? "renderMySignIn" : ""}}' data-mainnum="{{item.Mail_num}}" data-otherusername="{{item.Username}}" class="left item" wx:for="{{listInfo}}" :key="index">
+    <image class="item-image" src="/image/userno.png"></image>
+    <text class="item-text">{{item.Xm}}</text>
+  </view>
+  <button class="tips" wx:if="{{tab==2}}" form-type="submit">一键提醒</button>
+  </form>
+  
+  
+</view>
+<view wx:else class="emptyText">
+  暂无数据
+</view>
+

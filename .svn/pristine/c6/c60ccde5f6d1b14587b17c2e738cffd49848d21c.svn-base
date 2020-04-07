@@ -1,0 +1,342 @@
+// pages/sj/addSj/addSj.js
+import formatTime from "../../../utils/util.js"
+var app = getApp();
+var timer = null;
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    SJBH: null, // 商机编号
+    sjClassify: [], // 商机分类
+    keyInfo: { key1: 0, key2: null, key3: null, key4: 0, key5: 0, }, // 用来纪录每个下拉框选中的索引
+    SJName: '', // 商机名称
+    ifHaveSchool: 1, // 是否现有学校
+    schoolCode: '', // 学校编号
+    schoolName: '', // 学校名称
+    contactsList: [],
+    SellStepEnum: [], // 销售阶段
+    SellLinkWayEnum: [], // 联系情况
+    SFTime: formatTime.formatTime(new Date()),
+    SFAmount: 0, // 金额
+    Bz: '', // 商机备注
+    showModal: false, // 显示modal弹窗
+    single: false, // false 只显示一个按钮，如果想显示两个改为true即可
+    TrueName: '', // 添加联系人---名称
+    Tel: '', // 联系方式
+    Intro: '', // 联系情况
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getBusinessNum(); // 获取商机编号
+    this.getBusinessTypeList(); // 获取商机分类
+    this.getLinkUserList(); // 获取商机联系人列表
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    wx.setStorageSync("sjAddOrEdit", false);
+    var { schoolInfo, SellStepEnum, SellLinkWayEnum, } = app.globalData;
+    this.isNeddHttp(SellLinkWayEnum, 'SellLinkWayEnum');// 联系情况
+    this.isNeddHttp(SellStepEnum, 'SellStepEnum');// 销售阶段
+    if (schoolInfo.schoolname) {
+      this.setData({
+        schoolName: schoolInfo.schoolname,
+        schoolCode: schoolInfo.school,
+      })
+      this.getLinkUserList();
+    }
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    console.log("页面隐藏")
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    console.log("页面卸载")
+  },
+
+  // 获取商机编号
+  getBusinessNum: function () {
+    app.wxApi.GetBusinessNum().then(res => {
+      var { Value, ResultMessage, ResultCode, } = res;
+      if (ResultCode == 1) {
+        this.setData({ SJBH: Value, });
+      } else {
+        app.showToast(ResultMessage);
+      }
+    })
+  },
+
+  // 获取可枚举的属性
+  getDictionary: function (key) {
+    app.wxApi.GetDictionary({ key, }).then(res => {
+      var { Value, ResultMessage, ResultCode, } = res;
+      if (ResultCode == 1) {
+        Value.unshift({ Des: '请选择', Value: 0 })
+        this.setData({ [key]: Value, });
+        app.globalData[key] = Value;
+      } else {
+        app.showToast(ResultMessage);
+      }
+    })
+  },
+
+  // 获取商机分类
+  getBusinessTypeList: function () {
+    app.wxApi.BusinessTypeList().then(res => {
+      var { Value, ResultMessage, ResultCode } = res;
+      if (ResultCode == 1) {
+        var sjClassify = [];
+        Value.forEach((c) => {
+          sjClassify.push({ name: `[${c.PType}]${c.PName}`, id: c.Id, });
+        })
+        this.setData({ sjClassify, });
+        this.regExpSjName(this.data.sjClassify[0].name);
+      } else {
+        app.showToast(ResultMessage);
+      }
+    })
+  },
+
+  //避免多次请求造成资源浪费
+  isNeddHttp: function (data, target) {
+    if (data.length > 0) {
+      this.setData({
+        [target]: data,
+      })
+    } else {
+      var info = {
+        'SellStepEnum': () => {
+          this.getDictionary('SellStepEnum');
+        },
+        'SellLinkWayEnum': () => {
+          this.getDictionary('SellLinkWayEnum');
+        },
+      }
+      info[target]();
+    }
+  },
+
+  // input键盘输入时触发
+  bindInput: function (e) {
+    var key = e.target.dataset.value,
+        value = e.detail.value;
+    this.setData({
+      [key]: value, 
+    })
+  },
+
+  // 添加商机联系人
+  addLinkUser: function () {
+    var { schoolCode, TrueName, Tel, Intro, } = this.data;
+    var data = {
+      SchoolCode: schoolCode,
+      TrueName,
+      Tel,
+      Intro,
+    };
+    if (TrueName == '') {
+      app.showToast('请填写姓名!');
+      return;
+    }
+    if (Tel == '') {
+      app.showToast('请填写联系方式!');
+      return;
+    }
+    app.wxApi.AddLinkUser(data).then(res => {
+      var { Value, ResultMessage, ResultCode, } = res;
+      app.showToast(res.ResultMessage);
+      if (ResultCode == 1) {
+        this.closeModal();
+        this.getLinkUserList();
+      }
+    })
+  },
+
+  // 获取商机联系人列表
+  getLinkUserList: function () {
+    app.wxApi.LinkUserList({ School: this.data.schoolCode}).then(res => {
+      var { Value, ResultMessage, ResultCode, } = res;
+      if (ResultCode == 1) {
+        var contactsList = [];
+        Value.forEach((c) => {
+          contactsList.push({ name: `[${c.SchoolCode}]`+ ' ' +c.TrueName + ' ' + c.Tel, TrueName: c.TrueName, Tel: c.Tel, });
+        })
+        this.setData({ contactsList });
+      } else if (ResultCode == -2){
+        this.setData({ contactsList: [] });
+      }else {
+        app.showToast(res.ResultMessage);
+      }
+    })
+  },
+
+  // 是否现有学校 switch
+  switchChange: function (e) {
+    this.setData({
+      ifHaveSchool: e.detail.value ? 1 : 0,
+      schoolName: '',
+      schoolCode: '',
+    })
+    if (!e.detail.value) {
+      this.getLinkUserList();
+    }
+  },
+
+  // 跳转学校列表页用于选择学校
+  goToUrl: function (e) {
+    var { url } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/components/${url}/${url}`
+    })
+  },
+
+  // 选中下拉框
+  bindPickerChange: function (e) {
+    var newKeyInfo = this.data.keyInfo;
+    var key = parseInt(e.detail.value);
+    var target = {
+      'classify': () => {
+        this.regExpSjName(this.data.sjClassify[key].name);
+        newKeyInfo['key1'] = key;
+        return newKeyInfo;
+      },
+      'LinkMan1': () => {
+        newKeyInfo['key2'] = key;
+        return newKeyInfo;
+      },
+      'LinkMan2': () => {
+        newKeyInfo['key3'] = key;
+        return newKeyInfo;
+      },
+      'SellStepEnum': () => {
+        newKeyInfo['key4'] = key;
+        return newKeyInfo;
+      },
+      'SellLinkWayEnum': () => {
+        newKeyInfo['key5'] = key;
+        return newKeyInfo;
+      },
+    }
+    var info = target[e.target.dataset.type]();
+    this.setData({
+      keyInfo: info,
+    })
+  },
+
+  // 正则匹配商机名称
+  regExpSjName: function (name) {
+    var SJName = name.match(/](\S*)/)[1];
+    this.setData({
+      SJName,
+    });
+  },
+
+  // 选择日期
+  chooseDate: function (e) {
+    this.setData({
+      SFTime: e.detail.value,
+    })
+  },
+  cancleDate: function () {
+    console.log(2)
+  },
+  
+  // 点击确定按钮的回调函数
+  modalConfirm(e) {
+    // 这里面处理点击确定按钮业务逻辑
+    this.addLinkUser();
+  },
+
+  closeModal: function() {
+    this.setData({
+      showModal: false,
+    })
+  },
+
+  showModal: function () {
+    this.setData({
+      showModal: true,
+    })
+  },
+
+  // 提交商机
+  formSubmit: function (e) {
+    var {
+      SJBH, keyInfo,
+      sjClassify, SJName,
+      ifHaveSchool, schoolCode,
+      schoolName, contactsList,
+      SellStepEnum, SellLinkWayEnum,
+      SFTime, SFAmount, Bz,
+    } = this.data;
+
+    if (!SJBH) {
+      app.showToast('请输入商机编号');
+      return;
+    }
+    if (SJName == '') {
+      app.showToast('请输入商机名称');
+      return;
+    }
+    if (schoolName == '') {
+      app.showToast('学校不存在');
+      return;
+    }
+
+    
+    let info = {
+      SJBH,
+      SJlxid: typeof (keyInfo.key1) == 'number' ? sjClassify[keyInfo.key1].id : 0,
+      SJName,
+      ifHaveSchool,
+      School: schoolCode, // 学校编号
+      SchoolName: schoolName,
+      LinkMan1: typeof (keyInfo.key2) == 'number' ? contactsList[keyInfo.key2].TrueName : '',
+      LinkWay1: typeof (keyInfo.key2) == 'number' ? contactsList[keyInfo.key2].Tel: '',
+      LinkMan2: typeof (keyInfo.key3) == 'number' ? contactsList[keyInfo.key3].TrueName : '',
+      LinkWay2: typeof (keyInfo.key3) == 'number' ? contactsList[keyInfo.key3].Tel : '',
+      SellStep: typeof (keyInfo.key4) == 'number' ? SellStepEnum[keyInfo.key4].Value : '',
+      SellLinkWay: typeof (keyInfo.key5) == 'number' ? SellLinkWayEnum[keyInfo.key5].Value : '',
+      SFTime, // 预测时间
+      SFAmount, // 销售预测金额
+      Bz, // 商机描述
+    };
+    !!timer && clearTimeout(timer);
+    timer = setTimeout(() => {
+      app.wxApi.AddBusiness(info).then(res => {
+        var { ResultMessage, ResultCode, } = res;
+        app.showToast(ResultMessage);
+        if (ResultCode == 1) {
+          wx.setStorageSync("sjAddOrEdit", true);
+          setTimeout(() => {
+            wx.navigateBack();
+          }, 300)
+        } else if (ResultCode == -99) { // 编号重复，重新获取
+          this.getBusinessNum();
+        }
+      })
+    },500)
+  },
+})

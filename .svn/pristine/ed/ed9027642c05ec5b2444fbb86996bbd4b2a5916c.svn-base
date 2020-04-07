@@ -1,0 +1,43 @@
+.headImg{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right:30rpx;
+}
+.mySignIn{
+  width: 90%;
+  margin:30rpx;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-bottom:1rpx solid #eee;
+  height:130rpx; 
+}
+.myName{
+  color:#333;
+  font-size: 30rpx;
+  display: block;
+  padding-top:15rpx;
+}
+.myTime{
+  color:#9E9E9E;
+  font-size: 25rpx;
+  display: block;
+  padding-top:5rpx;
+}
+
+.mySignIn:after{
+  content: ""; 
+  position: absolute;
+  top: 10rpx; 
+  right: -12rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #333; 
+  border-bottom: 1rpx solid #333; 
+  width: 20rpx; 
+  height: 20rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+}

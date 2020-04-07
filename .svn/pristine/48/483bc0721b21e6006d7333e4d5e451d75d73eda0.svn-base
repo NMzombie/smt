@@ -1,0 +1,27 @@
+<view class="mySignIn">
+  <view class="clear">
+    <image class="headImg left" src="/image/userno.png"></image>
+    <text class="myName">{{info.Xm}}</text>
+    <text class="myTime">{{info.QdTime}} 签到</text>
+  </view>
+  <view class="detail">
+   
+    <view class="mySignInLinkman">拜访学校：{{info.SchoolName}}</view>
+    <view class="mySignInLinkman">拜访目的：{{info.visitPurpse}}</view>
+    <view class="mySignInLinkman">维护分类：{{info.QDClass}}</view>
+  </view>
+  <view class="mySignTitle">{{info.bz}}</view>
+  <view class="mySignInLinkman">签到地址：{{info.QdAddress}}</view>
+  <view class="mySignInLinkman">签到联系人：{{info.linkMan}}</view>
+  <view class="mySignInLinkman">下次拜访时间：{{info.NextTime}}</view>
+  <view class="mySignInLinkman bottomRpx">下次拜访目的：{{info.NextBz}}</view>
+  <view class="addpicmain">
+    <image wx:for="{{picInfo}}" data-src="{{item}}" src="{{item}}" class="addpic" data-index="{{index}}" wx:key="index" bindtap="addpic"mode="aspectFill"></image>
+    
+  </view>
+ 
+</view>
+ <view class="blodline"></view>
+  <view class="mySignInLinkman update">
+    最后一次修改时间：{{info.UpdateTime}}
+  </view>

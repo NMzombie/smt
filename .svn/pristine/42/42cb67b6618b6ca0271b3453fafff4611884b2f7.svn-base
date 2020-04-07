@@ -1,0 +1,55 @@
+<!--pages/orderForm/orderFormAdd/orderFormAdd.wxml-->
+<view class="add-sj-wrapper">
+  <form bindsubmit="formSubmit">
+    <view class="section">
+      <text class="title">订单编号*:</text>
+      <input placeholder="请输入" value='{{number}}' auto-focus/>
+    </view>
+    <view class="section">
+      <text class="title">订单名称*:</text>
+      <input placeholder="请输入" value='{{name}}' />
+    </view>
+    <view class="section">
+      <text class="title">现有学校:</text>
+      <switch checked="{{ifHaveSchool == 1 ? true : false}}" bindchange="switchChange"/>
+    </view>
+    <view class="section" hidden='{{ifHaveSchool == 1}}'>
+      <text class="title">所属学校:</text>
+      <input placeholder="请输入" bindinput="bindSchoolInput" />
+    </view>
+    <view class="section" hidden='{{ifHaveSchool != 1}}'>
+      <text class="title">学校编号:</text>
+      <input class="school-number" placeholder="请输入" bindinput="bindSchoolInput" />
+      <button size="mini" class="find-btn" bindtap="findSchoolName">查询</button>
+    </view>
+    <view class="section" hidden='{{ifHaveSchool != 1}}'>
+      <text class="title">学校名称:</text>
+      <text>{{schoolName}}</text>
+    </view>
+    <view class="section">
+      <text class="title">预测金额:</text>
+       <input value="{{money}}" type="number" />元
+    </view>
+    <view class="section">
+      <text class="title">所属人:</text>
+      <view class="select-box">
+        <view class="triangle_border_down"></view>
+        <picker data-type="person" bindchange="bindPickerChange" value="{{keyInfo.key1}}" range="{{person}}">
+          <view class="picker">
+            {{person[keyInfo.key1]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section-textarea">
+      <text class="title">备注:</text>
+      <textarea placeholder="请输入" />
+    </view>
+    <view class="btn-area">
+      <button form-type="submit">提交订单</button>
+    </view>
+  </form>
+</view>
+
+
+

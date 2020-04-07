@@ -1,0 +1,9 @@
+ <view catchtap='renderTable' data-tab="1" class="list clear">
+    <view class="listName left">学校签到</view>
+  </view>
+  <view catchtap='renderTable' data-tab="0" class="list clear">
+    <view class="listName left">学校未签到</view>
+  </view>
+  <view catchtap='renderManage' class="list noBorder clear">
+    <view class="listName left">客户经理签到</view>
+  </view>

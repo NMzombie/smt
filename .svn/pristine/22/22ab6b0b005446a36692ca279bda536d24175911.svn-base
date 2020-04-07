@@ -1,0 +1,72 @@
+/* pages/sj/sjDetail/sjDetail.wxss */
+
+.sj-detail-wrapper {
+  min-height: 100%;
+  font-size: 32rpx;
+  padding-bottom: 30rpx;
+  background: #F2F3F5;
+}
+.section {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background: #FFFFFF;
+}
+.marginTop {
+  margin-top: 10rpx;
+}
+.title {
+  width: 180rpx;
+  color: #808080;
+}
+.money {
+  color: #FF7B12;
+}
+.select-box {
+  flex: 1;
+  position: relative;
+  padding: 15rpx;
+  border: 1px solid #efefef;
+}
+.triangle_border_down {
+  position: absolute;
+  right: 10rpx;
+  top: 28rpx;
+  width:0;
+  height:0;
+  border-width:10rpx 10rpx 0;
+  border-style:solid;
+  border-color:#333 transparent transparent;
+}
+.section-textarea {
+  display: flex;
+  padding: 10rpx 30rpx;
+  margin-bottom: 30rpx;
+  background: #FFFFFF;
+}
+
+/* 跟进列表 */
+.followUp-list {
+  padding: 0 15rpx;
+}
+.item {
+  padding: 30rpx;
+  margin-top: 30rpx;
+  background: #FFFFFF;
+}
+.item-top {
+  margin-bottom: 30rpx;
+}
+.name {
+  font-size: 36rpx;
+  color: #262727;
+  font-weight: bold;
+}
+.time {
+  color: #262727;
+  font-size: 13px;
+}
+.item-content {
+  color: #808080;
+  font-size: 28rpx;
+}

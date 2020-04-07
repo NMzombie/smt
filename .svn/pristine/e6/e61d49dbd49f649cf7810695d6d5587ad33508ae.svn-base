@@ -1,0 +1,65 @@
+<!--pages/sj/sjDetail/sjDetail.wxml-->
+<view class="sj-detail-wrapper">
+  <view class="section">
+    <text class="title">编号:</text>
+    <input disabled value='{{info.SJBH}}' />
+  </view>
+  <view class="section">
+    <text class="title">分类:</text>
+    <text>{{info.SellStepStr}}</text>
+  </view>
+  <view class="section">
+    <text class="title">名称:</text>
+    <input disabled value='{{info.SJName}}' />
+  </view>
+  <view class="section marginTop">
+    <text class="title">所属学校:</text>
+    <input disabled value="{{info.Schoolname}}" />
+  </view>
+  <view class="section">
+    <text class="title">联系人1:</text>
+    <text>{{info.LinkMan1 ? info.LinkMan1 : ''}} {{info.LinkWay1 ? info.LinkWay1 : ''}}</text>
+  </view>
+  <view class="section">
+    <text class="title">联系人2:</text>
+    <text>{{info.LinkMan2 ? info.LinkMan2 : ''}} {{info.LinkWay2 ? info.LinkWay2 : ''}}</text>
+  </view>
+  <view class="section marginTop">
+    <text class="title">预测时间:</text>
+    <text>{{info.SFTimeStr}}</text>
+  </view>
+  <view class="section">
+    <text class="title">预测金额:</text>
+    <text class="money">￥{{info.SFAmount}}元</text>
+  </view>
+  <view class="section marginTop">
+    <text class="title">销售阶段:</text>
+    <text>{{info.SellStepStr}}</text>
+  </view>
+  <view class="section">
+    <text class="title">联系情况:</text>
+    <text>{{info.SellLinkWayStr}}</text>
+  </view>
+  <view class="section">
+    <text class="title">是否成单:</text>
+    <text wx:if="{{item.IfOK == 1}}">待成单</text>
+    <text wx:if="{{item.IfOK == 2}}">成单</text>
+    <text wx:else>未成单</text>
+  </view>
+  <view class="section-textarea marginTop">
+    <text class="title">备注:</text>
+    <textarea disabled value="{{info.Bz ? info.Bz : ''}}" />
+  </view>
+  <!-- 跟进列表 -->
+  <view class="followUp-list" wx:if="{{FollowUpList.length > 0}}">
+    <view class="item" wx:for-items="{{FollowUpList}}" wx:key="{{item.Id}}" data-id="{{item.Id}}">
+      <view class="item-top clear">
+        <text class="name left">{{item.InputMan}}</text>
+        <text class="time right">{{item.FollowupTimeStr}}</text>
+      </view>
+      <view class="item-content">
+        {{item.FollowupBz}}
+      </view>
+    </view>
+  </view>
+</view>

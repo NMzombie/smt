@@ -1,0 +1,57 @@
+/* pages/components/modal/modal.wxss */
+
+/*遮罩层*/
+.modal-mask{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9999;
+}
+/*遮罩内容*/
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 30rpx;
+}
+/*中间内容*/
+.main-content{
+  flex: 1;
+  height: 100%;
+  overflow-y: hidden; 
+  max-height: 80vh; /* 内容高度最高80vh 以免内容太多溢出*/
+}
+/*底部按钮*/
+.modal-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 30rpx;
+}
+.cancel-btn, .confirm-btn{
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 36rpx;
+}
+.cancel-btn{
+  color: #000;
+  border-right: 2rpx solid #D2D3D5;
+}
+.confirm-btn {
+  color: #fff;
+  background: #4787F1;
+}
+.confirm-btn.one-btn {
+  width: 400rpx;
+}

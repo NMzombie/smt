@@ -1,0 +1,107 @@
+<!--pages/sj/addSj/sjEdit.wxml-->
+<view class="add-sj-wrapper">
+  <form bindsubmit="formSubmit">
+    <view class="section">
+      <text class="title">商机编号*:</text>
+      <input placeholder="请输入" disabled="true" value='{{SJBH}}' auto-focus/>
+    </view>
+    <view class="section">
+      <text class="title">商机分类:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="classify" bindchange="bindPickerChange" range-key="{{'name'}}" value="{{keyInfo.key1}}" range="{{sjClassify}}">
+          <view class="picker">
+            {{sjClassify[keyInfo.key1].name}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">商机名称*:</text>
+      <input placeholder="请输入" value='{{SJName}}' data-value="SJName" bindinput="bindInput" />
+    </view>
+    <view class="section marginTop">
+      <text class="title">现有学校:</text>
+      <switch checked="{{ifHaveSchool == 1 ? true : false}}" bindchange="switchChange"/>
+    </view>
+    <view class="section" hidden='{{ifHaveSchool == 1}}'>
+      <text class="title">所属学校:</text>
+      <input placeholder="请输入" data-value="schoolName" value="{{schoolName}}" bindinput="bindInput" />
+    </view>
+    <view class="section" hidden='{{ifHaveSchool != 1}}'>
+      <text class="title">学校编号:</text>
+      <input class="school-number" placeholder="请输入" value="{{schoolCode}}" data-value="schoolCode" bindinput="bindInput" />
+      <button size="mini" class="find-btn" bindtap="verifySchool">查询</button>
+    </view>
+    <view class="section" wx-if="{{ifHaveSchool == 1}}" hidden='{{schoolName == ""}}'>
+      <text class="title">学校名称:</text>
+      <text>{{schoolName}}</text>
+    </view>
+    <view class="section">
+      <text class="title">联系人1:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="LinkMan1" bindchange="bindPickerChange" range-key="{{'name'}}" value="{{keyInfo.key2}}" range="{{contactsList}}">
+          <view class="picker">
+            {{contactsList[keyInfo.key2].name ? contactsList[keyInfo.key2].name : '请选择联系人'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">联系人2:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="LinkMan2" bindchange="bindPickerChange" range-key="{{'name'}}" value="{{keyInfo.key3}}" range="{{contactsList}}">
+          <view class="picker">
+          {{contactsList[keyInfo.key3].name ? contactsList[keyInfo.key3].name : '请选择联系人'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section marginTop">
+      <text class="title">预测时间:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker mode="date" value="{{SFTime}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+          <view class="picker">
+            {{SFTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">预测金额:</text>￥
+      <input class='money' value="{{SFAmount}}" type="number" data-value="SFAmount" bindinput="bindInput" />元
+    </view>
+    <view class="section marginTop">
+      <text class="title">销售阶段:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="SellStepEnum" bindchange="bindPickerChange" range-key="{{'Des'}}" value="{{keyInfo.key4}}" range="{{SellStepEnum}}">
+          <view class="picker">
+            {{SellStepEnum[keyInfo.key4].Des}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">联系情况:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="SellLinkWayEnum" bindchange="bindPickerChange" range-key="{{'Des'}}" value="{{keyInfo.key5}}" range="{{SellLinkWayEnum}}">
+          <view class="picker">
+            {{SellLinkWayEnum[keyInfo.key5].Des}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section-textarea marginTop">
+      <text class="title">备注:</text>
+      <textarea placeholder="请输入" value="{{Bz}}"  data-value="Bz" bindinput="bindInput" />
+    </view>
+    <view class="btn-area">
+      <button form-type="submit">提交商机</button>
+    </view>
+  </form>
+</view>

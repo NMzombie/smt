@@ -1,0 +1,33 @@
+
+.searchWarp{
+  width: 100%;
+  height: 90rpx;
+  position: relative;
+  overflow: hidden;
+}
+.searchInput{
+  width: 80%;
+  margin:0rpx auto;
+  height: 70rpx;
+  background-color: #fff;
+  border:1rpx solid #E3E3E3;
+  font-size: 30rpx;
+  padding-left: 70rpx;
+}
+.searchIcon{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 15rpx;
+  left: 60rpx;
+}
+
+.addresslName,.normalAddress{
+  color:#666666;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height:80rpx;
+  position: relative;
+  margin:0 30rpx;
+  border-bottom:1rpx solid #eee; 
+}

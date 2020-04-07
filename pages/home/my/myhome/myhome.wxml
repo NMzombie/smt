@@ -1,0 +1,38 @@
+<view class="myHeard">
+  <image class="usebgimg" src="/image/usebgimg.jpg"></image>
+  <view class="userInfo">
+    <image class="userno" src="/image/userno.png"></image>
+    <view class="userName">{{username}}</view>
+    <text class="userDepart">{{department}}</text>
+
+  </view>
+</view>
+
+<view class="blodline"></view>
+
+  <view catchtap='renderSignin' data-tab="1" class="list clear">
+    <view class="listName left">我的签到</view>
+  </view>
+  <view catchtap='renderSignin' data-tab="2" class="list clear">
+    <view class="listName left">团队签到</view>
+  </view>
+  <view catchtap='renderSignin' data-tab="3" class="list noBorder clear">
+    <view class="listName left">学校签到</view>
+  </view>
+
+  <view class="blodline" ></view>
+  <view catchtap='renderDiary' class="list clear">
+    <view class="listName left">日志</view>
+  </view>
+  <view catchtap='renderBb' class="list clear">
+    <view class="listName left">报表</view>
+  </view>
+  <view catchtap='renderStatistic'  class="list clear">
+    <view class="listName left">统计</view>
+  </view>
+  <!-- <view catchtap='renderMap' class="list clear">
+    <view class="listName left">设置</view>
+  </view> -->
+  <view class="back" catchtap='back'>
+    退出
+  </view>

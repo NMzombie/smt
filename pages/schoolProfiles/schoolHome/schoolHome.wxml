@@ -1,0 +1,85 @@
+<view wx:if="{{schoolInfo != null}}">
+  <view class="schoolWarp clear">
+    <view class="left warpLeft">
+      <view class="schoolName">{{schoolname}}</view>
+      <text class="leftInfo">人数：{{schoolInfo.UserCount}}</text>
+      <text class="leftInfo">开通率：{{schoolInfo.OpenRate == null ? '0%' : schoolInfo.OpenRate}}</text>
+      <text class="leftInfo">动态活跃度：{{schoolInfo.Vitality == null ? '0%' : schoolInfo.Vitality}}</text>
+      <text class="leftInfo">通知活跃度：{{schoolInfo.NoticeVitality == null ? '0%' : schoolInfo.NoticeVitality}}</text>
+      <text class="leftInfo">作业活跃度：{{schoolInfo.WorkVitality == null ? '0%' : schoolInfo.WorkVitality}}</text>
+      <text class="leftInfo">签到次数：{{schoolInfo.SigninCount == null ? '0%' : schoolInfo.SigninCount}}</text>
+      <text class="leftInfo">沉默商机：{{schoolInfo.SilenceBussoppoCount  == null ? '0' : schoolInfo.SilenceBussoppoCount}}</text>
+      <text class="leftInfo">待成单商机：{{schoolInfo.DefaultBussoppoCount  == null ? '0' : schoolInfo.DefaultBussoppoCount}}</text>
+      <text class="leftInfo">已成单商机：{{schoolInfo.SingleBussoppoCount   == null ? '0' : schoolInfo.SingleBussoppoCount}}</text>
+      <text class="leftInfo">未成单(关闭)商机：{{schoolInfo.NOSingleBussoppoCount    == null ? '0' : schoolInfo.NOSingleBussoppoCount}}</text>
+      <text class="leftInfo">待回款订单：{{schoolInfo.NOPayOrderCount     == null ? '0' : schoolInfo.NOPayOrderCount }}</text>
+      <text class="leftInfo">已回款订单：{{schoolInfo.PayOrderCount      == null ? '0' : schoolInfo.PayOrderCount  }}</text>
+      <text class="leftInfo">无款订单：{{schoolInfo.NullPayOrderCount       == null ? '0' : schoolInfo.NullPayOrderCount   }}</text>
+      <text class="shebei">设备：备暂无设备</text>
+    </view>
+    <view class="left warpRight"></view>
+  </view>
+
+  <!-- 签到 -->
+  <view class="item">
+    <view class="item-name" catchtap="renderSingin">签到</view>
+    <view class="itemWarp" wx:if="{{schoolInfo.SigninList!= null && schoolInfo.SigninList.length != 0}}">
+      <view wx:for="{{schoolInfo.SigninList}}" :key="index">
+        <view class="clear">
+          <text class="item-one left"></text>
+          <text class="item-two two-name left">{{item.Xm}}</text>
+          <text class="item-two left time">{{item.QdTimeStr}}</text>
+          <text class="item-three right">签到成功</text>
+        </view>
+        <view class="item-content">拜访目的：<text>{{item.BigClassInfo.bigName}}</text></view>
+        <view class="item-content">维护分类：<text wx:for="{{item.SmallClassList}}" wx:for-item="sitem">{{sitem.smlCname}}</text></view>
+        <view class="item-content">备注：{{item.bz == null ? '' : item.bz}}</view>
+        <view class="line"></view>
+      </view>
+      
+    </view>
+    <view wx:else class="emptyText lineHeight itemWarp">暂无签到信息</view>
+  </view>
+  <!-- 商机 -->
+  <view class="item">
+    <view class="item-name" catchtap="renderSj">商机</view>
+    <view class="itemWarp" wx:if="{{schoolInfo.BussoppoList!= null && schoolInfo.BussoppoList.length != 0}}">
+      <view catchtap="sjDetail" data-id="{{item.Id}}" wx:for="{{schoolInfo.BussoppoList}}">
+        <view class="clear">
+          <text class="item-one left"></text>
+          <text class="item-two two-name left">跟进人：{{item.Ssr}}</text>
+        </view>
+        <view class="item-content">商机名称：{{item.SJName}}</view>
+        <view class="item-content">销售阶段：{{item.SellStepStr}}</view>
+        <view class="item-content">联系情况：{{item.SellLinkWayStr}}</view>
+        <view class="item-content">是否成单：{{item.IfOKStr}}</view>
+        <view class="line"></view>
+      </view>
+      
+      
+      
+    </view>
+    <view wx:else class="emptyText lineHeight itemWarp">暂无商机信息</view>
+  </view>
+  <!-- 订单 -->
+  <view class="item">
+    <view class="item-name" catchtap="renderOrderForm">订单</view>
+    <view class="itemWarp" wx:if="{{schoolInfo.OrderList!= null && schoolInfo.OrderList.length != 0}}">
+      <view data-id="{{item.Id}}" catchtap="orderFormDetail" wx:for="{{schoolInfo.OrderList}}">
+        <view class="clear">
+          <text class="item-one left"></text>
+          <text class="item-two two-name left">签订时间：{{item.SignTimeStr}}</text>
+        </view>
+        <view class="item-content" wx:for="{{item.SmallClassList}}" wx:for-item="sitem">产品：{{sitem.smlCname}}</view>
+        <view class="item-content">项目名称：{{item.DDName}}</view>
+        <view class="item-content">结算方式：{{item.BalanceWayStr}}</view>
+        <view class="item-content">审批结果：{{item.IfAudit == 0 ? '审批中' : item.IfAudit == 1 ? '已同意' : '未通过'}}</view>
+        <view class="line"></view>
+      </view>
+    </view>
+    <view wx:else class="emptyText lineHeight itemWarp">暂无订单信息</view>
+  </view>
+</view>
+<view wx:else class="emptyText">
+  无学校信息
+</view>

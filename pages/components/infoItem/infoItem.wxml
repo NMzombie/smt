@@ -1,0 +1,5 @@
+<view class="clear">
+  <image class="headImg left" src="/image/userno.png"></image>
+  <slot name="before"></slot>
+</view>
+  <slot name="after"></slot>

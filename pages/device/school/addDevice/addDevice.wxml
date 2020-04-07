@@ -1,0 +1,113 @@
+<view class="warp">
+  <view class="section">
+    <text class="title">所属学校:</text>
+    <text>{{schoolname}}</text>
+  </view>
+  <view class="section">
+    <text class="title">学校编号:</text>
+    <text>{{schoolCode}}</text>
+  </view>
+  <view class="section">
+    <text class="title">设备标识:</text>
+    <input placeholder="请输入" value='{{sbbs}}' maxlength="3" data-value="sbbs" bindinput="bindInput" type="number"/>
+  </view>
+  <view class="section">
+    <text class="title">设备类型:</text>
+    <picker class="picker" bindchange="bindPickerChangeType" value="{{typeIndex}}" range-key="{{'TypeName'}}" range="{{typeList}}">
+      {{typeList[typeIndex].TypeName}}
+    </picker>
+  </view>
+
+  <view class="section">
+    <text class="title">设备型号:</text>
+    <picker class="picker" bindchange="bindPickerChangeXh" value="{{xhIndex}}" range-key="{{'UnitType'}}" range="{{xhList}}">
+      {{xhList[xhIndex].UnitType}}
+    </picker>
+  </view>
+  
+  <view class="section">
+    <text class="title">视频设备序列号:</text>
+    <input placeholder="请输入" value='{{spsbxlh}}' data-value="spsbxlh" bindinput="bindInput" />
+  </view>
+  
+  <view class="section">
+    <text class="title">考勤设备序列号:</text>
+    <input placeholder="请输入" value='{{kqsbxlh}}' data-value="kqsbxlh" bindinput="bindInput" />
+  </view>
+  
+
+  <view class="section">
+    <text class="title">连接方式:</text>
+    <picker class="picker" bindchange="bindPickerChangeLj" value="{{connecIndex}}" range-key="{{'name'}}" range="{{connecList}}">
+      {{connecList[connecIndex].name}}
+    </picker>
+  </view>
+
+  <view class="section">
+    <text class="title">设备IP:</text>
+    <input placeholder="请输入" value='{{sbip}}' data-value="sbip" bindinput="bindInput" />
+  </view>
+  <view class="section">
+    <text class="title">SIM卡号:</text>
+    <input placeholder="请输入" value='{{simkh}}' data-value="simkh" bindinput="bindInput" />
+  </view>
+  
+   <view class="clear">
+    <view class="title inputGrounpTitle left">通知号码:</view>
+    <view class="left inputGrounp clear">
+      <view class="clear">
+        <input placeholder="请输入" value='{{bdtel1}}' data-value="bdtel1" bindinput="bindInput" type="number" class="left"/><text class="left">(10分钟)</text>
+      </view>
+      
+      <view class="clear">
+        <input placeholder="请输入" value='{{bdtel2}}' data-value="bdtel2" bindinput="bindInput" type="number" class="left"/><text class="left">(20分钟)</text>
+      </view>
+      <view class="clear">
+        <input placeholder="请输入" value='{{bdtel3}}' data-value="bdtel3" bindinput="bindInput" type="number" class="left"/><text class="left">(30分钟)</text>
+      </view>
+      <view class="clear">
+        <input placeholder="请输入" value='{{bdtel4}}' data-value="bdtel4" bindinput="bindInput" type="number" class="left"/><text class="left">(40分钟)</text>
+      </view>
+      <view class="clear">
+        <input placeholder="请输入" value='{{bdtel5}}' data-value="bdtel5" bindinput="bindInput" type="number" class="left"/><text class="left">(50分钟)</text>
+      </view>
+      <view class="clear">
+        <input placeholder="请输入" value='{{bdtel6}}' data-value="bdtel6" bindinput="bindInput" type="number" class="left"/><text class="left">(60分钟)</text>
+      </view>
+    </view>
+    
+  </view>
+
+  <view class="section">
+    <text class="title">安装位置:</text>
+    <input placeholder="请输入" value='{{azwz}}' data-value="azwz" bindinput="bindInput" />
+  </view>
+
+  <view class="section">
+    <text class="title">巡更功能:</text>
+    <picker class="picker" bindchange="bindPickerChangeXg" value="{{xgIndex}}" range-key="{{'name'}}" range="{{xgList}}">
+      {{xgList[xgIndex].name}}
+    </picker>
+  </view>
+  <view class="section">
+    <text class="title">考勤机类型:</text>
+    <picker class="picker" bindchange="bindPickerChangeKqj" value="{{kqjIndex}}" range-key="{{'name'}}" range="{{kqjList}}">
+      {{kqjList[kqjIndex].name}}
+    </picker>
+  </view>
+
+  <view class="section">
+    <text class="title">到期时间:</text>
+    <picker mode="date" data-type="dqdate" class="addBottomArrows" value="{{dqdate}}" start="2019-09-01" end="2050-09-01" bindchange="bindDateChange">
+      {{dqdate}}
+    </picker>
+  </view>
+  <view class="section">
+    <text class="title">安装时间:</text>
+    <picker mode="date" data-type="azdate" class="addBottomArrows" value="{{azdate}}" start="2019-09-01" end="2050-09-01" bindchange="bindDateChange">
+      {{azdate}}
+    </picker>
+  </view>
+</view>
+
+<view class="submitAdd" catchtap="submit">提交</view>

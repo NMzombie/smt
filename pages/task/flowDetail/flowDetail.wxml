@@ -1,0 +1,29 @@
+<view class="flowWarp">
+  <view class="item schoolName">{{flowDetail.LcName}} {{flowDetail.HjName}}</view>
+  <view class="item schoolName">{{childtext}}</view>
+
+  <view class="item"><text class="title">操作方式：</text><text class="content">{{flowDetail.OpMode == null ? '' : flowDetail.OpMode}}</text></view>
+  <view class="item"><text class="title">负责人：</text><text class="content">{{flowDetail.Fzr}}</text></view>
+  <view class="blodline"></view>
+  <block wx:for="{{flowDetail.NextFlowLinkList}}" wx:key="{{index}}">
+    <view class="item"><text class="title">下一环节流程：</text><text class="content">{{item.NextHjName}}</text></view>
+    <view class="item"><text class="title">下一环节负责人：</text><text class="content">{{item.Fzr}}</text></view>
+  </block>
+  <view class="blodline"></view>
+  <view class="item"><text class="title">实际开始时间：</text><text class="content">{{flowDetail.StimeStr == null ? '' : flowDetail.StimeStr}}</text></view>
+  <view class="item"><text class="title">实际结束时间：</text><text class="content">{{flowDetail.EtimeStr == null ? '' : flowDetail.EtimeStr}}</text></view>
+  <view class="item"><text class="title">实际完成天数：</text><text class="content">{{flowDetail.SjFDays}}</text></view>
+  <view class="item flex"><view class="title flex1">说明：</view><view class="content flex2">{{flowDetail.Bz == null ? '' : flowDetail.Bz}}</view></view>
+  <view class="item flex"><text class="title flex1">延时原因：</text><text class="content flex2">{{flowDetail.Reason == null ? '' : flowDetail.Reason}}</text></view>
+  <view class="item clear"><text class="left title">相关附件：</text><image catchtap="previewImage" mode="aspectFit" class="imageItem left" src="{{imgUrl}}"></image></view>
+
+
+
+<view wx:if="{{flowDetail.PredictFlowLinkList != null}}" class="blodline"></view>
+<block wx:for="{{flowDetail.PredictFlowLinkList}}" wx:key="{{index}}">
+  <view class="item"><text class="title">被预计环节名称：</text><text class="content">第{{item.Xh}}环节 {{item.SXh == 0 ? '' : '第'+item.SXh+'子环节'}} {{item.HjName}}</text></view>
+  <view class="item"><text class="title">开始时间：</text><text class="content">{{item.YjStime}}</text></view>
+  <view class="item"><text class="title">结束时间：</text><text class="content">{{item.YjEtime}}</text></view> 
+  <view class="item"><text class="title">完成天数：</text><text class="content">{{item.YjFDays}}</text></view> 
+  </block>
+</view>

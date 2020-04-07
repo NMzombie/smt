@@ -1,0 +1,10 @@
+<!--pages/sj/schoolList/schoolList.wxml-->
+
+<view class="searchWarp">
+  <image class="searchIcon" src="/image/icon-mag2.png"></image>
+  <input placeholder="搜索" placeholder-style="placeholderCss" class="searchInput" bindinput="search" value="{{searchVal}}" />
+</view>
+<block wx:for="{{schoolList}}" wx:key="{{index}}">
+  <view wx:if="{{item.School}}"  class="normalAddress" data-school="{{item.School}}" data-schoolname="{{item.Schoolname}}" catchtap='renderPage' data-iteminfo="{{item}}" >{{item.Schoolname}}</view>
+  <view wx:else class="normalAddress" catchtap='renderPage' data-iteminfo="{{item}}">{{item.Purpuse}}</view>
+</block>

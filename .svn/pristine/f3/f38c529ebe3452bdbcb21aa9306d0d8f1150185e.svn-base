@@ -1,0 +1,61 @@
+<!--pages/sj/addSj/addSj.wxml-->
+<view class="add-sj-wrapper">
+  <form bindsubmit="formSubmit">
+    <view class="section">
+      <text class="title">商机编号*:</text>
+      <text>我是商机编号</text>
+    </view>
+    <view class="section">
+      <text class="title">商机名称*:</text>
+      <text>我是商机名称</text>
+    </view>
+    <view class="section">
+      <text class="title">所属学校:</text>
+      <text>清华大学</text>
+    </view>
+    <view class="section">
+      <text class="title">最后跟进时间:</text>
+      <text>2019/05/20</text>
+    </view>
+    <view class="section">
+      <text class="title">销售阶段:</text>
+      <view class="select-box">
+        <view class="triangle_border_down"></view>
+        <picker data-type="salesStage" bindchange="bindPickerChange" value="{{keyInfo.key1}}" range="{{salesStage}}">
+          <view class="picker">
+            {{salesStage[keyInfo.key1]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">联系情况:</text>
+      <view class="select-box">
+        <view class="triangle_border_down"></view>
+        <picker data-type="contact" bindchange="bindPickerChange" value="{{keyInfo.key2}}" range="{{contact}}">
+          <view class="picker">
+            {{contact[keyInfo.key2]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">跟进时间:</text>
+      <view class="select-box">
+        <view class="triangle_border_down"></view>
+        <picker mode="date" value="{{date}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section-textarea">
+      <text class="title">跟进说明:</text>
+      <textarea placeholder="请输入说明" value='{{content}}' />
+    </view>
+    <view class="btn-area">
+      <button form-type="submit">提交</button>
+    </view>
+  </form>
+</view>

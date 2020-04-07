@@ -1,0 +1,35 @@
+/* pages/home/my/statistic/statistic.wxss */
+.list{
+  width: 96%;
+  margin:20rpx;
+  height: 70rpx;
+  border-bottom:1rpx solid #E3E3E3;
+  position: relative;
+}
+
+.listName{
+  width: 30%;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  color:#333;
+}
+
+.noBorder{
+  border-bottom:none;
+}
+.list::after{
+  content: ""; 
+  position: absolute;
+  top: 0rpx; 
+  right: 0rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #C8C7CC; 
+  border-bottom: 1rpx solid #C8C7CC; 
+  width: 18rpx; 
+  height: 18rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+}

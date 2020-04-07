@@ -1,0 +1,105 @@
+/* .headImg{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right:30rpx;
+}
+.mySignIn{
+  width: 90%;
+  margin:30rpx;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-bottom:1rpx solid #eee;
+  height:130rpx; 
+}
+.myName{
+  color:#333;
+  font-size: 30rpx;
+  display: block;
+  padding-top:15rpx;
+}
+.myTime{
+  color:#9E9E9E;
+  font-size: 25rpx;
+  display: block;
+  padding-top:5rpx;
+}
+
+.mySignIn:after{
+  content: ""; 
+  position: absolute;
+  top: 10rpx; 
+  right: -12rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #333; 
+  border-bottom: 1rpx solid #333; 
+  width: 20rpx; 
+  height: 20rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+} */
+
+.tab{
+  width: 420rpx;
+  height: 60rpx;
+  margin:0 auto;
+}
+.normalTab{
+  width: 198rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border:1rpx solid #4C84F1;
+}
+
+.tabLeft{
+  border-top-left-radius: 26rpx;
+  border-bottom-left-radius: 26rpx;
+}
+.tabRight{
+  border-top-right-radius: 26rpx;
+  border-bottom-right-radius: 26rpx;
+}
+
+.activeTab{
+  background-color: #4C84F1;
+  color:#fff;
+}
+.item{
+  width: 150rpx;
+  height: 190rpx;
+  display: block;
+  margin-left: 15rpx;
+  margin-top:30rpx;
+}
+.item-image{
+  width: 150rpx;
+  height: 150rpx;
+  display: block;
+  margin-left: 0rpx;
+}
+.item-text{
+  display: block;
+  text-align: center;
+}
+.item-warp{
+  width: 90%;
+  margin: 0 auto;
+}
+.tips{
+  width: 300rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  position: fixed;
+  bottom:50rpx;
+  left: 230rpx;
+  font-size: 30rpx;
+  background-color: #4C84F1;
+  color:#fff;
+  border-radius: 40rpx;
+}

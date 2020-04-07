@@ -1,0 +1,13 @@
+<!--pages/components/modal/modal.wxml-->
+<view class='modal-mask' wx:if='{{show}}' bindtap='clickMask'>
+  <view class='modal-content'>
+    <scroll-view scroll-y class='main-content'>
+      <slot></slot>
+    </scroll-view>
+    <view class='modal-footer' catchtap='showModal'>
+      <view wx:if='{{single}}' class='cancel-btn' catchtap='cancel'>取消</view>
+      <view class="{{single ? 'confirm-btn' : 'confirm-btn one-btn'}}" catchtap='confirm'>{{confirmTxt}}</view>
+    </view>
+  </view>
+</view>
+

@@ -1,0 +1,141 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/home/home/home",
+    "pages/home/message/message",
+    "pages/home/addressList/addressList",
+    "pages/components/table/table",
+    "pages/components/schoolList/schoolList",
+    "pages/home/my/statistic/statistic",
+    "pages/home/my/myhome/myhome"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#61646B",
+    "selectedColor": "#4588F1",
+    "list": [
+      {
+        "pagePath": "pages/home/home/home",
+        "text": "客情",
+        "iconPath": "/image/fbtn1.png",
+        "selectedIconPath": "/image/fbtn1on.png"
+      },
+      {
+        "pagePath": "pages/home/addressList/addressList",
+        "text": "通讯录",
+        "iconPath": "/image/fbtn2.png",
+        "selectedIconPath": "/image/fbtn2on.png"
+      },
+      {
+        "pagePath": "pages/home/my/myhome/myhome",
+        "text": "我的",
+        "iconPath": "/image/fbtn3.png",
+        "selectedIconPath": "/image/fbtn3on.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "subpackages": [
+    {
+      "root": "pages/signIn/",
+      "name": "signIn",
+      "pages": [
+        "home/home",
+        "signInDetail/signInDetail",
+        "teamSignIn/teamSignIn",
+        "schoolSignIn/schoolSignIn",
+        "linkMan/linkMan",
+        "whType/whType",
+        "schoolSigninDetail/schoolSigninDetail",
+        "editSignIn/editSignIn"
+      ]
+    },
+    {
+      "root": "pages/diary/",
+      "name": "diary",
+      "pages": [
+        "allDiary/allDiary",
+        "diaryDetail/diaryDetail",
+        "writeDiary/writeDiary",
+        "linkMan/linkMan",
+        "editDiary/editDiary"
+      ]
+    },
+    {
+      "root": "pages/clockingIn/",
+      "name": "clockingIn",
+      "pages": [
+        "clockHome/clockHome"
+      ]
+    },
+    {
+      "root": "pages/sj/",
+      "name": "sj",
+      "pages": [
+        "sjHome/sjHome",
+        "addSj/addSj",
+        "sjDetail/sjDetail",
+        "sjEdit/sjEdit",
+        "followUp/followUp"
+      ]
+    },
+    {
+      "root": "pages/orderForm/",
+      "name": "orderForm",
+      "pages": [
+        "orderFormHome/orderFormHome",
+        "orderFormAdd/orderFormAdd",
+        "orderFormEdit/orderFormEdit",
+        "orderFormDetail/orderFormDetail",
+        "schoolList/schoolList"
+      ]
+    },
+    {
+      "root": "pages/task/",
+      "name": "task",
+      "pages": [
+        "taskHome/taskHome",
+        "taskDetail/taskDetail",
+        "flowDetail/flowDetail",
+        "register/register"
+      ]
+    },
+    {
+      "root": "pages/schoolProfiles/",
+      "name": "schoolProfiles",
+      "pages": [
+        "schoolHome/schoolHome",
+        "schoolList/schoolList"
+      ]
+    },
+    {
+      "root": "pages/device/",
+      "name": "device",
+      "pages": [
+        "deviceHome/deviceHome",
+        "school/deviceSchoolList/deviceSchoolList",
+        "school/addDevice/addDevice",
+        "school/repairsDevice/repairsDevice",
+        "school/deviceDetail/deviceDetail",
+        "deviceWarning/deviceWarning",
+        "school/schoolList/schoolList",
+        "wx/wxList/wxList",
+        "wx/orderReceiving/orderReceiving",
+        "wx/wxEnter/wxEnter",
+        "wx/wxDetail/wxDetail",
+        "noteBook/noteBook"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+<!--pages/signIn/home/home.wxml-->
+<view class="warp">
+  <view class="signInhead clear" wx:if="{{showTab==true}}">
+    <view catchtap='changeTab' data-tab="1" class="initSignIn signTLeft left {{tab==1 ? 'onSignIn' : ''}}">我的签到</view>
+    <view catchtap='changeTab' data-tab="2" class="initSignIn signCenter left {{tab==2 ? 'onSignIn' : ''}}">团队签到</view>
+    <view catchtap='changeTab' data-tab="3" class="initSignIn signTRight left {{tab==3 ? 'onSignIn' : ''}}">学校签到</view>
+  </view>
+  
+  <view class="timeWarp clear">
+    <image class="todayIcon left" catchtap='initDate' src="/image/itoday.png"></image>
+    <picker mode="date" value="{{startTime}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+      <view class="picker">
+        <view class="timeStyle startTime left">{{startTime}}</view>
+      </view>
+    </picker>
+    
+    <view class="toText left">至</view>
+    <picker mode="date" value="{{endTime}}" start="2000-01-30" data-dateType="2" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+      <view class="picker">
+        <view class="timeStyle left">{{endTime}}</view>
+      </view>
+    </picker>
+    
+  </view>
+  <view  wx:if="{{tab ==3}}" class="searchWarp">
+    <image class="searchIcon" src="/image/icon-mag2.png"></image>
+    <input placeholder="搜索" placeholder-style="placeholderCss" class="searchInput" bindinput="search" value="{{searchVal}}" />
+  </view>
+  
+  <view class="blodline"></view>
+
+ 
+  
+    <scroll-view
+      scroll-y="true"
+      bindscrolltolower="addMore"
+      lower-threshold="200"
+      class="scrollView"
+      scroll-top="100"
+    >
+       <!-- 我的签到 -->
+      <view wx:if="{{tab ==1}}">
+        <block wx:if="{{mySignIn.length != 0}}">
+          <view class="mySignIn" wx:for="{{mySignIn}}" catchtap='renderDetail' data-id="{{item.Id}}" wx:key="index">
+            <infoItem propItem="{{item}}">
+              <view slot="before">
+                <text class="myTime left">{{item.QdTime}} 签到</text>
+                <text class="myName left">{{showTab ? username : item.Xm}}</text>
+                <image wx:if="{{item.today == true}}" class="mod-edit right" data-id="{{item.Id}}" catchtap="editDiary" mode="scaleToFill" src="/image/modif-edit.png"></image>
+              </view>
+              <view slot="after">
+                <view class="mySignTitle">{{item.bz}}</view>
+                <view class="mySignInLinkman">签到地址：{{item.QdAddress}}</view>
+                <view class="mySignInLinkman bottomRpx">联系人：{{item.linkMan}}</view>
+              </view>
+            </infoItem>
+           
+          </view>
+        </block>
+        <block wx:else>
+          <view class="emptyText">
+            暂无签到信息
+          </view>
+        </block>
+
+       
+      </view>
+<!--   -->
+      <!--团队签到 -->
+      <view wx:if="{{tab ==2}}">
+        <block wx:if="{{teamSignIn.length != 0}}">
+          <view class="mySignIn clear" wx:for="{{teamSignIn}}" wx:key="index" catchtap='renderTeam' data-departCode="{{item.BmCode}}">
+            <view class="left teamName">{{item.BmName}}</view>
+            <view class="right signNum">已签 <text class="signInText">{{item.SjQdNum}}</text>/{{item.YgQdNum}}人</view>
+          </view>
+         </block>
+        <block wx:else>
+          <view class="emptyText">
+            暂无签到信息
+          </view>
+        </block>
+      </view>
+       <!-- 学校签到 -->
+        <!---->
+      <view wx:if="{{tab ==3}}">
+        <block wx:if="{{schoolSignIn.length != 0}}" >
+          <view class="addresslName" wx:for="{{schoolSignIn}}" data-city="{{item.brief}}" wx:key="{{index}}" catchtap='renderSchool'>{{item.City}}</view>
+         </block>
+        <block wx:else>
+          <view class="emptyText">
+            暂无签到信息
+          </view>
+        </block>
+      </view>
+     </scroll-view>
+   
+   
+    <form bindsubmit="signIn" wx:if="{{tab ==1}}" report-submit="true">
+      <button class="signIn" form-type="submit"> 签到</button>
+    </form>
+
+  
+</view>

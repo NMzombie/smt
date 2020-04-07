@@ -1,0 +1,126 @@
+<!--pages/sj/addSj/addSj.wxml-->
+<view class="add-sj-wrapper">
+  <form bindsubmit="formSubmit">
+    <view class="section">
+      <text class="title">商机编号*:</text>
+      <input placeholder="请输入" value='{{number}}' auto-focus/>
+    </view>
+    <view class="section">
+      <text class="title">商机分类:</text>
+      <view class="select-box">
+        <view class="triangle_border_down"></view>
+        <picker data-type="classify" bindchange="bindPickerChange" value="{{keyInfo.key1}}" range="{{sjClassify}}">
+          <view class="picker">
+            {{sjClassify[keyInfo.key1]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">商机名称*:</text>
+      <input placeholder="请输入" value='{{name}}' />
+    </view>
+    <view class="section">
+      <text class="title">现有学校:</text>
+      <switch checked="{{ifHaveSchool == 1 ? true : false}}" bindchange="switchChange"/>
+    </view>
+    <view class="section" hidden='{{ifHaveSchool == 1}}'>
+      <text class="title">所属学校:</text>
+      <input placeholder="请输入" />
+    </view>
+    <view class="section" hidden='{{ifHaveSchool != 1}}'>
+      <text class="title">学校编号:</text>
+      <input class="school-number" placeholder="请输入" value="{{schoolCode}}" data-value="schoolCode" bindinput="bindInput" />
+      <button size="mini" class="find-btn" bindtap="verifySchool">查询</button>
+    </view>
+    <view class="section" hidden='{{schoolName == ""}}'>
+      <text class="title">学校名称:</text>
+      <text>{{schoolName}}</text>
+    </view>
+    <view class="section">
+      <text class="title">联系人1:</text>
+      <view class="select-box">
+        <view class="triangle_border_down"></view>
+        <picker data-type="contactsOne" bindchange="bindPickerChange" value="{{keyInfo.key2}}" range="{{contactsList}}">
+          <view class="picker">
+            {{contactsList[keyInfo.key2]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">联系人2:</text>
+      <view class="select-box">
+        <view class="triangle_border_down"></view>
+        <picker data-type="contactsTwo" bindchange="bindPickerChange" value="{{keyInfo.key3}}" range="{{contactsList}}">
+          <view class="picker">
+            {{contactsList[keyInfo.key3]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">销售阶段:</text>
+      <view class="select-box">
+        <view class="triangle_border_down"></view>
+        <picker data-type="salesStage" bindchange="bindPickerChange" value="{{keyInfo.key4}}" range="{{salesStage}}">
+          <view class="picker">
+            {{salesStage[keyInfo.key4]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">联系情况:</text>
+      <view class="select-box">
+        <view class="triangle_border_down"></view>
+        <picker data-type="contact" bindchange="bindPickerChange" value="{{keyInfo.key5}}" range="{{contact}}">
+          <view class="picker">
+            {{contact[keyInfo.key5]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">预测时间:</text>
+      <view class="select-box">
+        <view class="triangle_border_down"></view>
+        <picker mode="date" value="{{date}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">预测金额:</text>
+       <input value="{{money}}" type="number" />元
+    </view>
+    <view class="section">
+      <text class="title">所属人:</text>
+      <view class="select-box">
+        <view class="triangle_border_down"></view>
+        <picker data-type="person" bindchange="bindPickerChange" value="{{keyInfo.key6}}" range="{{person}}">
+          <view class="picker">
+            {{person[keyInfo.key6]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">是否成单:</text>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{orderForm}}" wx:key="{item.value" >
+          <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+    <view class="section-textarea">
+      <text class="title">备注:</text>
+      <textarea placeholder="请输入" />
+    </view>
+    <view class="btn-area">
+      <button form-type="submit">提交商机</button>
+    </view>
+  </form>
+</view>

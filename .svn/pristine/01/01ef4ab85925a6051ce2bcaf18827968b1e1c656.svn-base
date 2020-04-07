@@ -1,0 +1,34 @@
+<view>
+
+  <!-- 签到 -->
+  <view class="item">
+    <view class="item-name" catchtap="renderSingin">{{schoolname}}</view>
+    <view class="warp">
+    <view wx:if="{{deviceList.length == 0}}" class="emptyText">无设备信息</view>
+      <scroll-view
+        scroll-y
+        style="height: 1000rpx;"
+        bindscrolltolower="addMore"
+        lower-threshold="200"
+      >
+        <view class="itemWarp clear" data-kqjid="{{item.kqjid}}" catchtap="deviceDetail" wx:for="{{deviceList}}" wx:key="{{index}}">
+          <view class="right">
+            <text class="handelItem" catchtap="repairs">报修</text><text data-kqjid="{{item.kqjid}}" catchtap="deviceEdit" class="handelItem">修改</text>
+          </view>
+          <view class="left">
+            <view class="item-content">设备标识：{{item.kqjid}}</view>
+            <view class="item-content">设备类型：{{item.TypeName == null ? '无' : item.TypeName}}</view>
+            <view class="item-content">安装位置：{{item.azPlace == null || item.azPlace == '' ? '无' : item.azPlace}}</view>
+            <view class="item-content">在线状态：{{item.isjkStr}}</view>
+            <view class="item-content">维护预警：{{item.EquipmentStateStr}}</view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="addDevice" catchtap="addDevice">
+        添加设备
+      </view>
+    </view>
+    
+  </view>
+  
+</view>

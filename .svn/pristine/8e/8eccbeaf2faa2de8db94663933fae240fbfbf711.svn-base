@@ -1,0 +1,51 @@
+ <view class="positionTop"> 
+  <view class="diaryType clear">
+    <view catchtap='changeType' data-type="1" class="diaryNormal left {{diaryType == 1? 'checkDiary' : ''}}">日报</view>
+    <view catchtap='changeType' data-type="2" class="diaryNormal left {{diaryType == 2? 'checkDiary' : ''}}">周报</view>
+    <view catchtap='changeType' data-type="3" class="diaryNormal left {{diaryType == 3? 'checkDiary' : ''}}">月报</view>
+  </view>
+
+
+
+  <view class="partOne">
+    <view wx:if="{{diaryType==1}}" class="textareaTitle">今日完成工作</view>
+    <view wx:if="{{diaryType==2}}" class="textareaTitle">今周完成工作</view>
+    <view wx:if="{{diaryType==3}}" class="textareaTitle">本月完成工作</view>
+    <textarea maxlength="-1" id="editor" bindinput="getPartone" class="textareaSty" placeholder="填写内容" value="{{partOne}}" ></textarea>
+  </view>
+
+  <view class="partTwo">
+    <view wx:if="{{diaryType==1}}" class="textareaTitle">未完成工作</view>
+    <view wx:if="{{diaryType==2}}" class="textareaTitle">下周计划工作</view>
+     <view wx:if="{{diaryType==3}}" class="textareaTitle">本月工作问题</view>
+    <textarea maxlength="-1" bindinput="getParttwo" class="textareaSty" value="{{partTwo}}" placeholder="填写内容" ></textarea>
+  </view>
+
+  <view class="partThree">
+    <view wx:if="{{diaryType==1}}" class="textareaTitle">工作难点</view>
+    <view wx:if="{{diaryType==2}}" class="textareaTitle">工作难点</view>
+    <view wx:if="{{diaryType==3}}" class="textareaTitle">需要部门协作的问题</view>
+    <textarea maxlength="-1" bindinput="getPartthree" class="textareaSty" value="{{partThree}}" placeholder="填写内容" ></textarea>
+  </view>
+
+
+  <view class="partFour">
+    <view class="textareaTitle">小结</view>
+    <textarea maxlength="-1" bindinput="getPartfour" class="textareaSty" value="{{partFour}}" placeholder="填写内容" ></textarea>
+  </view>
+
+  <view class="blodline"></view>
+  <!-- <view class="list needAfter clear" catchtap='renderAdd'>
+    <view class="listIcon left"><image class="iconImg" src="/image/boxbg9.png"></image></view>
+    <view class="listName left">明日计划</view>
+    <view class="listValue left">{{tomorrowTime}}</view>
+  </view> -->
+  <view class="list needAfter paddingBottom clear" catchtap='renderlinkMan'>
+    <view class="listIcon left"><image class="iconImg" src="/image/boxbg9.png"></image></view>
+    <view class="listName left">发送给</view>
+    <view class="listValue left">{{linkmanInfoText}}</view>
+  </view>
+    <form bindsubmit="{{submitButton ? 'submitDiary' : ''}}" report-submit="true">
+      <button class="finish" form-type="submit">提交</button>
+    </form>
+</view>

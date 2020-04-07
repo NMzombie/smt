@@ -1,0 +1,11 @@
+<!-- 这是自定义组件的内部WXML结构 -->
+<view class='select_box'>
+    <view class='select' catchtap='selectTap'>
+        <text class='select_text'>{{key ? list[key].Des : '请选择'}}</text>
+        <view class="{{show ? 'triangle_border_up' : 'triangle_border_down'}}"></view>
+    </view>
+    <view class='option_box' style='height:{{show?(list.length>5?300:list.length*60):0}}rpx;'>
+        <text class='option' style='{{index==list.length-1&&"border:0;"}}' wx:for='{{list}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item.Des}}</text>
+    </view>
+</view>
+<slot></slot>

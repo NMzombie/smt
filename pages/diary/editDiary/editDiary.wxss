@@ -1,0 +1,167 @@
+.inputtime{
+  font-size: 25rpx;
+  color:#C8C7CC;
+  margin-right: 20rpx;
+}
+.rDate{
+  color:#C8C7CC;
+}
+
+.dayText{
+  font-size:20rpx;
+  padding:2rpx 10rpx;
+  background-color: #4CDA64;
+  color:#fff;
+  margin-left:10rpx;
+}
+
+.inline{
+  display: block;
+  font-size: 30rpx;
+}
+
+.inlineTitle{
+  color:#818FAA;
+}
+.inlineContent{
+  color:#666;
+  margin-bottom:30rpx;
+  margin-top:10rpx;
+}
+
+.detailList{
+  margin-bottom:10rpx;
+  border-bottom: 1rpx solid #E3E3E3;
+  margin-left:20rpx;
+}
+
+.headImg{
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom:10rpx;
+}
+
+.huihuaIcon{
+  width: 40rpx;
+  height: 30rpx;
+  margin-top:20rpx;
+}
+.name{
+  line-height: 50rpx;
+  margin-left:10rpx;
+}
+
+.dataNum{
+  color:#C8C7CC;
+}
+
+.dataNum{
+  color:#C8C7CC;
+  font-size: 30rpx;
+  margin-left:10rpx;
+}
+
+.nameReplay{
+  color:#C8C7CC;
+  font-size: 25rpx;
+  margin-left: 10rpx;
+}
+
+.replyContent{
+  font-size: 30rpx;
+  margin-left:40rpx;
+  margin-bottom:20rpx;
+}
+
+.writeInput{
+  width: 630rpx;
+  height: 60rpx;
+  border:1rpx solid #C8C7CC;
+  margin-left: 20rpx;
+  margin-top: 15rpx;
+  background-color: #fff;
+  font-size:30rpx; 
+  padding-left:10rpx;
+
+}
+.writePl{
+  width: 100%;
+  position: fixed;
+  bottom:4rpx;
+  left: 0;
+  background-color: #E3E3E3;
+  height: 90rpx;
+}
+.finish{
+  width: 90%;
+  height: 80rpx;
+  position: fixed;
+  left: 5%;
+  font-size: 30rpx;
+  bottom:40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color:#fff;
+  background-color: #4787F1;
+  border-radius: 20rpx;
+  z-index: 999999;
+}
+
+.paddingBottom{
+  padding-bottom:120rpx;
+}
+
+.needAfter{
+  position: relative;
+}
+.needAfter::after{
+  content: ""; 
+  position: absolute;
+  top: 0rpx; 
+  right: 0rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #C8C7CC; 
+  border-bottom: 1rpx solid #C8C7CC; 
+  width: 18rpx; 
+  height: 18rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+}
+
+.list{
+  width: 96%;
+  margin:20rpx;
+  height: 70rpx;
+  border-bottom:1rpx solid #E3E3E3;
+}
+
+.listIcon{
+  width:50rpx;
+  height: 40rpx;
+}
+.iconImg{
+  width: 40rpx;
+  height:40rpx;
+  margin-top:5rpx;
+}
+
+.listName{
+  width: 20%;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  color:#333;
+}
+.listValue{
+  width:470rpx;
+  font-size: 30rpx;
+  line-height: 65rpx;
+  text-align: right;
+  color:#999;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+  padding-right:20rpx;
+}

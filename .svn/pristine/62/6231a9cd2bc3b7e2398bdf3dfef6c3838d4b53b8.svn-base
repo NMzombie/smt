@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "接单",
+  "usingComponents": {
+    "add-pic": "/pages/components/addPic/addPic"
+  }
+}

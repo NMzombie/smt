@@ -1,0 +1,40 @@
+<view class="homeMenu clear">
+    <form bindsubmit="formSubmit" report-submit="true" data-page="device/school/schoolList/schoolList">
+      <button class="left signIn" form-type="submit">
+        <image class="writeDiaryImg" src="/image/sbicon.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">学校设备</text>
+      </button>
+    </form>
+    <form bindsubmit="formSubmit" data-page="device/wx/wxList/wxList" report-submit="true">
+      <button class="signIn left" form-type="submit" wx:if="{{isGoToWX}}">
+        <image class="writeDiaryImg" src="/image/sbwx.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">维修列表</text>
+      </button>
+    </form>
+    
+    <form bindsubmit="formSubmit" data-page="device/deviceWarning/deviceWarning" report-submit="true">
+      <button class="writeDiary left" form-type="submit">
+        <image class="writeDiaryImg" src="/image/yj.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">设备预警</text>
+      </button>
+    </form> 
+    <!-- <form bindsubmit="formSubmit" data-page="device/deviceWarning/deviceWarning" report-submit="true">
+      <button class="writeDiary left" form-type="submit">
+        <image class="writeDiaryImg" src="/image/Iconbusiness.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">设备报修</text>
+      </button>
+    </form>  -->
+    <!-- <form bindsubmit="formSubmit" data-page="device/noteBook/noteBook" report-submit="true">
+      <button class="writeDiary left" form-type="submit">
+        <image class="writeDiaryImg" src="/image/Iconorder.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">问题手册</text>
+      </button>
+    </form> -->
+    <!--  -->
+    <!-- <form bindsubmit="formSubmit" data-page="orderForm/orderFormHome/orderFormHome" report-submit="true">
+      <button class="writeDiary left" form-type="submit">
+        <image class="writeDiaryImg" src="/image/Iconorder.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">维修列表</text>
+      </button>
+     </form> -->
+  </view>

@@ -1,0 +1,40 @@
+<view class="taskTab">
+<view catchtap="changeTab" data-tab="0" class="taskItem {{ tab == 0 ? 'activeTask': ''}}">进行中任务</view>
+<view catchtap="changeTab" data-tab="1" class="taskItem {{ tab == 1 ? 'activeTask': ''}}">已完成任务</view>
+</view>
+
+
+<view class="timeWarp clear">
+  <picker mode="date" value="{{startTime}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+    <view class="picker">
+      <view class="timeStyle startTime left">{{startTime}}</view>
+    </view>
+  </picker>
+  
+  <view class="toText left">至</view>
+  <picker mode="date" value="{{endTime}}" start="2000-01-30" data-dateType="2" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+    <view class="picker">
+      <view class="timeStyle left">{{endTime}}</view>
+    </view>
+  </picker>
+</view>
+
+<view class="searchWarp">
+  <input class="weui-input" class="searchInput" bindinput="bindKeyInput" confirm-type="search" value="{{schoolSearch}}" placeholder="输入关键字进行搜索"/>
+  <button size="mini" catchtap="searchSchool" class="searchHabdel searchButton" type="primary">搜索</button>
+  <button size="mini" class="searchHabdel"  catchtap="cancle">取消</button>
+</view>
+
+<block>
+  <view wx:for="{{taskList}}" wx:key="index" class="warpItem" data-id="{{item.Id}}" catchtap="renderDetail">
+    <view class="itemTitle">
+      <view class="school">{{item.Schname}} {{item.LcName}}</view>
+      <view class="itemTime">{{item.InputtimeStr}}</view>
+    </view>
+    <block wx:if="{{tab == 0 && item.SchoolFlowLinkListView.length > 0}}" >
+      <view class="itemStep">{{item.SchoolFlowLinkListView[0].HjName}}</view>
+      <view class="itemStep" wx:if="{{item.SchoolFlowLinkListView[1]}}">{{item.SchoolFlowLinkListView[1].HjName}}</view>
+    </block>
+  </view>
+ 
+</block>

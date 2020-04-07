@@ -1,0 +1,35 @@
+<view class="main">
+  <view class="diaryType clear">
+    <view catchtap='changeTab' data-tab="0" class="tabCom {{tab==0 ? 'check' : ''}}">待接单</view>
+    <view catchtap='changeTab' data-tab="1" class="tabCom {{tab==1 ? 'check' : ''}}">已接单</view>
+    <view catchtap='changeTab' data-tab="2" class="tabCom {{tab==2 ? 'check' : ''}}">已完成</view>
+  </view>
+  <scroll-view
+    scroll-y
+    style="height: 1200rpx;"
+    bindscrolltolower="addMore"
+    lower-threshold="200"
+    wx:if="{{list.length != 0}}"
+  >
+    <view>
+      <block >
+        <view class="itemWarp clear" catchtap="deviceDetail" data-id='{{item.Id}}' wx:for="{{list}}" wx:key="index">
+          <view class="right">
+            <text class="handelItem" catchtap="orderReceiving" data-id='{{item.Id}}' wx:if="{{tab==0}}">接单</text>
+            <text class="handelItem" catchtap="orderReceiving" data-id='{{item.Id}}' wx:if="{{tab==1}}">录入</text>
+          </view>
+          <view class="left" >
+            <view class="item-content">所属学校：{{item.SchoolName == null ? '无' : item.SchoolName}}</view>
+            <view class="item-content">设备类型：{{item.TypeName}}</view>
+            <view class="item-content">设备状态：{{item.EquipmentStateStr == null ? '无' : item.EquipmentStateStr}}</view>
+            <view class="item-content">安装位置：{{item.azPlace == null ? '无' : item.azPlace}}</view>
+            <view class="item-content">预计维修时间：{{item.PlanMainTainTimeStr == null ? '无' : item.PlanMainTainTimeStr}}</view>
+            <view class="item-content">创建时间：{{item.CreateTimeStr == null ? '无' : item.CreateTimeStr}}</view>
+          </view>
+        </view>
+      </block>
+ 
+    </view>
+  </scroll-view>
+  <text class="emptyText" wx:else>暂无数据</text>
+</view>

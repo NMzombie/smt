@@ -1,0 +1,124 @@
+<view class="registerWarp">
+  <view class="schoolName">天音小学</view>
+  <view class="item flex">
+    <view class="flex1 title">操作方式：</view>
+    <picker class="flex2 needAfter" wx:if="{{handelArr != []}}" bindchange="bindPickerhandel" value="{{handelIndex}}" range="{{handelArr}}">
+      {{handelArr[handelIndex]}}
+    </picker>
+    <input wx:else data-value="handelType" bindinput="bindInput" value="{{handelType}}" class="flex2"/>
+  </view>
+
+  <view class="item flex">
+    <view  class="flex1 title">负责人：</view>
+    <picker class="flex2 needAfter" bindchange="bindPickerfzr" value="{{principalIndex}}" range-key="{{'Name'}}" range="{{linkMan}}">
+      {{linkMan[principalIndex].Name}}
+    </picker>
+  </view>
+  <view class="blodline"></view>
+  <block wx:for="{{nextLink}}" wx:if="{{ifEnd == 1}}" wx:key="{{index}}">
+    <view class="item flex">
+      <view class="flex1 title">下一环节流程：</view>
+      <view class="flex2 lineheight">{{item.nexthjName}}</view>
+    </view>
+
+    <view class="item flex">
+      <view class="flex1 title">下一环节负责人：</view>
+      <picker class="flex2 needAfter" data-index="{{index}}" bindchange="bindPickerNextFzr" value="{{item.index}}" range-key="{{'Name'}}" range="{{linkMan}}">
+        {{item.index == -1 ? '' : linkMan[item.index].Name}}
+      </picker>
+    </view>
+    <view class="topline" wx:if="{{index != nextLink.length -1 }}"></view>
+  </block>
+  <view class="blodline"></view>
+
+  
+
+  <view class="item flex">
+    <view class="flex1 title">完成情况：</view>
+    <view class="flex2">
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}" wx:key="{{index}}">
+          <radio value="{{item.name}}" checked="{{item.checked == true}}"/>{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+  
+  <view class="item flex">
+    <view class="flex1 title">开始时间：</view>
+    <picker class="flex2 needAfter" mode="date" value="{{startTime}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+      <view class="picker">
+        <view class="timeStyle startTime left">{{startTime}}</view>
+      </view>
+    </picker>
+  </view>
+   
+  <view wx:if="{{ifEnd == 1}}" class="item flex">
+    <view class="flex1 title">结束时间：</view>
+    <picker class="flex2 needAfter" mode="date" value="{{endTime}}" start="2000-01-30" data-dateType="2" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+      <view class="picker">
+        <view class="timeStyle left">{{endTime}}</view>
+      </view>
+    </picker>
+  </view>
+
+  <view wx:if="{{ifEnd == 1}}" class="item flex">
+    <view class="flex1 title">预计完成天数：</view>
+    <input type="number" data-value="flowDetail.YjFDays" bindinput="bindInput" value="{{flowDetail.YjFDays}}" class="flex2"/>
+  </view>
+  <view wx:if="{{ifEnd == 1}}" class="item flex">
+    <view class="flex1 title">实际完成天数：</view>
+    <input type="number" data-value="flowDetail.SjFDays" bindinput="bindInput" value="{{flowDetail.SjFDays}}" class="flex2"/>
+  </view>
+
+  <view class="item flex">
+    <view class="flex1 title">说明：</view>
+    <textarea data-value="sm" maxlength="-1" bindinput="bindInput" value="{{sm}}" class="flex2"></textarea>
+  </view>
+
+  <view class="item flex">
+    <view class="flex1 title">延迟原因：</view>
+    <textarea data-value="ycReason" bindinput="bindInput" value="{{ycReason}}" class="flex2"></textarea>
+  </view>
+
+  <view class="item flex">
+    <view class="flex1 title">相关附件：</view>
+    <add-pic class="flex2" bind:getPicList="getPicList" imgLength='1'></add-pic>
+  </view>
+  
+  <view class="blodline"></view>
+  <view class="yjTitle" wx:if="{{PredictFlowLinkList.length != 0 && PredictFlowLinkList != null}}">预计后续环节时间进程</view>
+  <block wx:for="{{PredictFlowLinkList}}" wx:key="{{index}}">
+ 
+  <view class="item flex">
+      <view class="flex1 title">被预计环节名称：</view>
+      <view class="flex2 title">第{{item.Xh}}环节 {{item.SXh == 0 ? '' : '第'+item.SXh+'子环节'}} <text class="blodText">{{item.HjName}}</text></view>
+    </view>
+    <view class="item flex">
+      <view class="flex1 title">开始时间：</view>
+      <picker class="flex2 needAfter" mode="date" value="{{item.YjStime}}" data-id="{{index}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDateYj" bindcancel="cancleDate">
+        <view class="picker">
+          <view class="timeStyle startTime left">{{item.YjStime}}</view>
+        </view>
+      </picker>
+    </view>
+    
+    <view wx:if="{{ifEnd == 1}}" class="item flex">
+      <view class="flex1 title">结束时间：</view>
+      <picker class="flex2 needAfter" mode="date" data-id="{{index}}" value="{{item.YjEtime}}" start="2000-01-30" data-dateType="2" end="2050-12-30" bindchange="chooseDateYj" bindcancel="cancleDate">
+        <view class="picker">
+          <view class="timeStyle left">{{item.YjEtime}}</view>
+        </view>
+      </picker>
+    </view>
+    <view class="item flex">
+      <view class="flex1 title">完成天数：</view>
+      <input type="number" bindinput="bindInputYj" data-id="{{index}}" value="{{item.YjFDays}}" class="flex2"/>
+    </view>
+
+    <view class="mediumLine" wx:if="{{index != PredictFlowLinkList.length -1 }}"></view>
+  </block>
+
+  <view class="finish" catchtap='submitButton'>提交</view>
+</view>

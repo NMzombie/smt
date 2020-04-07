@@ -1,0 +1,96 @@
+.registerWarp{
+  padding: 20rpx;
+  
+}
+
+.item{
+  margin-bottom:15rpx;
+  position: relative;
+  font-size: 28rpx;
+  margin-top:15rpx;
+}
+
+.title{
+  color:#838FA9;
+  display: inline-block;
+  width: 240rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.lineheight{
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.content{
+  color:#262727;
+}
+
+.flex1{
+  flex:1;
+}
+.flex2{
+  flex:2;
+}
+.schoolName{
+  font-size: 35rpx;
+  font-weight: 600;
+  color:#000;
+  margin-bottom:20rpx;
+}
+picker,input{
+  border:1rpx solid #eee;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 20rpx;
+  width: 100%;
+}
+
+textarea{
+  border:1rpx solid #eee;
+  height: 250rpx;
+  padding: 20rpx;
+}
+.needAfter:after{
+  content:"";
+  position:absolute;
+  top:30rpx;
+  right:6rpx;
+  border-top:14rpx solid #C8C7CC;
+  border-left:14rpx solid transparent;
+  border-right:14rpx solid transparent;
+}
+
+.finish{
+  width: 90%;
+  height: 80rpx;
+  margin:0 auto;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color:#fff;
+  background-color: #4787F1;
+  border-radius: 20rpx;
+  z-index: 999999;
+}
+
+.blodText{
+  font-weight: 600;
+}
+.yjTitle{
+  text-align: center;
+  font-size: 35rpx;
+  margin: 15rpx 0;
+  font-weight: 600;
+}
+
+.mediumLine{
+  width: 97%;
+  height: 10rpx;
+  background-color: #F7F7F7;
+  margin: 28rpx auto;
+  z-index: 999;
+}
+
+.timeStyle{
+  width: 100%;
+}

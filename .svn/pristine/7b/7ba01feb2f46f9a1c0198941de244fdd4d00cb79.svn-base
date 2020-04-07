@@ -1,0 +1,22 @@
+<view class="radioWarp main">
+
+    <view class="searchWarp">
+      <image class="searchIcon" src="/image/icon-mag2.png"></image>
+      <input placeholder="搜索" placeholder-style="placeholderCss" class="searchInput" bindinput="search" value="{{searchVal}}" />
+    </view>
+
+  <view class=" {{item.showChild ? 'bottomIcon' : 'typeList'}}"  catchtap='showChild' data-index="{{index}}" data-item="{{item}}" wx:for="{{typeList}}" wx:key="{{index}}" wx:for-item="item" wx:for-index="index">
+    <text class="bigName">{{item.Bigclassname}}</text>
+    <block wx:if="{{item.showChild}}">
+       <radio-group class="radio-group" catchtap="radioChange" data-index="{{index}}" data-childindex="{{sindex}}" data-checkinfo="{{sitem}}" wx:for="{{item.childList}}"  wx:key="{{sindex}}" wx:for-item="sitem" wx:for-index="sindex">
+      <label class="linkLabel clear" >
+        <radio class="linkRideo left" value="{{sitem.cid}}" color="#4787F1" checked="{{sitem.checked}}" />
+        <text class="linkText left">{{sitem.classname}}</text>
+      </label>
+    </radio-group>
+    </block>
+   
+  </view>
+
+  <view class="finish" catchtap='finish'>完成</view>
+</view>

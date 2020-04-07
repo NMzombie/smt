@@ -1,0 +1,26 @@
+<view class="planWarp">
+  <picker class="pickerTime clear" mode="date" value="{{time}}" start="{{time}}" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+   <view class="picker">
+      <view class="timeStyle startTime left">{{tomorrowTime}}</view>
+    </view>
+  </picker>
+  <view class="listwarp">
+    <block>
+      <view class="planTitle">计划1</view>
+      <view catchtap='getList' data-type="1" class="list needAfter clear">
+        <view class="listIcon left"><image class="iconImg" src="/image/boxbg3.png"></image></view>
+        <view class="listName left">学校</view>
+        <view class="listValue left">{{schoolInfo.Schoolname}}</view>
+      </view>
+      <view catchtap='getList' data-type="2" class="list needAfter clear">
+        <view class="listIcon left"><image class="iconImg" src="/image/boxbg4.png"></image></view>
+        <view class="listName left">拜访目的</view>
+        <view class="listValue left">{{purposeInfo.Purpuse}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="handel clear">
+    <view class="add left">继续添加</view>
+    <view class="comfire left">确定</view>
+  </view>
+</view>

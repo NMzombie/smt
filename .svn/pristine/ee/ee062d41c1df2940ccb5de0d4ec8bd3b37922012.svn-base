@@ -1,0 +1,248 @@
+/* pages/signIn/home/home.wxss */
+.signInhead{
+  width:466rpx;
+  margin:20rpx auto;
+}
+.initSignIn{
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color:#4787F1;
+  background-color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  
+}
+
+.signCenter{
+  border-top:1rpx solid #4787F1;
+  border-bottom:1rpx solid #4787F1;
+}
+.signTRight{
+  border:1rpx solid #4787F1;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.signTLeft{
+  border:1rpx solid #4787F1;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+}
+.onSignIn{
+  color:#fff;
+  background-color: #4787F1;
+}
+
+.timeWarp{
+  width: 700rpx;
+  height: 100rpx;
+  background-color: #fff;
+  margin:20rpx auto;
+}
+
+.todayIcon{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top:10rpx;
+  }
+.timeStyle{
+  background-color: #F7F7F7;
+  width: 220rpx;
+  height: 70rpx;
+  text-align: left;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  position: relative;
+}
+
+.timeStyle:before{
+		content:"";
+		position:absolute;
+		top:30rpx;
+		right:6rpx;
+		border-top:14rpx solid #C8C7CC;
+		border-left:14rpx solid transparent;
+    border-right:14rpx solid transparent;
+	}
+
+.toText{
+  color:#000;
+  font-weight: 400;
+  font-size: 35rpx;
+  line-height:70rpx;
+  margin:0 20rpx;
+}
+
+.startTime{
+  margin-left: 30rpx;
+}
+.headImg{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right:30rpx;
+}
+.mySignIn{
+  width: 90%;
+  margin:30rpx;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-bottom:1rpx solid #eee;
+}
+.myName{
+  color:#333;
+  font-size: 30rpx;
+  display: block;
+  padding-top:15rpx;
+  width: 300rpx;
+}
+.myTime{
+  color:#9E9E9E;
+  font-size: 25rpx;
+  display: block;
+  padding-top:5rpx;
+  width: 500rpx;
+}
+.mySignInLinkman{
+  color:#666666;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  width: 630rpx;
+}
+.mySignTitle{
+  color:#333;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  position: relative;
+  width: 650rpx
+}
+
+.mySignTitle:after{
+  content: ""; 
+  position: absolute;
+  top: 0rpx; 
+  right: -16rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #333; 
+  border-bottom: 1rpx solid #333; 
+  width: 20rpx; 
+  height: 20rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+}
+
+.scrollView{
+  height: 1000rpx;
+  position: relative;
+  padding-bottom:120rpx;
+
+}
+
+.bottomRpx{
+  margin-bottom: 40rpx;
+}
+
+.teamName{
+  color:#666;
+  font-size: 30rpx
+}
+
+.signNum{
+  font-size: 30rpx;
+  color:#999;
+  position: relative;
+  padding-right: 40rpx;
+  margin-bottom:20rpx;
+}
+.signInText{
+  color:#F79A3D;
+}
+.signNum:after{
+  content: ""; 
+  position: absolute;
+  top: -5rpx; 
+  right: -12rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #C9C8CD; 
+  border-bottom: 1rpx solid #C9C8CD; 
+  width: 18rpx; 
+  height: 18rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+}
+.searchWarp{
+  width: 100%;
+  height: 90rpx;
+  position: relative;
+  overflow: hidden;
+}
+.searchInput{
+  width: 80%;
+  margin:0rpx auto;
+  height: 70rpx;
+  background-color: #fff;
+  border:1rpx solid #E3E3E3;
+  font-size: 30rpx;
+  padding-left: 70rpx;
+}
+.searchIcon{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 15rpx;
+  left: 60rpx;
+}
+
+.addresslName{
+  color:#666666;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height:80rpx;
+  position: relative;
+  margin:0 30rpx;
+  border-bottom:1rpx solid #eee; 
+}
+
+.addresslName:after{
+  content: ""; 
+  position: absolute;
+  top: 10rpx; 
+  right: -12rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #C9C8CD; 
+  border-bottom: 1rpx solid #C9C8CD; 
+  width: 18rpx; 
+  height: 18rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+}
+
+.signIn{
+  width: 90%;
+  height: 80rpx;
+  position: fixed;
+  left: 5%;
+  font-size: 30rpx;
+  bottom:40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color:#fff;
+  background-color: #4787F1;
+  border-radius: 20rpx;
+}
+.mod-edit{
+  width: 37rpx;
+  height: 36rpx;
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+}

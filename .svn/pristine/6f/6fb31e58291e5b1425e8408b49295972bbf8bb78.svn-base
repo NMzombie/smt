@@ -1,0 +1,48 @@
+.section {
+  display: flex;
+  height: 88rpx;
+  align-items: center;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #F2F3F5;
+  background: #FFFFFF;
+}
+.remarkWarp{
+  display: flex;
+  height: 300rpx;
+  align-items: center;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #F2F3F5;
+  background: #FFFFFF;
+}
+.marginTop {
+  margin-top: 11rpx;
+}
+.title {
+  width: 180rpx;
+  color: #808080;
+}
+.section input,picker{
+  flex: 1;
+  padding-left: 10rpx;
+  border: 2rpx solid #E3E4E6;
+  font-size: 30rpx;
+  height:58rpx;
+  line-height: 58rpx;
+}
+.submitAdd{
+  width: 90%;
+  height: 80rpx;
+  margin:0 auto;
+  font-size: 30rpx;
+  margin-bottom:40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color:#fff;
+  background-color: #4787F1;
+  border-radius: 20rpx;
+}
+
+.remark{
+  height: 260rpx;
+  border:2rpx solid #E3E4E6;
+}

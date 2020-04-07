@@ -1,0 +1,157 @@
+<!--pages/sj/addSj/sjEdit.wxml-->
+<view class="add-sj-wrapper">
+  <form bindsubmit="formSubmit">
+    <view class="section">
+      <text class="title">商机编号*:</text>
+      <input placeholder="请输入" disabled="true" value='{{SJBH}}' auto-focus/>
+    </view>
+    <view class="section">
+      <text class="title">商机分类:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="classify" bindchange="bindPickerChange" range-key="{{'name'}}" value="{{keyInfo.key1}}" range="{{sjClassify}}">
+          <view class="picker">
+            {{sjClassify[keyInfo.key1].name}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">商机名称*:</text>
+      <input placeholder="请输入" value='{{SJName}}' data-value="SJName" bindinput="bindInput" />
+    </view>
+    <view class="section marginTop">
+      <text class="title">现有学校:</text>
+      <switch checked="{{ifHaveSchool == 1 ? true : false}}" bindchange="switchChange"/>
+    </view>
+    <view class="section" hidden='{{ifHaveSchool == 1}}'>
+      <text class="title">所属学校:</text>
+      <input placeholder="请输入" data-value="schoolName" value="{{schoolName}}" bindinput="bindInput" />
+    </view>
+    <view class="section" hidden='{{ifHaveSchool != 1}}'>
+      <text class="title">所属学校:</text>
+      <view class="select-box" data-url="schoolList" bindtap="goToUrl">
+        <text>{{schoolName}}</text>
+        <view class="iconfont icon-zhankai"></view>
+      </view>
+    </view>
+    <!-- <view class="section" wx-if="{{ifHaveSchool == 1}}" hidden='{{schoolName == ""}}'>
+      <text class="title">学校名称:</text>
+      <text>{{schoolName}}</text>
+    </view> -->
+    <view class="section">
+      <text class="title">添加联系人:</text>
+      <input disabled="{{true}}" />
+      <button class="add-btn" size="mini" bindtap="showModal">新增</button>
+    </view>
+    <view class="section" hidden='{{!schoolName}}'>
+      <text class="title">联系人1:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="LinkMan1" bindchange="bindPickerChange" range-key="{{'name'}}" value="{{keyInfo.key2}}" range="{{contactsList}}">
+          <view class="picker">
+            {{contactsList[keyInfo.key2].name ? contactsList[keyInfo.key2].name : '请选择联系人'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section" hidden='{{!schoolName}}'>
+      <text class="title">联系人2:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="LinkMan2" bindchange="bindPickerChange" range-key="{{'name'}}" value="{{keyInfo.key3}}" range="{{contactsList}}">
+          <view class="picker">
+          {{contactsList[keyInfo.key3].name ? contactsList[keyInfo.key3].name : '请选择联系人'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section marginTop">
+      <text class="title">预测时间:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker mode="date" value="{{SFTime}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+          <view class="picker">
+            {{SFTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">预测金额:</text>￥
+      <input class='money' maxlength="10" value="{{SFAmount}}" type="number" data-value="SFAmount" bindinput="bindInput" />元
+    </view>
+    <view class="section marginTop">
+      <text class="title">销售阶段:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="SellStepEnum" bindchange="bindPickerChange" range-key="{{'Des'}}" value="{{keyInfo.key4}}" range="{{SellStepEnum}}">
+          <view class="picker">
+            {{SellStepEnum[keyInfo.key4].Des}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">联系情况:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="SellLinkWayEnum" bindchange="bindPickerChange" range-key="{{'Des'}}" value="{{keyInfo.key5}}" range="{{SellLinkWayEnum}}">
+          <view class="picker">
+            {{SellLinkWayEnum[keyInfo.key5].Des}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section marginTop"  hidden='{{IfOKHidden == 0}}'>
+      <text class="title">是否成单:</text>
+      <text>成单</text>
+    </view>
+    <!-- <view class="section marginTop"  hidden='{{IfOKHidden == 1}}'>
+      <text class="title">是否成单:</text>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio">
+          <radio value="{{0}}" checked="{{IfOK == 0 ? true : false}}"/>待成单
+        </label>
+        <label class="radio">
+          <radio value="{{1}}" checked="{{IfOK == 1 ? true : false}}" />成单
+        </label>
+      </radio-group>
+    </view> -->
+    <view class="section-textarea marginTop" hidden='{{showModal}}'>
+      <text class="title">商机详情:</text>
+      <textarea class='textarea' value="{{Bz ? Bz : ''}}"  maxlength="{{-1}}" data-value="Bz" bindinput="bindInput" />
+    </view>
+    <view class="section-textarea marginTop" hidden='{{!showModal}}'>
+      <text class="title">商机详情:</text>
+      <text class='textarea'>{{Bz ? Bz : ''}}</text>
+    </view>
+    <view class="btn-area">
+      <button form-type="submit">修改商机</button>
+    </view>
+  </form>
+
+  <!-- modal弹窗-->
+  <modalView show="{{showModal}}" confirmTxt="{{'提交'}}" bindcancel="modalCancel" bindconfirm='modalConfirm' single='{{single}}'>
+    <view class='modal-content' catchtap="showModal">
+      <view class="modal-header">
+        <text class="modal-title">新增联系人</text>
+        <text class="modal-close" catchtap="closeModal">×</text>
+      </view>
+      <scroll-view scroll-y class='main-content'>
+        <view class="modal-item">
+          <text class="title">姓名:</text>
+          <input data-value="TrueName" value="{{TrueName}}" bindinput="bindInput"  />
+        </view>
+        <view class="modal-item">
+          <text class="title">联系方式:</text>
+          <input type="number" data-value="Tel" value="{{Tel}}" bindinput="bindInput"  />
+        </view>
+        <view class="modal-textarea-item">
+          <text class="title">情况:</text>
+          <textarea value="{{Intro}}"  maxlength="{{-1}}" data-value="Intro" bindinput="bindInput" />
+        </view>
+      </scroll-view>
+    </view>
+  </modalView>
+</view>

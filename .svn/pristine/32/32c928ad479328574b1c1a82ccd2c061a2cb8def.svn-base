@@ -1,0 +1,84 @@
+<view class="clockWarp">
+  
+  <view class="positionTop">
+    <view class="diaryType clear">
+      <view catchtap='changeType' data-type="1" class="diaryNormal left {{diaryType == 1? 'checkDiary' : ''}}">我的考勤   </view>
+      <view catchtap='changeType' data-type="0" class="diaryNormal left {{diaryType == 0? 'checkDiary' : ''}}">团队考勤</view>
+    </view>
+  </view>
+<!-- 我的考勤 -->
+  <block wx:if="{{diaryType == 1}}">
+    <view class="timeWarp clear">
+      <text class="left pickerText">选择时间：</text>
+      <picker mode="date" value="{{startTime}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+        <view class="picker">
+          <view class="timeStyle startTime left">{{startTime}}</view>
+        </view>
+      </picker>
+    </view>
+    <view class="clockRecord">
+      <view class="clockTitle">{{startTime}}打卡记录</view>
+
+      <view class="recordItem clear" wx:for="{{diaryList}}" wx:key="{{index}}">
+        <view class="address left">{{item.KqAddress}}</view>
+        <view class="time left">{{item.KqTime}}</view>
+        <view class="status normal left" wx:if="{{item.IfNormal == 1}}">正常</view>
+        <view class="status noStatus left" wx:elif="{{item.IfNormal == 0}}">未签到</view>
+        <view class="status late left" wx:else>{{item.IfInOrOut == 0 ? "迟到":"早退"}}</view>
+      </view>
+      <view wx:if="{{diaryList.length == 0}}" class="emptyText">暂无记录</view>
+     
+    </view>
+    <view hidden="{{!showClock}}">
+      <view catchtap='SubmitKQ' clock="clockIn">
+        <view class="clockButton">
+          {{currentTime}}
+        </view>
+      </view>
+      <view class="positionWarp clear" >
+        <view class="currentPosition">{{address}}</view>
+        <view class="againPosition" catchtap='getAddress'>（重新定位）</view>
+      </view>
+    </view>
+  </block>
+
+<!-- 团队考勤 -->
+  <block wx:else>
+    <view class="timeWarp clear">
+      <text class="left pickerText">选择时间：</text>
+      <picker mode="date" value="{{teamStartTime}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="teamChooseDate" bindcancel="cancleDate">
+        <view class="picker">
+          <view class="timeStyle startTime left">{{teamStartTime}}</view>
+        </view>
+      </picker>
+      
+      <view class="toText left">-</view>
+      <picker mode="date" value="{{teamEndTime}}" start="2000-01-30" data-dateType="2" end="2050-12-30" bindchange="teamChooseDate" bindcancel="cancleDate">
+        <view class="picker">
+          <view class="timeStyle left">{{teamEndTime}}</view>
+        </view>
+      </picker>
+    </view>
+  
+    <view>
+      <view class="teamTitle clear">
+        <view class="left teamLeader" catchtap='renderNext' data-username="{{item.username}}" data-index="{{index}}" wx:for="{{learderName}}" wx:key="index">{{item.mark+item.xm}}</view>
+      </view>
+      <view class="{{item.nextOrder ? 'mySignIn' : 'noBefore'}}" data-username="{{item.Username}}" data-xm="{{item.Xm}}" catchtap='{{item.nextOrder ? "renderNext" : ""}}' wx:for="{{teamList}}" wx:key="index">
+        <infoItem propItem="{{item}}">
+          <view slot="before">
+            <text class="myName">{{item.Xm}}</text>
+          </view>
+          <view slot="after">
+            <view class="mySignInLinkman">上班 正常:{{item.WorkInZC}}次 迟到:{{item.WorkInYC}}次 未签到:{{item.WorkInWQD}}次 总计:{{item.WorkInZC+item.WorkInYC}}次</view>
+            <view class="mySignInLinkman">下班 正常:{{item.WorkOutZC}}次 早退:{{item.WorkOutYC}}次 未签到:{{item.WorkOutWQD}}次 总计:{{item.WorkOutZC + item.WorkOutYC}}次</view>
+            <view class="checkDetail" catchtap='checkDetail' data-username="{{item.Xm}}" data-userid="{{item.Username}}">查看详情</view>
+          </view>
+        </infoItem>
+      </view>
+    </view>
+    <view wx:if="{{teamList.length == 0}}" class="emptyText">暂无团队记录</view>
+  </block>
+
+
+</view>

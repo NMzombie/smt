@@ -1,0 +1,219 @@
+<!--pages/orderForm/orderFormDetail/orderFormDetail.wxml-->
+<view class="sj-detail-wrapper">
+  <view class="section-box border-padding">
+    <view class="section-top">
+      <text class='title'>考勤机项目</text>
+      <text class='status approvaling' hidden='{{status == 2}}'>待审批</text>
+      <text class='status approvaled' hidden='{{status == 1}}'>已审批</text>
+    </view>
+    <view class="section">
+      <text class='colorY fontSize28'>￥</text>
+      <text class="colorY fontSize42">90,000</text>
+      <text class='colorY fontSize28'>元</text>
+    </view>
+    <view class="section">
+      <text class='name'>订单编号：</text>
+      <text class='content'>1010100</text>
+    </view>
+    <view class="section">
+      <text class='name'>客户联系方式：</text>
+      <text class='content'>571-56067813</text>
+    </view>
+    <view class="section" style="margin-bottom:0">
+      <text class='name'>客户地区：</text>
+      <text class='content'>浙江-杭州</text>
+    </view>
+  </view>
+  <view class="marginTop10">
+      <view class='tab-box'>
+        <view class='tab-item' data-type="0" catchtap="switchTab">
+          <text class="{{Index == 0 ? 'active' : ''}}">详情</text>
+        </view>
+        <view class='tab-item' data-type="1" catchtap="switchTab">
+          <text class="{{Index == 1 ? 'active' : ''}}">产品明细</text>
+        </view>
+        <view class='tab-item' data-type="2" catchtap="switchTab">
+          <text class="{{Index == 2 ? 'active' : ''}}">审批纪录</text>
+        </view>
+      </view>
+      <view class="swiper-box">
+        <swiper current="{{Index}}" style="height:{{swiperH}}px"  bindchange="bindchange">
+          <block>
+            <swiper-item>
+              <view class="section-box" id="demo0" style="padding-top:30rpx;padding-bottom:30rpx">
+                <view class="section">
+                  <text class='name'>甲方：</text>
+                  <text class='content'>胜利实验小学</text>
+                </view>
+                <view class="section">
+                  <text class='name'>乙方：</text>
+                  <text class='content'>天音</text>
+                </view>
+                <view class="section">
+                  <text class='name'>需求时间：</text>
+                  <text class='content'>2019/04/09</text>
+                </view>
+                <view class="section">
+                  <text class='name'>签订时间：</text>
+                  <text class='content'>2019/04/09</text>
+                </view>
+                <view class="line"></view>
+                <view class="section">
+                  <text class='name'>投入成本：</text>
+                  <text class='content'>￥5,000元</text>
+                </view>
+                <view class="section">
+                  <text class='name'>回收时间：</text>
+                  <text class='content'>2019年07月~2019年12月，共6个月</text>
+                </view>
+                <view class="section">
+                  <text class='name'>结算金额：</text>
+                  <text class='content'>￥5,000元</text>
+                </view>
+                <view class="section">
+                  <text class='name'>结算方式：</text>
+                  <text class='content'>分期</text>
+                </view>
+                <view class="line"></view>
+                <view class="section">
+                  <text class='name'>项目备注：</text>
+                  <text class='content'>紧急</text>
+                </view>
+              </view>
+            </swiper-item>
+            <swiper-item>
+              <view id="demo1">
+                <view class="section-box paddingTop30">
+                  <view class="product-name">产品1</view>
+                  <view class="line"></view>
+                  <view class="section">
+                    <text class='name'>产品名称：</text>
+                    <text class='content'>回答户外活动哇</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>单价：</text>
+                    <text class='content'>￥3,000元</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>数量：</text>
+                    <text class='content'>5台</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>金额：</text>
+                    <text class='content'>￥3,000元</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>质保期：</text>
+                    <text class='content'>无</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>结算方式：</text>
+                    <text class='content'>现金</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>备注：</text>
+                    <text class='content'>回答户外活动哇</text>
+                  </view>
+                </view>
+                <view class="section-box paddingTop30 marginTop10">
+                  <view class="product-name">产品2</view>
+                  <view class="line"></view>
+                  <view class="section">
+                    <text class='name'>产品名称：</text>
+                    <text class='content'>回答户外活动哇</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>单价：</text>
+                    <text class='content'>￥3,000元</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>数量：</text>
+                    <text class='content'>5台</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>金额：</text>
+                    <text class='content'>￥3,000元</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>质保期：</text>
+                    <text class='content'>无</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>结算方式：</text>
+                    <text class='content'>现金</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>备注：</text>
+                    <text class='content'>回答户外活动哇</text>
+                  </view>
+                </view>
+              </view>
+            </swiper-item>
+             <swiper-item>
+              <view class="section-box" id="demo2" style="padding-top:30rpx;padding-bottom:30rpx">
+                <view class="section">
+                  <text class='name'>甲方：</text>
+                  <text class='content'>胜利实验小学</text>
+                </view>
+                <view class="section">
+                  <text class='name'>乙方：</text>
+                  <text class='content'>天音</text>
+                </view>
+                <view class="section">
+                  <text class='name'>需求时间：</text>
+                  <text class='content'>2019/04/09</text>
+                </view>
+                <view class="section">
+                  <text class='name'>签订时间：</text>
+                  <text class='content'>2019/04/09</text>
+                </view>
+                <view class="line"></view>
+                <view class="section">
+                  <text class='name'>投入成本：</text>
+                  <text class='content'>￥5,000元</text>
+                </view>
+                <view class="section">
+                  <text class='name'>回收时间：</text>
+                  <text class='content'>2019年07月~2019年12月，共6个月</text>
+                </view>
+                <view class="section">
+                  <text class='name'>结算金额：</text>
+                  <text class='content'>￥5,000元</text>
+                </view>
+                <view class="section">
+                  <text class='name'>结算方式：</text>
+                  <text class='content'>分期</text>
+                </view>
+                <view class="line"></view>
+                <view class="section">
+                  <text class='name'>项目备注：</text>
+                  <text class='content'>紧急</text>
+                </view>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+  </view>
+  <!-- 操作按钮 -->
+  <view class="edit-box">
+    <image class="img" src="../../../image/edit.png" mode="widthFix" data-url="orderFormEdit"  bindtap="goToUrl" />
+  </view>
+  <view class="btn-box">
+    <!-- 待审批 -->
+    <view class="approval-box" hidden='{{status == 2}}'>
+      <text class="btn-text agree" bindtap="toggleModal">同意</text>
+      <text class="btn-text refuse" bindtap="toggleModal">拒绝</text>
+    </view>
+    <!-- 已审批 -->
+    <view class="approval-box" hidden='{{status == 1}}'>
+      <text class="btn-text distribute" data-url="orderFormDistribute"  bindtap="goToUrl">派发</text>
+      <text class="btn-text invoice" data-url="orderFormInvoice"  bindtap="goToUrl">开票</text>
+      <text class="btn-text arrivalMoney" data-url="orderFormArrivalMoney"  bindtap="goToUrl">到款</text>
+    </view>
+  </view>
+  <!-- 同意，拒绝modal -->
+  <modal hidden="{{hidden}}" title="" confirm-text="提交" cancel-text="取消" bindcancel="toggleModal" bindconfirm="confirm">
+      <textarea placeholder="请输入内容" value="{{}}" maxlength="{{-1}}" data-value="" bindinput="bindInput" />
+  </modal>
+</view>

@@ -1,0 +1,38 @@
+.flowWarp{
+  padding: 30rpx;
+  font-size: 30rpx;
+  color:#262727;
+}
+
+.item{
+  margin-bottom:15rpx;
+  margin-top:15rpx;
+  position: relative;
+}
+
+.imageItem{
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.schoolName{
+  font-size: 35rpx;
+  font-weight: 600;
+  color:#000;
+}
+
+.title{
+  color:#838FA9;
+  display: inline-block;
+  width: 240rpx;
+}
+.content{
+  color:#262727;
+}
+
+.flex1{
+  flex:1;
+}
+.flex2{
+  flex:2;
+}

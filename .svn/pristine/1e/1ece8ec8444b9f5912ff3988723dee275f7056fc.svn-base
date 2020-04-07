@@ -1,0 +1,187 @@
+// pages/sj/addSj/addSj.js
+import formatTime from "../../../utils/util.js"
+var app = getApp();
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    number: null, // 商机编号
+    sjClassify: ['[哈]其他'], // 商机分类
+    keyInfo: { key1: 0, key2: 0, key3: 0, key4: 0, key5: 0, key6: 0, }, // 用来纪录每个下拉框选中的索引
+    name: '', // 商机名称
+    ifHaveSchool: 1, // 是否现有学校
+    schoolName: '', // 学校名称
+    contactsOne: '',
+    contactsTwo: '',
+    contactsList: ['联系人1', '联系人2'],
+    salesStage: ['初次拜访', '商务谈判', '签约'], // 销售阶段
+    contact: ['查资料打电话'], // 联系情况
+    date: formatTime.formatTime(new Date()),
+    money: 0, // 金额
+    person: ['文明'], // 所属人
+    orderForm: [
+      { name: '待成单', value: 1, checked: 'true' },
+      { name: '已成单', value: 2, },
+      { name: '关闭', value: 3, },
+    ], // 是否成单
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    // this.getDictionary()
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
+  // 获取数据字典
+  getDictionary: function () {
+    app.API.getDictionary({ 'key': 'SellStepEnum' }).then((res) => {
+      console.log(res)
+    });
+  },
+
+  // 输入学校名称查询是否现有学校，ifHaveSchool
+  bindSchoolInput: function (e) {
+
+  },
+
+  // 是否现有学校 switch
+  switchChange: function (e) {
+    this.setData({
+      ifHaveSchool: e.detail.value ? 1 : 0,
+    })
+  },
+
+  // 选中下拉框
+  bindPickerChange: function (e) {
+    var newKeyInfo = this.data.keyInfo;
+    var key = parseInt(e.detail.value);
+    var target = {
+      'classify': () => {
+        this.regExpSjName(this.data.sjClassify[key]);
+        newKeyInfo['key1'] = key;
+        return newKeyInfo;
+      },
+      'contactsOne': () => {
+        newKeyInfo['key2'] = key;
+        return newKeyInfo;
+      },
+      'contactsTwo': () => {
+        newKeyInfo['key3'] = key;
+        return newKeyInfo;
+      },
+      'salesStage': () => {
+        newKeyInfo['key4'] = key;
+        return newKeyInfo;
+      },
+      'contact': () => {
+        newKeyInfo['key5'] = key;
+        return newKeyInfo;
+      },
+      'person': () => {
+        newKeyInfo['key6'] = key;
+        return newKeyInfo;
+      },
+    }
+    var info = target[e.target.dataset.type]();
+    this.setData({
+      keyInfo: info,
+    })
+  },
+
+  // 正则匹配商机名称
+  regExpSjName: function (name) {
+    var name = name.match(/](\S*)/)[1];
+    this.setData({
+      name,
+    });
+  },
+
+  // 选择日期
+  chooseDate: function (e) {
+    console.log(e.detail.value)
+    this.setData({
+      date: e.detail.value,
+    })
+  },
+  cancleDate: function () {
+    console.log(2)
+  },
+
+  // 是否成单
+  radioChange: function (e) {
+    console.log(e.detail.value)
+  },
+
+  // 提交商机
+  formSubmit: function (e) {
+    if (!this.data.number) {
+      this.showToast('请输入商机编号');
+      return;
+    }
+    if (!this.data.name == '') {
+      this.showToast('请输入商机名称');
+      return;
+    }
+  },
+
+  // toast
+  showToast: function (title, icon = 'none') {
+    wx.showToast({
+      title,
+      icon,
+    })
+  },
+})

@@ -1,0 +1,34 @@
+<view class="main">
+  <view class="diaryType clear">
+    <view catchtap='changeTab' data-tab="0" class="tabCom {{tab==0 ? 'check' : ''}}">待接单</view>
+    <view catchtap='changeTab' data-tab="1" class="tabCom {{tab==1 ? 'check' : ''}}">已接单</view>
+    <view catchtap='changeTab' data-tab="2" class="tabCom {{tab==2 ? 'check' : ''}}">已完成</view>
+  </view>
+  <scroll-view
+    scroll-y
+    style="height: 1000rpx;"
+    bindscrolltolower="addMore"
+    lower-threshold="200"
+  >
+    <view>
+      <block>
+        <view class="itemWarp clear" catchtap="deviceDetail">
+          <view class="right">
+            <text class="handelItem" catchtap="orderReceiving" wx:if="{{tab==0}}">转交订单</text>
+            <text class="handelItem" catchtap="orderReceiving" wx:if="{{tab==0}}">接单</text>
+            <text class="handelItem" catchtap="orderReceiving" wx:if="{{tab==1}}">录入</text>
+            <text class="handelItem" catchtap="orderReceiving" wx:if="{{tab==2}}">详情</text>
+          </view>
+          <view class="left">
+            <view class="item-content">所属学校：11</view>
+            <view class="item-content">设备编号：11</view>
+            <view class="item-content">设备名称：11</view>
+            <view class="item-content">安装位置：11</view>
+            <view class="item-content">设备故障：22</view>
+            <view class="item-content">时间：11</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

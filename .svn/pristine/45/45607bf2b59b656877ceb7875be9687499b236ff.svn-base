@@ -1,0 +1,199 @@
+// pages/sj/sjHome/sjHome.js
+var app = getApp();
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    type: 0, // 0，我的商机，1，团队商机
+    inputShowed: false, // 是否显示搜索框
+    inputVal: "", // 搜索框内容
+    salesStage: ['初次拜访','商务谈判','签约'], // 销售阶段
+    list: [{
+      id: 1,
+      scoolName: '南京大学',
+      contact: '查资料打电话',
+      followTime: '2019-05-29',
+      orderForm: '待成单',
+      salesStage: '初次拜访',
+    }], // 商机列表
+    curPage: 1, // 分页页数
+    pageSize: 20, // 分页条数
+    loadMore: true, // 用来控制分页加载频率
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    console.log("上拉刷新")
+    this.setData({
+      loadMore: true,
+    })
+    this.getSjList();
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    console.log("滑动加载")
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
+   /**
+   * 父组件接收子组件传值
+   */
+  getSelectedKey: function (res) {
+    console.log(res.detail);
+  },
+
+
+
+  /**
+   * 获取商机列表
+   */
+  getSjList: function() {
+    var { curPage, pageSize,loadMore, } = this.data;
+    if (!loadMore) {return;}
+    wx.showLoading()
+    setTimeout(() => {
+      wx.hideLoading()
+    },1000)
+  },
+
+  /**
+   * 商机列表tab切换
+   */
+  switchTab: function (e) {
+    this.setData({
+      type: e.target.dataset.type,
+    })
+  },
+
+  // 以下为搜索框事件
+  toSearch: function () {
+    this.setData({
+      curPage: 1
+    });
+    this.getSjList();
+  },
+
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+
+  // 调用自定义组件select的方法关闭
+  closeSelect: function () {
+    var select = this.selectComponent("#select");
+    if (select.data.show) {
+      select.selectTap();
+    }
+  },
+
+  // 跳转商机详情页面
+  toDetailsTap: function (e) {
+    wx.navigateTo({
+      url: "/pages/sj/sjDetail/sjDetail?id=" + e.currentTarget.dataset.id
+    })
+  },
+
+  // 跳转新建商机页面
+  toAddSj: function () {
+    wx.navigateTo({
+      url: "/pages/sj/addSj/addSj"
+    })
+  },
+
+  // 跟进商机
+  followUpSj: function (e) {
+    wx.navigateTo({
+      url: "/pages/sj/followUp/followUp?id=" + e.currentTarget.dataset.id
+    })
+  },
+
+  // 修改商机
+  editSj: function (e) {
+    wx.navigateTo({
+      url: "/pages/sj/sjEdit/sjEdit?id=" + e.currentTarget.dataset.id
+    })
+  },
+
+
+  // 删除商机
+  delSj: function (e) {
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗？',
+      success: function (sm) {
+        if (sm.confirm) {
+          wx.showToast({
+            title: '您点击了删除',
+            icon: 'none',
+          })
+        }
+      }
+    })
+  }
+})

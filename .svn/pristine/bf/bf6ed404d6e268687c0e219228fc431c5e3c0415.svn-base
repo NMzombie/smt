@@ -1,0 +1,192 @@
+<!--pages/orderForm/orderFormDetail/orderFormDetail.wxml-->
+<view class="sj-detail-wrapper">
+  <view class="section-box border-padding">
+    <view class="section-top">
+      <text class='title'>{{info.DDName}}</text>
+      <text class='status approvaling' wx:if='{{info.IfAudit == 0}}'>审批中</text>
+      <text class='status approvaled' wx:elif='{{info.IfAudit == 1}}'>已同意</text>
+      <text class='status approvaled-error' wx:else>已拒绝</text>
+    </view>
+    <view class="section">
+      <text class='colorY fontSize28'>￥</text>
+      <text class="colorY fontSize42">{{info.RBAmount}}</text>
+      <text class='colorY fontSize28'>元</text>
+    </view>
+    <view class="section">
+      <text class='name'>订单编号：</text>
+      <text class='content'>{{info.DDBH}}</text>
+    </view>
+    <view class="section">
+      <text class='name'>客户联系方式：</text>
+      <text class='content'>{{info.LinkWay}}</text>
+    </view>
+    <view class="section" style="margin-bottom:0">
+      <text class='name'>客户地区：</text>
+      <text class='content'>{{info.Area}}</text>
+    </view>
+  </view>
+  <view class="marginTop10">
+      <view class='tab-box'>
+        <view class='tab-item' data-type="0" catchtap="switchTab">
+          <text class="{{Index == 0 ? 'active' : ''}}">详情</text>
+        </view>
+        <view class='tab-item' data-type="1" catchtap="switchTab">
+          <text class="{{Index == 1 ? 'active' : ''}}">产品明细</text>
+        </view>
+        <view class='tab-item' data-type="2" catchtap="switchTab">
+          <text class="{{Index == 2 ? 'active' : ''}}">审批纪录</text>
+        </view>
+      </view>
+      <view class="swiper-box">
+        <swiper current="{{Index}}" style="height:{{swiperH}}px"  bindchange="bindchange">
+          <block>
+            <swiper-item>
+              <view class="section-box" id="demo0" style="padding-top:30rpx;padding-bottom:30rpx">
+                <view class="section">
+                  <text class='name'>甲方：</text>
+                  <text class='content'>{{info.PartyA}}</text>
+                </view>
+                <view class="section">
+                  <text class='name'>乙方：</text>
+                  <text class='content'>{{info.PartyB}}</text>
+                </view>
+                <view class="section">
+                  <text class='name'>需求时间：</text>
+                  <text class='content'>{{info.NeedsTimeStr}}</text>
+                </view>
+                <view class="section">
+                  <text class='name'>签订时间：</text>
+                  <text class='content'>{{info.SignTimeStr}}</text>
+                </view>
+                <view class="line"></view>
+                <view class="section">
+                  <text class='name'>投入成本：</text>
+                  <text class='content'>￥{{info.FBAmount}}元</text>
+                </view>
+                <view class="section">
+                  <text class='name'>押金：</text>
+                  <text class='content'>￥{{info.RDAmount}}元</text>
+                </view>
+                <view class="section">
+                  <text class='name'>押金到款：</text>
+                  <text class='content'>￥{{info.RDTotalPayment}}元</text>
+                </view>
+                <view class="section">
+                  <text class='name'>坏账：</text>
+                  <text class='content'>￥{{info.BadAmount}}元</text>
+                </view>
+                <view class="section">
+                  <text class='name'>退款：</text>
+                  <text class='content'>￥{{info.RDBackTotalPayment}}元</text>
+                </view>
+                <view class="section">
+                  <text class='name'>回收时间：</text>
+                  <text class='content'>{{info.GetBackPayPeriod}}月</text>
+                </view>
+                <view class="section">
+                  <text class='name'>结算方式：</text>
+                  <text class='content'>{{info.BalanceWayStr}}</text>
+                </view>
+                <view class="line"></view>
+                <view class="section-textarea">
+                  <text class='name'>项目备注：</text>
+                  <text class='content'>{{info.Bz}}</text>
+                </view>
+                <view class="section-textarea">
+                  <text class='name'>申请说明：</text>
+                  <text class='content'>{{info.AskforBz}}</text>
+                </view>
+              </view>
+            </swiper-item>
+            <swiper-item>
+              <view id="demo1">
+                <view wx:for-items="{{info.ProductDetailList}}" wx:key="{{item.Id}}" class="{{index !=0 ? 'section-box paddingTop30 marginTop10' : 'section-box paddingTop30'}}">
+                  <view class="product-name">产品{{index + 1}}</view>
+                  <view class="line"></view>
+                  <view class="section">
+                    <text class='name'>产品名称：</text>
+                    <text class='content'>{{item.PName}}</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>单价：</text>
+                    <text class='content'>￥{{item.PPrice}}元</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>数量：</text>
+                    <text class='content'>{{item.Pnum}}{{item.PUnit}}</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>金额：</text>
+                    <text class='content'>￥{{item.Payment}}元</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>质保期：</text>
+                    <text class='content'>{{item.GuaPeriod}}个月</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>结算方式：</text>
+                    <text class='content'>{{item.BalanceWayStr}}</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>备注：</text>
+                    <text class='content'>{{item.Bz}}</text>
+                  </view>
+                </view>
+              </view>
+            </swiper-item>
+            <swiper-item>
+              <view id="demo2">
+                <view wx:for-items="{{info.OrderAuditList}}" wx:key="{{item.Id}}" class="{{index !=0 ? 'section-box paddingTop30 marginTop10' : 'section-box paddingTop30'}}">
+                  <view class="section">
+                    <text class='name'>批次：</text>
+                    <text class='content'>第{{item.AuditNum}}次，第{{item.HjXh}}步</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>环节：</text>
+                    <text class='content'>{{item.HjName}}</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>审批人：</text>
+                    <text class='content'>{{item.Spr}}</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>结果：</text>
+                    <text class='content'>{{item.IfAudit == 0 ? '待审批' : item.IfAudit == 1 ? '已同意' : '已拒绝'}}</text>
+                  </view>
+                  <view class="section">
+                    <text class='name'>	备注：</text>
+                    <text class='content'>{{item.Reason ? item.Reason : ''}}</text>
+                  </view>
+                  <view class="section" wx:if="{{item.IfAudit != 0}}">
+                    <text class='name'>审批时间：</text>
+                    <text class='content'>{{item.AuditTimeStr}}</text>
+                  </view>
+                </view>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+  </view>
+  <!-- 操作按钮 -->
+  <view class="edit-box" wx:if="{{info.Id && type == 1 && info.IfAudit != 1}}">
+    <image class="img" src="../../../image/edit.png" mode="widthFix" data-url="orderFormEdit" bindtap="goToUrl" />
+  </view>
+  <view class="btn-box" wx:if='{{info.OrderAuditNow && (info.OrderAuditNow.SprUsername == userName) && info.IfAudit == 0 }}'>
+    <!-- 待审批 -->
+    <view class="approval-box">
+      <text class="btn-text agree" data-audit="1" bindtap="toggleModal">同意</text>
+      <text class="btn-text refuse" data-audit="2" bindtap="toggleModal">拒绝</text>
+    </view>
+    <!-- 已审批 -->
+    <!-- <view class="approval-box" wx:if='{{info.IfAudit == 1}}'>
+      <text class="btn-text distribute" data-url="orderFormDistribute"  bindtap="goToUrl">派发</text>
+      <text class="btn-text invoice" data-url="orderFormInvoice"  bindtap="goToUrl">开票</text>
+      <text class="btn-text arrivalMoney" data-url="orderFormArrivalMoney"  bindtap="goToUrl">到款</text>
+    </view> -->
+  </view>
+  <!-- 同意，拒绝modal -->
+  <modal hidden="{{hidden}}" title="" confirm-text="提交" cancel-text="取消" bindcancel="toggleModal" bindconfirm="confirm">
+      <textarea placeholder="请输入内容" value="{{Reason}}" maxlength="{{-1}}" data-value="Reason" bindinput="bindInput" />
+  </modal>
+</view>

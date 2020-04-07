@@ -1,0 +1,32 @@
+<view  class="homeWarp">
+  <image mode="scaleToFill" class="homeBg" src="/image/bg.png"></image>
+  <view class="message" bindtap='message'>
+    <image class="messageImg" src="/image/Iconmsg.png" mode="scaleToFill"></image>
+  </view>
+  <view class="homeMenu clear">
+    <view class="signIn left" catchtap='renderClock'>
+      <image class="writeDiaryImg" src="/image/Iconattendance.png" mode="scaleToFill"></image>
+      <text class="writeDiaryText tc">考勤</text>
+    </view>
+    <view class="signIn left" catchtap='signIn'>
+      <image class="writeDiaryImg" src="/image/Iconregister.png" mode="scaleToFill"></image>
+      <text class="writeDiaryText tc">签到</text>
+    </view>
+    <view class="writeDiary left" catchtap='renderWriteDiary'>
+      <image class="writeDiaryImg" src="/image/Iconjournal.png" mode="scaleToFill"></image>
+      <text class="writeDiaryText tc">写日志</text>
+    </view>
+    <view class="writeDiary left" catchtap='renderSj'>
+      <image class="writeDiaryImg" src="/image/Iconbusiness.png" mode="scaleToFill"></image>
+      <text class="writeDiaryText tc">商机</text>
+    </view> 
+     <view class="writeDiary left" catchtap='renderOrderform'>
+      <image class="writeDiaryImg" src="/image/Iconorder.png" mode="scaleToFill"></image>
+      <text class="writeDiaryText tc">订单</text>
+    </view>
+    <!-- <view class="writeDiary left" catchtap='renderContract '>
+      <image class="writeDiaryImg" src="/image/Iconcontract.png" mode="scaleToFill"></image>
+      <text class="writeDiaryText tc">合同</text>
+    </view> -->
+  </view>
+</view>

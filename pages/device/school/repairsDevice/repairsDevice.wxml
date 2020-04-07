@@ -1,0 +1,52 @@
+<view class="warp">
+<view class="section">
+    <text class="title">报修单号:</text>
+    <text>{{bxNum}}</text>
+  </view>
+  <view class="section">
+    <text class="title">所属学校:</text>
+    <text>{{schoolname}}</text>
+  </view>
+    <view class="section">
+    <text class="title">设备型号:</text>
+    <text>{{deviceDetail.UnitType}}</text>
+  </view>
+  <view class="section">
+    <text class="title">设备类型:</text>
+    <text>{{deviceDetail.TypeName}}</text>
+  </view>
+  <view class="section">
+    <text class="title">设备标识:</text>
+    <text>{{deviceDetail.kqjFlagStr}}</text>
+  </view>
+  
+  <view class="section">
+    <text class="title">安装位置:</text>
+    <text>{{deviceDetail.azPlace == null ? '无' : deviceDetail.azPlace}}</text>
+  </view>
+  <view class="section">
+    <text class="title">连接方式:</text>
+    <text>{{deviceDetail.ConnectTypeStr}}</text>
+  </view>
+  <view class="blodline"></view>
+  <view class="section">
+    <text class="title">维修人员:</text>
+    <picker bindchange="bindPickerChange" class="addBottomArrows" data-type="wx" value="{{wxIndex}}" range-key="{{'Name'}}" range="{{wxry}}">
+    {{wxry[wxIndex].Name}}
+    </picker>
+  </view>
+  <view class="section">
+    <text class="title">报修人:</text>
+    <picker bindchange="bindPickerChange" class="addBottomArrows" data-type="bx" value="{{typeIndex}}" range-key="{{'Name'}}" range="{{objectArray}}">
+    {{objectArray[typeIndex].Name}}
+    </picker>
+  </view>
+  <view class="blodline"></view>
+  <view class="remarkWarp">
+    <text class="title">备注:</text>
+    <textarea value="{{bz}}" placeholder="请输入备注" bindinput="getValue" maxlength="-1" class="remark"></textarea>
+  </view>
+  <add-pic  bind:getPicList="getPicList" imgLength='8'></add-pic>
+</view>
+
+<view class="submitAdd" catchtap="RepairsEquipment">申请报修</view>

@@ -1,0 +1,72 @@
+.section {
+  display: flex;
+  height: 88rpx;
+  align-items: center;
+  padding: 0 30rpx;
+  background: #FFFFFF;
+}
+.marginTop {
+  margin-top: 11rpx;
+}
+.title {
+  width: 230rpx;
+  color: #808080;
+  font-size: 30rpx;
+}
+input,picker{
+  flex: 1;
+  padding-left: 10rpx;
+  border: 2rpx solid #E3E4E6;
+  font-size: 30rpx;
+  height:58rpx;
+  line-height: 58rpx;
+}
+.submitAdd{
+  width: 90%;
+  height: 80rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color:#fff;
+  background-color: #4787F1;
+  border-radius: 50rpx;
+  margin:20rpx auto;
+}
+.picker{
+  position: relative;
+  color:#808080;
+}
+.picker::after{
+  content:"";
+  position:absolute;
+  top:25rpx;
+  right:12rpx;
+  border-top:14rpx solid #C8C7CC;
+  border-left:14rpx solid transparent;
+  border-right:14rpx solid transparent;
+}
+.inputGrounp{
+  width: 460rpx;
+}
+
+.inputGrounp input{
+  margin-bottom:20rpx;
+  width: 350rpx;
+}
+
+.inputGrounp text{
+  color:#808080;
+  font-size: 24rpx;
+  line-height: 56rpx;
+}
+.inputGrounp .value{
+  color: #000;
+  font-size: 30rpx;
+  width: 350rpx;
+}
+.inputGrounpTitle{
+  padding-left: 30rpx;
+}
+.borderBottom{
+  border-bottom: 1rpx solid #F2F3F5;
+}

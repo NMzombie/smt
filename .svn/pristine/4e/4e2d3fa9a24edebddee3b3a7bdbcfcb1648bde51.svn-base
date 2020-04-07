@@ -1,0 +1,42 @@
+<view class="detail">
+  <view class="detailList clear">
+    <image class="left headImg" src="/image/fbtn3on.png"></image>
+    <text class="name left">{{diaryDetail.Xm}}</text>
+    <text class="inputtime right">{{Rdate}}</text>
+  </view>
+
+  <view class="detailList">
+    <text wx:if="{{flag == 1}}" class="inline inlineTitle">今日完成的工作：</text>
+    <text wx:if="{{flag == 2}}" class="inline inlineTitle">本周完成的工作：</text>
+    <text wx:if="{{flag == 3}}" class="inline inlineTitle">本月完成的工作：</text>
+    <textarea class="inline inlineContent" bindinput="getPartone" value="{{diaryDetail.FinishWork}}"></textarea>
+  </view>
+
+  <view class="detailList">
+    <text wx:if="{{flag == 1}}" class="inline inlineTitle">未完成的工作：</text>
+    <text wx:if="{{flag == 2}}" class="inline inlineTitle">下周计划的工作：</text>
+    <text wx:if="{{flag == 3}}" class="inline inlineTitle">本月工作问题：</text>
+    <textarea wx:if="{{flag == 1}}" bindinput="getParttwo" class="inline inlineContent" value="{{diaryDetail.NoFinishWork}}"></textarea>
+    <textarea wx:if="{{flag == 2}}" bindinput="getParttwo" class="inline inlineContent" value="{{diaryDetail.PlanNextWeek}}"></textarea>
+    <textarea wx:if="{{flag == 3}}" bindinput="getParttwo" class="inline inlineContent" value="{{diaryDetail.followUpWork}}"></textarea>
+  </view>
+  <view class="detailList">
+    <text wx:if="{{flag == 1 || flag == 2}}" class="inline inlineTitle">工作难点：</text>
+    <text wx:if="{{flag==3}}" class="inline inlineTitle">需要部门协作问题：</text>
+    <textarea wx:if="{{flag == 1 || flag == 2}}" bindinput="getPartthree" class="inline inlineContent" value="{{diaryDetail.followUpWork}}"></textarea>
+    <textarea wx:if="{{flag==3}}" bindinput="getPartthree" class="inline inlineContent"value="{{diaryDetail.questionDept}}"></textarea>
+  </view>
+  <view class="detailList">
+    <text class="inline inlineTitle">小结：</text>
+    <textarea class="inline inlineContent" bindinput="getPartfour" value="{{diaryDetail.subTotal}}"></textarea>
+  </view>
+
+  <view class="blodline"></view>
+   <view class="list paddingBottom clear" catchtap='renderlinkMan'>
+    <view class="listIcon left"><image class="iconImg" src="/image/boxbg9.png"></image></view>
+    <view class="listName left">发送给</view>
+    <view class="listValue left">{{linkmanInfoText}}</view>
+  </view>
+  <view class="finish" catchtap='{{submitButton ? "submitDiary" : ""}}'>提交</view>
+  
+</view>

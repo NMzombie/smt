@@ -1,0 +1,322 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.6",
+	"appid": "wx211f53ee5c883179",
+	"projectname": "tykq",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 38,
+			"list": [
+				{
+					"id": 1,
+					"name": "通讯录",
+					"pathName": "pages/home/addressList/addressList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息",
+					"pathName": "pages/home/message/message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "签到首页",
+					"pathName": "pages/signIn/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "签到详情",
+					"pathName": "pages/signIn/signInDetail/signInDetail",
+					"query": "flag= 4& id= 40955",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "团队签到",
+					"pathName": "pages/signIn/teamSignIn/teamSignIn",
+					"query": "departCode=03&startTime=2017-08-01&endTime= 2019-08-01",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "学校签到",
+					"pathName": "pages/signIn/schoolSignIn/schoolSignIn",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的签到",
+					"pathName": "pages/signIn/clockIn/clockIn",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "获取联系人",
+					"pathName": "pages/signIn/linkMan/linkMan",
+					"query": "school=365",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "获取维护分类",
+					"pathName": "pages/signIn/whType/whType",
+					"query": "school=365",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的地图",
+					"pathName": "pages/signIn/getMap/getMap",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "所有日志",
+					"pathName": "pages/diary/allDiary/allDiary",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "日志详情",
+					"pathName": "pages/diary/diaryDetail/diaryDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "写日志",
+					"pathName": "pages/diary/writeDiary/writeDiary",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/home/my/myhome/myhome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "明日计划",
+					"pathName": "pages/diary/addPlan/addPlan",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/home/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "考勤",
+					"pathName": "pages/clockingIn/clockHome/clockHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "订单首页",
+					"pathName": "pages/orderForm/orderFormHome/orderFormHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/orderForm/orderFormDetail/orderFormDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单审批",
+					"pathName": "pages/orderForm/approve/approve",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "学校概况首页",
+					"pathName": "pages/schoolProfiles/schoolHome/schoolHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "学校签到列表",
+					"pathName": "pages/signIn/schoolSigninDetail/schoolSigninDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 22,
+					"name": "签到修改",
+					"pathName": "pages/signIn/editSignIn/editSignIn",
+					"query": "id=77",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商机首页",
+					"pathName": "pages/sj/sjHome/sjHome",
+					"query": "id=77",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设备管理首页",
+					"pathName": "pages/device/deviceHome/deviceHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加设备",
+					"pathName": "pages/device/school/addDevice/addDevice",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设备报修",
+					"pathName": "pages/device/repairsDevice/repairsDevice",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "任务首页",
+					"pathName": "pages/task/taskHome/taskHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 28,
+					"name": "登记",
+					"pathName": "pages/task/register/register",
+					"query": "id=350",
+					"scene": null
+				},
+				{
+					"id": 29,
+					"name": "任务详情",
+					"pathName": "pages/task/taskDetail/taskDetail",
+					"query": "id=1033",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设备预警",
+					"pathName": "pages/device/deviceWarning/deviceWarning",
+					"query": "id=1033",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设备维修",
+					"pathName": "pages/device/deviceBx/deviceBx",
+					"query": "id=1033",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "维修列表",
+					"pathName": "pages/device/wx/wxList/wxList",
+					"query": "id=1033",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设备 接单",
+					"pathName": "pages/device/wx/orderReceiving/orderReceiving",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "维修设备 录入",
+					"pathName": "pages/device/wx/wxEnter/wxEnter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "维修详情",
+					"pathName": "pages/device/wx/wxDetail/wxDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "问题手册",
+					"pathName": "pages/device/noteBook/noteBook",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加学校设备",
+					"pathName": "pages/device/school/deviceSchoolList/deviceSchoolList",
+					"query": "schoolcode=789&schoolname=789%E5%B9%BC%E5%84%BF%E5%9B%AD",
+					"scene": null
+				},
+				{
+					"id": 38,
+					"name": "学校设备",
+					"pathName": "pages/device/school/deviceSchoolList/deviceSchoolList",
+					"query": "tyValus=789&schoolname =789幼儿园&schoolcode=789",
+					"scene": null
+				}
+			]
+		}
+	}
+}

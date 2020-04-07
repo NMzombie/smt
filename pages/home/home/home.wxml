@@ -1,0 +1,69 @@
+<view  class="homeWarp">
+  <image mode="scaleToFill" class="homeBg" src="/image/bg.png"></image>
+  <view class="message" bindtap='message'>
+    <image class="messageImg" src="/image/Iconmsg.png" mode="scaleToFill"></image>
+  </view>
+  <view class="homeMenu clear">
+    <form bindsubmit="formSubmit" report-submit="true" data-page="clockingIn/clockHome/clockHome">
+      <button class="left signIn" form-type="submit">
+        <image class="writeDiaryImg" src="/image/Iconattendance.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">考勤</text>
+      </button>
+    </form>
+    <form bindsubmit="formSubmit" report-submit="true" data-page="signIn/home/home">
+      <button class="signIn left" form-type="submit">
+        <image class="writeDiaryImg" src="/image/Iconregister.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">签到</text>
+      </button>
+    </form>
+    <form bindsubmit="formSubmit" report-submit="true" data-page="diary/allDiary/allDiary">
+      <button class="writeDiary left" form-type="submit">
+        <image class="writeDiaryImg" src="/image/Iconjournal.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">写日志</text>
+      </button>
+     </form>
+    <form bindsubmit="formSubmit" data-page="sj/sjHome/sjHome" report-submit="true">
+      <button class="writeDiary left" wx:if="{{isGoToSj}}" form-type="submit">
+        <image class="writeDiaryImg" src="/image/Iconbusiness.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">商机</text>
+      </button>
+     </form> 
+    <form bindsubmit="formSubmit" data-page="orderForm/orderFormHome/orderFormHome" report-submit="true">
+      <button class="writeDiary left" form-type="submit" wx:if="{{isGoToDD}}">
+        <image class="writeDiaryImg" src="/image/Iconorder.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">订单</text>
+      </button>
+     </form>
+    <form bindsubmit="formSubmit" data-page="schoolProfiles/schoolList/schoolList" report-submit="true">
+      <button class="writeDiary left" form-type="submit">
+        <image class="writeDiaryImg" src="/image/school.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">学校概况</text>
+      </button>
+     </form> 
+    
+    <form bindsubmit="formSubmit" data-page="task/taskHome/taskHome" report-submit="true">
+      <button class="writeDiary left" form-type="submit" wx:if="{{isGoToTASK}}">
+        <image class="writeDiaryImg" src="/image/task.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">任务管理</text>
+      </button>
+    </form>
+    <form bindsubmit="formSubmit" data-page="device/deviceHome/deviceHome" report-submit="true">
+      <button class="writeDiary left" form-type="submit" wx:if="{{isGoToDEVICE}}">
+        <image class="writeDiaryImg" src="/image/sbgl.png" mode="scaleToFill"></image>
+        <text class="writeDiaryText tc">设备管理</text>
+      </button>
+    </form> 
+    <!-- <view class="writeDiary left" catchtap='renderContract '>
+      <image class="writeDiaryImg" src="/image/Iconcontract.png" mode="scaleToFill"></image>
+      <text class="writeDiaryText tc">合同</text>
+    </view> -->
+  </view>
+
+
+  <!-- <form bindsubmit="formSubmit" report-submit="true" bindreset="formReset">
+
+    <view class="btn-area">
+      <button form-type="submit">Submit</button>
+    </view>
+  </form> -->
+</view>

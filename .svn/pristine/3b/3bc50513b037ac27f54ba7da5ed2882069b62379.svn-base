@@ -1,0 +1,164 @@
+// pages/orderForm/orderFormHome/orderFormHome.js
+var app = getApp();
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    type:0,                                 //选中的tab
+
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    console.log("滑动加载")
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
+  /**
+  * 父组件接收子组件传值
+  */
+  getSelectedKey: function (res) {
+    console.log(res.detail);
+  },
+
+
+
+  /**
+   * 获取订单列表
+   */
+  getSjList: function () {
+    // var { curPage, pageSize, loadMore, } = this.data;
+    // if (!loadMore) { return; }
+    // wx.showLoading()
+    // setTimeout(() => {
+    //   wx.hideLoading()
+    // }, 1000)
+  },
+
+  /**
+   * 订单列表tab切换
+   */
+  switchTab: function (e) {
+    this.setData({
+      type: e.target.dataset.type,
+    })
+  },
+
+  // 以下为搜索框事件
+  toSearch: function () {
+    this.setData({
+      curPage: 1
+    });
+    
+  },
+
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+
+  // 调用自定义组件select的方法关闭
+  closeSelect: function () {
+    // var select = this.selectComponent("#select");
+    // if (select.data.show) {
+    //   select.selectTap();
+    // }
+  },
+
+  // 跳转修改订单页面
+  modification: function (e) {
+    wx.navigateTo({
+      url: "" 
+    })
+  },
+
+  // 跳转新建订单页面
+  toAddSj: function () {
+    wx.navigateTo({
+      url: ""
+    })
+  },
+
+  // 跳转到审批
+  approval: function (e) {
+    wx.navigateTo({
+      url: "/pages/orderForm/approve/approve" 
+    })
+  },
+  //跳转到详细页面
+  orderFormDetail(){
+    wx.navigateTo({
+      url: "/pages/orderForm/orderFormDetail/orderFormDetail"
+    })
+  }
+})

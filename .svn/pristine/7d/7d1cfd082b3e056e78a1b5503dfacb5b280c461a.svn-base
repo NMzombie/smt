@@ -1,0 +1,50 @@
+<!--pages/sj/sjHome/sjHome.wxml-->
+<view class="sj-wrapper">
+  <view class="tab-box">
+    <text class="{{SelectType == 1 ? 'active' : ''}}" data-type="1" catchtap="switchTab">我的商机</text>
+    <text class="{{SelectType == 2 ? 'active' : ''}}" data-type="2" catchtap="switchTab">团队商机</text>
+  </view>
+  <view class="search-bar">
+    <view class="search-bar__input-box">
+      <icon class="icon-search_in-box" type="search" size="14"></icon>
+      <input type="text " class="search-bar__input" placeholder="搜索" value="{{KeyWord}}" bindinput="inputTyping" confirm-type="search" bindconfirm='toSearch' />
+    </view>
+    <view class="search-bar__select-box">
+      <view class="triangle_border_down"></view>
+      <picker data-type="SellStepEnum" bindchange="bindPickerChange" range-key="{{'Des'}}" value="{{keyInfo.key1}}" range="{{SellStepEnum}}">
+        <view class="picker">
+          {{SellStepEnum[keyInfo.key1].Des ? SellStepEnum[keyInfo.key1].Des : '销售阶段'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="list-box" wx:if="{{list.length > 0}}">
+    <view class="item" wx:for-items="{{list}}" wx:key="{{item.Id}}" bindtap="toDetailsTap" data-id="{{item.Id}}">
+      <view class="item-top clear">
+        <text class="name left">{{item.SJName}}</text>
+        <view class="stage right">
+          <image class="img" src="../../../image/iconClock.png" mode="widthFix" />
+          {{item.SellStepStr}}
+          <text style="font-size: 26rpx;" class="colorR" wx:if="{{item.IfOK == 0}}">待成单</text>
+          <text style="font-size: 26rpx;" class="colorG" wx:elif="{{item.IfOK == 1}}">成单</text>
+          <text style="font-size: 26rpx;" class="colorY" wx:else>关闭</text>
+        </view>
+      </view>
+      <view class="item-content">
+        <view><text>联系情况:</text>{{item.SellLinkWayStr}}</view>
+        <view class="item-marginTop"><text>所属学校:</text>{{item.Schoolname ? item.Schoolname : '暂无学校'}}</view>
+        <view class="item-marginTop"><text>最新跟进时间:</text> {{item.LastFollowTimeStr}}</view>
+      </view>
+      <view class="item-bottom" hidden='{{SelectType == 2}}'>
+        <text class="followUp-btn btn" catchtap="followUpSj" data-id="{{item.Id}}">跟进</text>
+        <text class="edit-btn btn" catchtap="editSj" data-id="{{item.Id}}" wx:if="{{item.IfOK == 0}}">修改</text>
+        <text class="del-btn btn" data-id="{{item.Id}}" catchtap="delSj">删除</text>
+      </view>
+    </view>
+  </view>
+  <view class="list-empty-box" style="height : {{listHeight-100}}px;" wx:if="{{list.length == 0}}">您还没有新建商机哟！</view>
+  <!-- 新建商机 -->
+  <view class="add-btn-box" catchtap="toAddSj" wx:if="{{SelectType == 1}}">
+    <view class="iconfont icon-add"></view>
+  </view>    
+</view>

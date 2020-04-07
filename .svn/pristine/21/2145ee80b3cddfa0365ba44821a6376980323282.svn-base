@@ -1,0 +1,253 @@
+/* pages/clockingIn/clockHome/clockHome.wxss */
+.clockWarp{
+  width: 95%;
+  position: relative;
+  margin:0 auto;
+}
+.recordItem{
+  width: 100%;
+  padding-bottom:15rpx;
+  padding-top:15rpx;
+  border-top: 1rpx solid #eee;
+}
+.address{
+  width: 70%;
+  font-size: 30rpx;
+  color:#666;
+}
+.time{
+  color:#666;
+}
+.time,.status{
+  width: 15%;
+  font-size: 30rpx;
+  text-align: center
+}
+
+
+.timeWarp{
+  width: 700rpx;
+  height: 100rpx;
+  background-color: #fff;
+  margin:0rpx auto;
+}
+
+.todayIcon{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top:10rpx;
+  }
+.timeStyle{
+  background-color: #F7F7F7;
+  width: 220rpx;
+  height: 70rpx;
+  text-align: left;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  position: relative;
+}
+
+.timeStyle:before{
+		content:"";
+		position:absolute;
+		top:30rpx;
+		right:6rpx;
+		border-top:14rpx solid #C8C7CC;
+		border-left:14rpx solid transparent;
+    border-right:14rpx solid transparent;
+	}
+
+.toText{
+  color:#E3E3E3;
+  font-weight: 400;
+  font-size: 35rpx;
+  line-height:70rpx;
+  margin:0 20rpx;
+  padding-left:15rpx;
+  
+}
+
+picker{
+  width: 220rpx;
+  float: left;
+}
+
+.pickerText{
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.tabCom{
+  float: left;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color:#333;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  margin-right:20rpx;
+  background-color: #F7F7F7;
+}
+
+.diaryNormal{
+  width: 50%;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 35rpx;
+  border-bottom:1rpx solid #C8C7CC;
+  margin-bottom:20rpx;
+}
+
+.checkDiary{
+  color:#4787F1;
+  border-bottom:1rpx solid #4787F1;
+}
+
+.check{
+  background-color: #4787F1;
+  color:#fff;
+}
+
+.normal{
+  color:#4787F1;
+}
+.late{
+  color:#f20b0b;
+}
+.noStatus{
+  color:#e5ce10;
+}
+
+.clockTitle{
+  font-size: 35rpx;
+  font-weight: 600;
+  padding-bottom:10rpx;
+}
+
+.clockButton{
+  width:300rpx;
+  height: 300rpx;
+  border-radius: 100%;
+  margin:30rpx auto;
+  font-size: 40rpx;
+  color:#fff;
+  text-align: center;
+  line-height: 300rpx;
+  background: rgb(51, 218, 157); /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    rgba(51, 218, 157, 1) 1%,
+    rgba(0, 193, 122, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(51, 218, 157, 1) 1%,
+    rgba(0, 193, 122, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgba(51, 218, 157, 1) 1%,
+    rgba(0, 193, 122, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(
+      startColorstr="#33da9d",
+      endColorstr="#00c17a",
+      GradientType=0
+    );
+  box-shadow: 1px 8px 20px rgba(0, 193, 122, 0.4);
+}
+
+
+.positionWarp{
+  font-size: 35rpx;
+  text-align: center;
+}
+.againPosition{
+  color: rgb(51, 218, 157); /* Old browsers */
+  text-align: center;
+}
+
+.teamTitle{
+  width: 96%;
+  height: 80rpx;
+  background-color: #eee;
+  color: #585454;
+  line-height: 80rpx;
+  padding-left: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.teamLeader{
+  font-size: 30rpx;
+  color: #4787F1;
+}
+.mySignInLinkman{
+  color:#666666;
+  font-size: 30rpx;
+  line-height: 60rpx;
+}
+.mySignTitle{
+  color:#333;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  position: relative;
+  width: 650rpx
+}
+
+.myName{
+  color:#333;
+  font-size: 30rpx;
+  display: block;
+  padding-top:35rpx;
+}
+
+.mySignIn{
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-bottom:1rpx solid #eee;
+  
+}
+
+.noBefore{
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-bottom:1rpx solid #eee;
+}
+
+.mySignIn:before{
+  content: ""; 
+  position: absolute;
+  top: 100rpx; 
+  right: -10rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #333; 
+  border-bottom: 1rpx solid #333; 
+  width: 20rpx; 
+  height: 20rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+}
+
+.checkDetail{
+  width: 140rpx;
+  height: 50rpx;
+  float:right;
+  font-size: 26rpx;
+  background-color: #4787F1;
+  color:#fff;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+}

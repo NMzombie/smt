@@ -1,0 +1,59 @@
+<view class="main">
+  
+  <view class="section">
+    <text class="title">所属学校：</text>
+    <text>22</text>
+  </view>
+ 
+  <view class="section">
+    <text class="title">设备名称：</text>
+    <text>33</text>
+  </view>
+   <view class="section">
+    <text class="title">设备标识：</text>
+    <text>33</text>
+  </view>
+ 
+  <view class="section">
+    <text class="title">安装位置：</text>
+    <text>33</text>
+  </view>
+  <view class="section">
+    <text class="title">在线状态：</text>
+    <text>33</text>
+  </view>
+
+  <view class="section">
+    <text class="title">维护预警：</text>
+    <text>33</text>
+  </view>
+
+  <view class="section">
+    <text class="tr">预计维护日期：</text>
+    <text>33</text>
+  </view> 
+  
+  <view class="section clear">
+    <text class="tr left">实际维护日期：</text>
+    <picker class="picker left" mode="date" value="{{date}}" start="2019-09-01" end="2050-09-01" bindchange="bindDateChange">
+      {{date}}
+    </picker>
+  </view>
+ 
+  <view class="blodline top"></view>
+
+  <view class="clear top">
+    <text class="title left">问题描述：</text>
+    <textarea class="textareaDom left" placeholder="请输入问题描述..."></textarea>
+  </view>
+  <view>
+    <image class="imgDom" src="/image/fbtn3on.png"></image>
+  </view>
+  <view class="blodline top"></view>
+
+  <view class="clear top">
+    <text class="title left">解决方案：</text>
+    <textarea class="textareaDom left" placeholder="请输入问题描述..."></textarea>
+  </view>
+  <view class="submit">提交</view>
+</view>

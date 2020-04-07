@@ -1,0 +1,172 @@
+
+  <view class="">
+    <view class="timeWarp clear">
+    
+      <picker mode="date" value="{{startTime}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+        <view class="picker">
+          <view class="timeStyle startTime left">{{startTime}}</view>
+        </view>
+      </picker>
+      
+      <view class="toText left">至</view>
+      <picker mode="date" value="{{endTime}}" start="2000-01-30" data-dateType="2" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+        <view class="picker">
+          <view class="timeStyle left">{{endTime}}</view>
+        </view>
+      </picker>
+    </view>
+
+    <view class="diaryType clear" wx:if="{{tab ==2}}">
+      <view catchtap='changeTab' data-flag="1" class="tabCom {{flag==1 ? 'check' : ''}}">日报</view>
+      <view catchtap='changeTab' data-flag="2" class="tabCom marginTab {{flag==2 ? 'check' : ''}}">周报</view>
+      <view catchtap='changeTab' data-flag="3" class="tabCom {{flag==3 ? 'check' : ''}}">月报</view>
+    </view>
+    
+
+    <view class="diaryType clear" wx:if="{{tab ==3}}">
+      <picker
+          mode="multiSelector"
+          bindchange="bindRegionChange"
+          value="{{multiIndex}}"
+          range="{{multiArray}}"
+          bindcolumnchange="bindMultiPickerColumnChange"
+        >
+          <view class="picker clear">
+            <view class="left chooseAdress">选择地区：</view>
+            <view class="left selectSty">{{region[0]}}，{{region[1]}}</view>
+          </view>
+      </picker>
+    </view>
+    <view class="diaryType clear" wx:if="{{tab ==4}}">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{departText}}">
+        <view class="picker clear">
+          <view class="left chooseAdress">当前部门：</view>
+          <view class="left selectSty">{{departText[index]}}</view>
+        </view>
+      </picker>
+    </view>
+    <view class="table" wx:if="{{tab == 1}}">
+      <view class="tr bg-w clear">
+        <view class="th left" wx:for="{{signInTitle}}">{{item}}</view>
+      </view>
+      <block wx:for="{{infoList}}" wx:key="{{index}}">
+        <view class="tr bg-g clear" wx:if="{{index % 2 != 0}}">
+          <view class="td">{{item.QdTime}}</view>
+          <view class="td">{{item.Xm}}</view>
+          <view class="td">{{item.visitPurpse}}</view>
+          <view class="td">{{item.QDClass}}</view>
+          <view class="td">{{item.bz}}</view>
+        </view>
+        <view class="tr" wx:else>
+          <view class="td">{{item.QdTime}}</view>
+          <view class="td">{{item.Xm}}</view>
+          <view class="td">{{item.visitPurpse}}</view>
+          <view class="td">{{item.QDClass}}</view>
+          <view class="td">{{item.bz}}</view>
+        </view>
+      </block>
+    </view>
+
+
+    <view class="table" wx:if="{{tab == 2}}">
+      <view class="tabTwotr bg-w clear">
+        <view class="tabTwoth left" wx:for="{{signInTitle}}">{{item}}</view>
+      </view>
+      <scroll-view
+        scroll-y="true"
+        scroll-X="true"
+        bindscrolltolower="addMore"
+        lower-threshold="200"
+        class="scrollView"
+       
+      >
+        <block wx:for="{{infoList}}" wx:key="{{index}}">
+          <view class="tabTwotr bg-g clear" wx:if="{{index % 2 != 0}}">
+            <view class="tabTwotd">{{item.Xm}}</view>
+            <view class="tabTwotd">{{item.Rdate}}</view>
+            <view class="tabTwotd">{{item.FinishWork}}</view>
+            <view class="tabTwotd" wx:if="{{flag==1}}">{{item.NoFinishWork}}</view>
+            <view class="tabTwotd" wx:if="{{flag==2}}">{{item.PlanNextWeek}}</view>
+            <view class="tabTwotd" wx:if="{{flag==3}}">{{item.followUpWork}}</view>
+            <view wx:if="{{flag==1 || flag==2}}" class="tabTwotd">{{item.followUpWork}}</view>
+            <view  wx:if="{{flag==3}}" class="tabTwotd">{{item.questionDept}}</view>
+            <view class="tabTwotd">{{item.subTotal}}</view>
+          </view>
+          <view class="tabTwotr" wx:else>
+            <view class="tabTwotd">{{item.Xm}}</view>
+            <view class="tabTwotd">{{item.Rdate}}</view>
+            <view class="tabTwotd">{{item.FinishWork}}</view>
+            <view class="tabTwotd" wx:if="{{flag==1}}">{{item.NoFinishWork}}</view>
+            <view class="tabTwotd" wx:if="{{flag==2}}">{{item.PlanNextWeek}}</view>
+            <view class="tabTwotd" wx:if="{{flag==3}}">{{item.followUpWork}}</view>
+            <view wx:if="{{flag==1 || flag==2}}" class="tabTwotd">{{item.followUpWork}}</view>
+            <view  wx:if="{{flag==3}}" class="tabTwotd">{{item.questionDept}}</view>
+            <view class="tabTwotd">{{item.subTotal}}</view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+
+    <view class="table" wx:if="{{tab == 3}}">
+      <view class="tr bg-w clear">
+        <view class="threethOne left">区域</view>
+        <view class="threethTwo left">学校</view>
+        <view class="threethOne left">签到次数</view>
+      </view>
+      <view class="scrollX">
+        <scroll-view
+        scroll-y="true"
+        scroll-X="false"
+        bindscrolltolower="addMore"
+        lower-threshold="200"
+        style="height: 1000rpx; width:1000rpx"
+      >
+        <block wx:for="{{infoList}}" wx:key="{{index}}">
+          <view class="tr bg-g clear" wx:if="{{index % 2 != 0}}">
+            <view class="td threethOne">{{item.City}}</view>
+            <view class="td threethTwo">{{item.SchoolName}}</view>
+            <view class="td threethOne">{{item.QdNum}}</view>
+          </view>
+          <view class="tr" wx:else>
+            <view class="td threethOne">{{item.City}}</view>
+            <view class="td threethTwo">{{item.SchoolName}}</view>
+            <view class="td threethOne">{{item.QdNum}}</view>
+          </view>
+        </block>
+       </scroll-view>
+      </view>
+      
+    </view>
+
+
+    <view class="table" wx:if="{{tab == 4}}">
+      <view class="tr bg-w clear">
+        <view class="tabFourth left" wx:for="{{signInTitle}}">{{item}}</view>
+      </view>
+       <scroll-view
+        scroll-y="true"
+        scroll-X="true"
+        bindscrolltolower="addMore"
+        lower-threshold="200"
+        style="height: 1000rpx; width:1000rpx"
+       
+      >
+        <block wx:for="{{infoList}}" wx:key="{{index}}">
+          <view class="tr bg-g clear" wx:if="{{index % 2 != 0}}">
+            <view class="td fourTd">{{item.BmName}}</view>
+            <view class="td fourTd">{{item.Xm}}</view>
+            <view class="td fourTd">{{item.QdNum}}</view>
+            <view class="td fourTd">{{item.RbNum}}</view>
+            <view class="td fourTd">{{item.ZbNum}}</view>
+          </view>
+          <view class="tr" wx:else>
+            <view class="td fourTd">{{item.BmName}}</view>
+            <view class="td fourTd">{{item.Xm}}</view>
+            <view class="td fourTd">{{item.QdNum}}</view>
+            <view class="td fourTd">{{item.RbNum}}</view>
+            <view class="td fourTd">{{item.ZbNum}}</view>
+          </view>
+        </block>
+       </scroll-view>
+    </view>
+  </view>

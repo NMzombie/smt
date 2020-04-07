@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "商机",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "select": "../../components/select/select"
+  }
+}

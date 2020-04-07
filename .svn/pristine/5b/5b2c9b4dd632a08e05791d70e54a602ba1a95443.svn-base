@@ -1,0 +1,244 @@
+<!--pages/orderForm/orderFormAdd/orderFormAdd.wxml-->
+<view class="add-orderForm-wrapper">
+  <form bindsubmit="formSubmit">
+    <!-- <view class="section">
+      <text class="title">学校编号:</text>
+      <input class="school-number" placeholder="请输入" value="{{School}}" data-value="School" bindinput="bindInput" />
+      <button size="mini" class="find-btn" bindtap="verifySchool">查询</button>
+    </view> -->
+    <view class="section">
+      <text class="title">所属学校:</text>
+      <view class="select-box" data-url="schoolList" bindtap="goToUrl">
+        <text>{{SchoolName}}</text>
+        <view class="iconfont icon-zhankai"></view>
+      </view>
+    </view>
+    <!-- <view class="section" hidden='{{SchoolName == ""}}'>
+      <text class="title">学校名称:</text>
+      <text>{{SchoolName}}</text>
+    </view> -->
+    <view class="section">
+      <text class="title">商机:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="SJList" bindchange="bindPickerChange" range-key="{{'name'}}" value="{{keyInfo.key1}}" range="{{SJList}}">
+          <view class="picker">
+            {{SJList[keyInfo.key1].name ? SJList[keyInfo.key1].name : '请选择'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">合同:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="HTList" bindchange="bindPickerChange" range-key="{{'name'}}" value="{{keyInfo.key2}}" range="{{HTList}}">
+          <view class="picker">
+            {{HTList[keyInfo.key2].name ? HTList[keyInfo.key2].name : '请选择'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section marginTop">
+      <text class="title"><text class='colorR'>*</text> 订单编号:</text>
+      <input disabled="true" value='{{DDBH}}' />
+    </view>
+    <view class="section">
+      <text class="title"><text class='colorR'>*</text> 项目名称:</text>
+      <input value='{{DDName}}'bindinput="bindInput" data-value="DDName"  />
+    </view>
+    <view class="section">
+      <text class="title">结算方式:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="BalanceWayEnum" bindchange="bindPickerChange" range-key="{{'Des'}}" value="{{keyInfo.key1}}" range="{{BalanceWayEnum}}">
+          <view class="picker">
+            {{BalanceWayEnum[keyInfo.key3].Des ? BalanceWayEnum[keyInfo.key3].Des : '请选择'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section marginTop">
+      <text class="title"><text class='colorR'>*</text> 甲方:</text>
+      <input bindinput="bindInput" data-value="PartyA" value='{{PartyA}}' />
+    </view>
+    <!-- <view class="section">
+      <text class="title"><text class='colorR'>*</text> 乙方:</text>
+      <input bindinput="bindInput" data-value="PartyB" value='{{PartyB}}' />
+    </view> -->
+    <view class="section marginTop">
+      <text class="title width240">客户联系方式:</text>
+      <input bindinput="bindInput" data-value="LinkWay" value='{{LinkWay}}' />
+    </view>
+    <view class="section">
+      <text class="title">客户地区:</text>
+      <input bindinput="bindInput" data-value="Area" value='{{Area}}' />
+    </view>
+    <view class="section marginTop">
+      <text class="title">需求时间:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker mode="date" value="{{NeedsTime}}" data-key="NeedsTime" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+          <view class="picker">
+            {{NeedsTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title"><text class='colorR'>*</text> 签订时间:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker mode="date" value="{{SignTime}}" data-key="SignTime"  start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+          <view class="picker">
+            {{SignTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title"><text class='colorR'>*</text> 计费时间:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker mode="date" value="{{StartFeeDate}}" data-key="StartFeeDate"   start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+          <view class="picker">
+            {{StartFeeDate}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section marginTop">
+      <text class="title"><text class='colorR'>*</text> 投入回收期:</text>
+      <input type="number" bindinput="bindInput" data-value="GetBackPayPeriod" value='{{GetBackPayPeriod}}' />个月
+    </view>
+    <view class="section">
+      <text class="title">投入总成本:</text>
+      <input type="number" bindinput="bindInput" data-value="FBAmount" value='{{FBAmount}}' />元
+    </view>
+    <view class="section">
+      <text class="title"><text class='colorR'>*</text> 结算金额:</text>
+      <input type="number" bindinput="bindInput" data-value="RBAmount" value='{{RBAmount}}' />元
+    </view>
+    <view class="section marginTop">
+      <text class="title">产品 :</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+            {{multiArray[0][multiIndex[0]]}}  {{multiArray[1][multiIndex[1]]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <block wx:for-items="{{AddPList}}" wx:key="{{item.Id}}" >
+      <view class="section">
+        <text class="title"><text class='colorR'>*</text>产品名称:</text>
+        <input disabled="true" value='{{item.PName}}' />
+      </view>
+      <view class="section">
+        <text class="title"><text class='colorR'>*</text>单价:</text>
+        <input type="number" class='colorY' bindinput="bindProduct" data-value="PPrice" data-key="{{index}}" value='{{item.PPrice}}' />
+        <text>元/{{item.PUnit}}</text>
+      </view>
+      <view class="section">
+        <text class="title"><text class='colorR'>*</text>数量:</text>
+        <input type="number" bindinput="bindProduct" data-value="Pnum" data-key="{{index}}" value='{{item.Pnum}}' />
+      </view>
+      <view class="section">
+        <text class="title"><text class='colorR'>*</text> 金额:</text>
+        <input type="number" class='colorY' bindinput="bindProduct" data-value="Payment" data-key="{{index}}" value='{{item.Payment}}' />
+        <text>元</text>
+      </view>
+      <view class="section">
+        <text class="title"><text class='colorR'>*</text> 质保期:</text>
+        <input type="number" bindinput="bindProduct" data-value="GuaPeriod" data-key="{{index}}" value='{{item.GuaPeriod}}' />
+        <text>月</text>
+      </view>
+      <view class="section">
+        <text class="title"><text class='colorR'>*</text> 结算方式:</text>
+        <view class="select-box">
+          <view class="iconfont icon-zhankai"></view>
+          <picker data-key="{{index}}" bindchange="bindProductChange" range-key="{{'Des'}}" value="{{item.key}}" range="{{BalanceWayEnum}}">
+            <view class="picker">
+              {{BalanceWayEnum[item.key].Des ? BalanceWayEnum[item.key].Des : '请选择'}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="section">
+        <text class="title">备注:</text>
+        <input bindinput="bindProduct" data-value="Bz" data-key="{{index}}" maxlength="{{-1}}" value='{{item.Bz}}' />
+      </view>
+      <view class="btn-box">
+        <text data-key="{{index}}" bindtap="delProduct">删除</text>
+      </view>
+    </block>
+    <view class="section marginTop">
+      <text class="title">收货地址:</text>
+      <input bindinput="bindInput" data-value="ReceiveAddress" value='{{ReceiveAddress}}' />
+    </view>
+    <view class="section">
+      <text class="title">收货人电话:</text>
+      <input bindinput="bindInput" data-value="ReceiveTel" value='{{ReceiveTel}}' />
+    </view>
+    <view class="section">
+      <text class="title">收货人:</text>
+      <input bindinput="bindInput" data-value="ReceiveMan" value='{{ReceiveMan}}' />
+    </view>
+    <view class="section marginTop">
+      <text class="title">审批流程 :</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="SpLcList" bindchange="bindPickerChange" range-key="{{'LcName'}}" value="{{keyInfo.key4}}" range="{{SpLcList}}">
+          <view class="picker">
+            {{SpLcList[keyInfo.key4].LcName ? SpLcList[keyInfo.key4].LcName : '请选择'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title width240">部门主管审批人 :</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="SprUserList" bindchange="bindPickerChange" range-key="{{'name'}}" value="{{keyInfo.key5}}" range="{{SprUserList}}">
+          <view class="picker">
+            {{SprUserList[keyInfo.key5].name ? SprUserList[keyInfo.key5].name : '请选择'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <!-- <view class="section marginTop">
+      <text class="title">登记方式:</text>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio">
+          <radio value="{{1}}" checked="{{ifAgent == 1 ? true : false}}"/>本人登记
+        </label>
+        <label class="radio">
+          <radio value="{{2}}" checked="{{ifAgent == 2 ? true : false}}" />代理登记
+        </label>
+      </radio-group>
+    </view> -->
+    <!-- <view class="section" hidden='{{ifAgent == 1}}'>
+      <text class="title">所 属 人 :</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="InputManList" bindchange="bindPickerChange" range-key="{{'name'}}" value="{{keyInfo.key6}}" range="{{InputManList}}">
+          <view class="picker">
+            {{InputManList[keyInfo.key6].name ? InputManList[keyInfo.key6].name : '请选择'}}
+          </view>
+        </picker>
+      </view>
+    </view> -->
+    <view class="section-textarea marginTop">
+      <text class="title">申请说明:</text>
+      <textarea class='textarea' placeholder="请输入" value="{{AskforBz}}" maxlength="{{-1}}" data-value="AskforBz" bindinput="bindInput" />
+    </view>
+    <view class="section-textarea">
+      <text class="title">备注:</text>
+      <textarea class='textarea' placeholder="请输入" value="{{Bz}}" maxlength="{{-1}}" data-value="Bz" bindinput="bindInput" />
+    </view>
+    <view class="btn-area">
+      <button form-type="submit">提交订单</button>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "infoItem": "/pages/components/infoItem/infoItem"
+  },
+  "navigationBarTitleText": "签到"
+}

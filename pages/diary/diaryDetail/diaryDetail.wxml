@@ -1,0 +1,65 @@
+<view class="detail">
+  <view class="detailList clear">
+    <image class="left headImg" src="/image/fbtn3on.png"></image>
+    <text class="name left">{{diaryDetail.Xm}}</text>
+    <text class="inputtime right">{{Rdate}}</text>
+  </view>
+
+  <view class="detailList">
+    <text wx:if="{{flag == 1}}" class="inline inlineTitle">今日完成的工作：</text>
+    <text wx:if="{{flag == 2}}" class="inline inlineTitle">本周完成的工作：</text>
+    <text wx:if="{{flag == 3}}" class="inline inlineTitle">本月完成的工作：</text>
+    <text class="inline inlineContent">{{diaryDetail.FinishWork}}</text>
+  </view>
+
+  <view class="detailList">
+    <text wx:if="{{flag == 1}}" class="inline inlineTitle">未完成的工作：</text>
+    <text wx:if="{{flag == 2}}" class="inline inlineTitle">下周计划的工作：</text>
+    <text wx:if="{{flag == 3}}" class="inline inlineTitle">本月工作问题：</text>
+    <text wx:if="{{flag == 1}}" class="inline inlineContent">{{diaryDetail.NoFinishWork}}</text>
+    <text wx:if="{{flag == 2}}" class="inline inlineContent">{{diaryDetail.PlanNextWeek}}</text>
+    <text wx:if="{{flag == 3}}" class="inline inlineContent">{{diaryDetail.followUpWork}}</text>
+  </view>
+  <view class="detailList">
+    <text wx:if="{{flag == 1 || flag == 2}}" class="inline inlineTitle">工作难点：</text>
+    <text wx:if="{{flag==3}}" class="inline inlineTitle">需要部门协作问题：</text>
+    <text  wx:if="{{flag == 1 || flag == 2}}" class="inline inlineContent">{{diaryDetail.followUpWork}}</text>
+    <text  wx:if="{{flag==3}}" class="inline inlineContent">{{diaryDetail.questionDept}}</text>
+  </view>
+  <view class="detailList">
+    <text class="inline inlineTitle">小结：</text>
+    <text class="inline inlineContent">{{diaryDetail.subTotal}}</text>
+  </view>
+
+  <view class="blodline"></view>
+
+  <view class="replyWarp">
+    <view class="readState">已读：<block class="readitem" wx:for="{{diaryDetail.IfReads}}" wx:if="{{item.ifRead == 1}}" >
+      {{item.Readman}}
+    </block></view>
+    
+    <view class="readState flex">未读：<block class="readitem" wx:for="{{diaryDetail.IfReads}}" wx:if="{{item.ifRead == 0}}" >
+      {{item.Readman}}
+    </block></view>
+    <view class="detailList">
+      <image class="huihuaIcon" src="/image/fbtn1.png"></image>
+      <text class="dataNum">共{{diaryDetail.Replays.length}}条数据</text>
+    </view>
+    <view class="detailList clear" wx:for="{{diaryDetail.Replays}}" wx:key="{{index}}">
+      <view class="clear">
+        <image class="left headImg" src="{{item.ReplayheadPic}}"></image>
+        <text class="nameReplay left">{{item.Replayman}}</text>
+        <text class="inputtime right">{{item.Replytime}}</text>
+      </view>
+      
+      <view class="replyContent">
+        {{item.ReplyContent}}
+      </view>
+    </view>
+  </view>
+  
+  <view class="writePl clear">
+    <input class="writeInput left" bindinput="bindinput" placeholder="回复" value="{{replayVal}}"/>
+    <text class="replayText left" catchtap='replay'>回复</text>
+  </view>
+</view>

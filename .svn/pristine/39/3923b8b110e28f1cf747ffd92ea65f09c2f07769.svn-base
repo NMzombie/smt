@@ -1,0 +1,35 @@
+/* pages/orderForm/orderFormDetail/orderFormDetail.wxss */
+
+.add-sj-wrapper {
+  height: 100%;
+  padding: 0 30rpx;
+  font-size: 30rpx;
+}
+.section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.title {
+  width: 180rpx;
+}
+.select-box {
+  flex: 1;
+  position: relative;
+  padding: 15rpx;
+  border: 1px solid #efefef;
+}
+.triangle_border_down {
+  position: absolute;
+  right: 10rpx;
+  top: 28rpx;
+  width:0;
+  height:0;
+  border-width:10rpx 10rpx 0;
+  border-style:solid;
+  border-color:#333 transparent transparent;
+}
+.section-textarea {
+  display: flex;
+  margin-bottom: 30rpx;
+}

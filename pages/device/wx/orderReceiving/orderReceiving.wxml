@@ -1,0 +1,63 @@
+<view class="main">
+  
+  <view class="section">
+    <text class="title">报修单号:</text>
+    <text>{{deviceDetail.RepairsCode}}</text>
+  </view>
+  <view class="section">
+    <text class="title">所属学校:</text>
+    <text>{{deviceDetail.SchoolName}}</text>
+  </view>
+    <view class="section">
+    <text class="title">设备状态:</text>
+    <text>{{deviceDetail.EquipmentStateStr}}</text>
+  </view>
+  <view class="section">
+    <text class="title">设备类型:</text>
+    <text>{{deviceDetail.TypeName}}</text>
+  </view>
+  <view class="section">
+    <text class="title">在线状态:</text>
+    <text>{{deviceDetail.isjkStr}}</text>
+  </view>
+  
+  <view class="section">
+    <text class="title">安装位置:</text>
+    <text>{{deviceDetail.azPlace}}</text>
+  </view>
+  <view class="section">
+    <text class="title">接单状态:</text>
+    <text>{{deviceDetail.TakeOrderState}}</text>
+  </view>
+ 
+  <view class="section">
+    <text class="title">报修人:</text>
+    <text>{{deviceDetail.UserName}}</text>
+  </view>
+
+  <view class="remarkWarp clear">
+    <text class="title left">报修备注:</text>
+    <text class="bzStyle left">{{deviceDetail.Remark}}</text>
+  </view>
+
+  <view class="clear imgwarp">
+    <image class="left imgItem" wx:if="{{item != ''}}" catchtap="previewImg" data-url="{{item}}" wx:for="{{imgList}}" wx:key="index" src="{{item}}"></image>
+  </view>
+
+
+  <view class="blodline top"></view>
+  <view class="section top clear" hidden="{{showTime}}">
+    <text class="left tr">预计维修日期：</text>
+    <picker class="picker left" mode="date" value="{{date}}" start="2019-09-01" end="2050-09-01" bindchange="bindDateChange">
+      {{date}}
+    </picker>
+  </view>
+  
+  <view class="section top clear">
+    <text class="left tr">维修人：</text>
+    <picker class="left picker" bindchange="bindPickerChange" value="{{bxIndex}}" range-key="{{'Name'}}" range="{{bxManArr}}">
+      {{bxManArr[bxIndex].Name}}
+    </picker>
+  </view>
+  <view class="submit" catchtap="EquipmentTakeOrders">提交</view>
+</view>

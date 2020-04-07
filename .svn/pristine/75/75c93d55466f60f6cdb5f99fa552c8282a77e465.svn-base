@@ -1,0 +1,243 @@
+
+.table {
+  border: 0px solid darkgray;
+  overflow-x: scroll;
+}
+.tr {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1000rpx;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 120rpx;
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.scrollX{
+  width: 1000rpx;
+  overflow-x: scroll;
+}
+.td {
+    width:200rpx;
+    -webkit-box-pack: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 30rpx;
+}
+.bg-w{
+  background: #C8C7CC;
+}
+.bg-g{
+  background: #eee;
+}
+.th {
+  width: 200rpx;
+  -webkit-box-pack: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  background: #eee;
+  color: #333;
+  display: flex;
+  height: 120rpx;
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.timeWarp{
+  width: 600rpx;
+  height: 100rpx;
+  background-color: #fff;
+  margin:10rpx auto;
+}
+
+.todayIcon{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top:10rpx;
+  }
+.timeStyle{
+  background-color: #F7F7F7;
+  width: 220rpx;
+  height: 70rpx;
+  text-align: left;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  position: relative;
+}
+
+.timeStyle:before{
+		content:"";
+		position:absolute;
+		top:30rpx;
+		right:6rpx;
+		border-top:14rpx solid #C8C7CC;
+		border-left:14rpx solid transparent;
+    border-right:14rpx solid transparent;
+	}
+
+.toText{
+  color:#000;
+  font-weight: 400;
+  font-size: 35rpx;
+  line-height:70rpx;
+  margin:0 20rpx;
+}
+
+.startTime{
+  margin-left: 30rpx;
+}
+
+.tabTwoth{
+  width: 300rpx;
+  -webkit-box-pack: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  background: #eee;
+  color: #333;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 120rpx;
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.tabTwotr{
+  width: 1820rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.tabTwotd{
+  width:300rpx;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 30rpx;
+  padding:10rpx;
+}
+
+.diaryType{
+  width: 490rpx;
+  margin:10rpx auto;
+}
+
+.tabCom{
+  float: left;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color:#333;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  
+  background-color: #F7F7F7;
+}
+.marginTab{
+  margin:0 20rpx;
+}
+.check{
+  background-color: #4787F1;
+  color:#fff;
+}
+
+.scrollView{
+  height:1000rpx;
+  width:1820rpx;
+}
+
+.threethTwo{
+  width: 600rpx;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.threethOne{
+  width: 190rpx;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 30rpx;
+}
+.picker{
+  font-size: 30rpx;
+  color:#333;
+}
+
+.fourTd{
+  width: 300rpx;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.tabFourth{
+  width: 1530rpx;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.selectSty{
+  width: 300rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  border:1rpx solid #C8C7CC;
+  padding-left: 20rpx;
+  position: relative;
+}
+.selectSty:before{
+ 	content:"";
+  position:absolute;
+  top:20rpx;
+  right:6rpx;
+  border-top:14rpx solid #C8C7CC;
+  border-left:14rpx solid transparent;
+  border-right:14rpx solid transparent;
+}
+
+.chooseAdress{
+  height: 50rpx;
+  line-height: 50rpx;
+}

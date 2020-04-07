@@ -1,0 +1,36 @@
+.addpicmain{
+  position: relative;
+  margin-top:20rpx;
+  margin-bottom: 200rpx;
+}
+.addpic{
+  width: 126rpx;
+  height: 126rpx;
+  margin-right:20rpx;
+  margin-bottom:10rpx;
+  margin-left:18rpx;
+}
+
+.delepic{
+  position: absolute;
+  width: 35rpx;
+  height: 35rpx;
+  left:105rpx;
+  top:10rpx;
+}
+.picBorder{
+  border-radius: 20rpx;
+  border:2rpx solid #a6d2ff;
+}
+.left{
+  float: left;
+}
+.clear {
+  zoom: 1;
+}
+.clear:after {
+  content: "\20";
+  display: block;
+  height: 0;
+  clear: both;
+}

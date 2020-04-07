@@ -1,0 +1,53 @@
+<!--pages/orderForm/orderFormHome/orderFormHome.wxml-->
+<view class="sj-wrapper" bindtap="closeSelect">
+  <view class="tab-box">
+    <text class="{{type == 0 ? 'active' : ''}}" data-type="0" catchtap="switchTab">我的订单</text>
+    <text class="{{type == 1 ? 'active' : ''}}" data-type="1" catchtap="switchTab">团队订单</text>
+  </view>
+  <view class="search-bar clear">
+    <view class="search-bar__form left {{inputShowed ? 'search-bar-width__form' : ''}}">
+      <label class="search-bar__label" wx:if="{{!inputShowed}}" catchtap="showInput">
+        <icon class="icon-search" type="search" size="14"></icon>
+        <view class="search-bar__text">搜索</view>
+      </label>
+      <view class='search-bar__box'>
+        <icon class="icon-search_in-box" type="search" size="14"></icon>
+        <input type="text " class="search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" confirm-type="search" bindconfirm='toSearch' />
+        <view class="icon-clear" wx:if="{{inputVal.length > 0}}" catchtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+    </view>
+    <view class="search-bar__cancel-btn right" hidden="{{!inputShowed}}" catchtap="hideInput">取消</view>
+  </view>
+  <view class="other-conditions">
+    <!-- 以下是对一个自定义组件的引用 -->
+    <view class="flex-box">
+      <text class="sales-stage-text">销售阶段:</text>
+      <view class='select-box'><select id="select" key="-1" list="{{salesStage}}" bind:getSelectedKey="getSelectedKey"></select></view>
+    </view>
+  </view>
+  <view class="list-box" wx:if="{{list.length > 0}}">
+    <view class="item" wx:for-items="{{list}}" wx:key="*this" bindtap="toDetailsTap" data-id="{{item.id}}">
+      <view class="item-top clear">
+        <text class="name left">{{item.scoolName}}</text>
+        <text class="time right">{{item.followTime}}</text>
+      </view>
+      <view class="item-content">
+        <view>联系情况: {{item.contact}}</view>
+        <view class="item-marginTop">销售阶段: {{item.salesStage}}</view>
+        <view class="item-marginTop">成单: {{item.orderForm}}</view>
+      </view>
+      <view class="item-bottom">
+        <text class="edit-btn btn" catchtap="editSj" data-id="{{item.id}}">修改</text>
+        <text class="del-btn btn" catchtap="delSj">删除</text>
+      </view>
+    </view>
+  </view>
+  <view class="list-empty-box" wx:if="{{list.length == 0}}">您还没有新建订单哟！</view>
+  <!-- 新建订单 -->
+  <view class="add-btn-box" catchtap="toAddSj">
+    <view class="iconfont icon-add"></view>
+  </view>    
+</view>
+

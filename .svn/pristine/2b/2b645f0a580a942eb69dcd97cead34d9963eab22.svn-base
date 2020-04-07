@@ -1,0 +1,181 @@
+/* pages/sj/sjHome/sjHome.wxss */
+
+page{
+  background: #efeff4;
+}
+.sj-wrapper {
+  height: 100%;
+  padding: 0;
+}
+.tab-box {
+  display: flex;
+  height: 80rpx;
+  background: #FFFFFF;
+}
+.tab-box text {
+  flex: 1;
+  height: 100%;
+  line-height: 80rpx;
+  text-align: center;
+  cursor: pointer;
+}
+.tab-box text.active {
+  color: #4787F1;
+  border-bottom: 4rpx solid #4787F1; 
+}
+.search-bar {
+  width: 100%;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  background-color:#efeff4;
+}
+.search-bar__form {
+  position: relative;
+  width: 100%;
+  height: 60rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  border:2rpx solid #e6e6ea;
+}
+.search-bar-width__form {
+  width: 85%;
+}
+.search-bar__label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: #9b9b9b;
+  background: #fff;
+}
+.search-bar__text {
+  display: inline-block;
+  margin-left: 16rpx;
+  font-size: 28rpx;
+}
+.search-bar__box {
+  position:relative;
+  padding-left:30px;
+  padding-right:30px;
+  display: flex;
+  align-items: center;
+  width:100%;
+  height:60rpx;
+  box-sizing:border-box;
+  z-index:1;
+}
+.icon-search_in-box {
+  position: absolute;
+  left: 20rpx;
+  top: 15rpx;
+}
+.search-bar__input {
+  flex: 1;
+  font-size: 28rpx;
+}
+.icon-clear {
+  position: absolute;
+  right: 0;
+  top:0;
+  padding: 14rpx 16rpx;
+  font-size: 0;
+}
+.search-bar__cancel-btn {
+  line-height: 60rpx;
+  margin-left: 20rpx;
+  color: #09bb07;
+  white-space: nowrap;
+}
+.other-conditions {
+  width: 100%;
+  padding: 15rpx 0;
+  background: #FFFFFF;
+}
+.flex-box {
+  display: flex;
+  padding: 0 10px;
+}
+.sales-stage-text {
+  margin-top: 25rpx;
+}
+.select-box {
+  flex: 1;
+  margin: 10rpx 0 0 10rpx;
+}
+.list-empty-box {
+  text-align: center;
+  color: #cccccc;
+  font-size: 30rpx;
+  height: 400rpx;
+  line-height: 400rpx;
+}
+.list-box {
+  width: 100%;
+  margin-top: 10rpx;
+}
+.item {
+  padding: 8px 10px;
+  margin-bottom: 10rpx;
+  background: #FFFFFF;
+  /* border-bottom: 1px solid #d7d6dc; */
+}
+.item-top {
+  margin-bottom: 20rpx;
+}
+.name {
+  font-size: 17px;
+}
+.time {
+  color: #999;
+  font-size: 13px;
+}
+.item-content {
+  color: #333;
+  font-size: 15px;
+}
+.item-marginTop {
+  margin-top: 10rpx;
+}
+.item-bottom {
+  margin-top: 15rpx;
+  font-size: 13px;
+  text-align: right
+}
+.btn {
+  padding: 20rpx;
+  cursor: pointer;
+}
+.followUp-btn {
+  color: green;
+}
+.edit-btn {
+  color: blue;
+}
+.del-btn {
+  color: red;
+}
+
+/* 添加商机按钮 */
+.add-btn-box {
+  position: absolute;
+  bottom: 100rpx;
+  right: 40rpx;
+  padding: 20rpx;
+  background: #4787F1;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 80rpx;
+  text-align: center;
+  cursor: pointer;
+}
+.icon-add {
+  color: #fff;
+  font-size: 40rpx;
+}

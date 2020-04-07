@@ -1,0 +1,89 @@
+<view class="clockWarp">
+  <view class="list clear">
+    <view class="listIcon left"><image class="iconImg" src="/image/boxbg1.png"></image></view>
+    <view class="listName left">时间</view>
+    <view class="listValue left">{{currentTime}}</view>
+  </view>
+
+  <view class="list noBorder clear">
+    <view class="listIcon left"><image class="iconImg" src="/image/boxbg2.png"></image></view>
+    <view class="listName left">地址</view>
+    <view class="listValue left">{{address}}</view>
+  </view>
+  
+  <view class="blodline"></view>
+   
+  <view catchtap='getList' data-type="1" class="list needAfter clear">
+    <view class="listIcon left"><image class="iconImg" src="/image/boxbg3.png"></image></view>
+    <view class="listName left">学校</view>
+    <view class="listValue left">{{schoolInfo.Schoolname}}</view>
+  </view>
+
+  <view wx:if="{{!chooseLinkman}}" class="list needAfter clear">
+    <view class="listIcon left"><image class="iconImg" src="/image/boxbg3.png"></image></view>
+    <view class="listName left">输入学校</view>
+    <input bindinput="bindKeySchool" value="{{schoolInfo.Schoolname}}" class="writeLinkman" placeholder="请输入学校名称"/>
+  </view>
+  
+
+  
+
+  <view catchtap='getList' data-type="2" class="list needAfter clear">
+    <view class="listIcon left"><image class="iconImg" src="/image/boxbg4.png"></image></view>
+    <view class="listName left">拜访目的</view>
+    <view class="listValue left">{{purposeInfo.Purpuse}}</view>
+  </view>
+
+
+  <view catchtap='{{ chooseLinkman ? "renderLinkMan" : ""}}' class="list  needAfter clear">
+    <view class="listIcon left"><image class="iconImg" src="/image/boxbg5.png"></image></view>
+    <view class="listName left">联系人</view>
+    <input wx:if="{{!chooseLinkman}}" bindinput="bindKeyInput" value="{{linkManInfo}}" class="writeLinkman" placeholder="请输入联系人" />
+    <view wx:else class="listValue left">{{linkManInfo}}</view>
+  </view>
+
+
+  <view class="list noBorder needAfter clear" catchtap='renderType'>
+    <view class="listIcon left"><image class="iconImg" src="/image/boxbg6.png"></image></view>
+    <view class="listName left">维护分类</view>
+    <view class="listValue left">{{typeInfoText}}</view>
+  </view>
+  
+  <view class="blodline"></view>
+
+  <textarea class="beizhu noBorder" maxlength='-1' bindinput="getTextarea" value="{{textareaVal}}" placeholder="请填写备注内容" />
+  <view class="blodline"></view>
+
+  <view class="list needAfter clear">
+    <view class="listIcon left"><image class="iconImg" src="/image/boxbg1.png"></image></view>
+    <view class="listName left">下次拜访时间</view>
+    <picker mode="date" value="{{nextTime}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+      <view class="picker">
+        <view class="timeStyle listValue left">{{nextTime}}</view>
+      </view>
+    </picker>
+    <!-- <view class="listValue left">{{nextTime}}</view> -->
+  </view>
+  
+  <textarea maxlength='-1' class="beizhu noBorder" bindinput="getNextPurpose" value="{{nextPurpose}}" placeholder="请填写下次拜访内容" />
+
+
+
+  <!-- 添加图片 -->
+  <view class="warp clear addpicWarp" >
+    <block wx:for="{{picUrl}}" wx:key="{{index}}">
+      <view class="addpicmain left">
+        <image src="{{item.val == '' ? '/image/addpic.png' : src+item.val}}" class="addpic {{item.showdele ? 'picBorder' : ''}}" data-index="{{index}}" wx:key="index" bindtap="addpic" wx:if="{{item.isshow}}" mode="aspectFill"></image>
+        <image src="/image/delete.png" class="delepic" bindtap="deletePic" mode="aspectFill" data-index="{{index}}" wx:if="{{item.showdele}}"></image>   
+      </view>
+    </block>
+  </view>
+
+
+
+ 
+  <!-- <view class="history">历史记录</view> -->
+  <form bindsubmit="{{submitButton ? 'finish' : ''}}" report-submit="true">
+      <button class="finish" form-type="submit">完成</button>
+    </form>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "学校列表",
+  "enablePullDownRefresh": false,
+  "usingComponents": {},
+  "component": true
+}

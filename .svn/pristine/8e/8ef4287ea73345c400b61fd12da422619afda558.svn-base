@@ -1,0 +1,47 @@
+<!--pages/sj/addSj/addSj.wxml-->
+<view class="add-sj-wrapper">
+  <view class="section">
+    <text class="title">商机编号:</text>
+    <input disabled value='101010' />
+  </view>
+  <view class="section">
+    <text class="title">商机分类:</text>
+    <text>其他</text>
+  </view>
+  <view class="section">
+    <text class="title">商机名称:</text>
+    <input disabled value='hahw' />
+  </view>
+  <view class="section">
+    <text class="title">所属学校:</text>
+    <input disabled value="学校名称" />
+  </view>
+  <view class="section">
+    <text class="title">销售阶段:</text>
+    <text>初次拜访</text>
+  </view>
+  <view class="section">
+    <text class="title">联系情况:</text>
+    <text>查资料电话</text>
+  </view>
+  <view class="section">
+    <text class="title">预测时间:</text>
+    <text>2020/5/26</text>
+  </view>
+  <view class="section">
+    <text class="title">预测金额:</text>
+      <input disabled value="20000" />元
+  </view>
+  <view class="section">
+    <text class="title">所属人:</text>
+    <text>程程</text>
+  </view>
+  <view class="section">
+    <text class="title">是否成单:</text>
+    <text>待成单</text>
+  </view>
+  <view class="section-textarea">
+    <text class="title">备注:</text>
+    <textarea disabled value="我是备注内容" />
+  </view>
+</view>

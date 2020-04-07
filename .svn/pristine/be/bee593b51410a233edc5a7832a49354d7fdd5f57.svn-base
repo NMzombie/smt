@@ -1,0 +1,102 @@
+.inputtime{
+  font-size: 25rpx;
+  color:#C8C7CC;
+}
+.rDate{
+  color:#C8C7CC;
+}
+
+.dayText{
+  font-size:20rpx;
+  padding:2rpx 10rpx;
+  background-color: #4CDA64;
+  color:#fff;
+  margin-left:10rpx;
+}
+
+.inline{
+  display: block;
+  font-size: 30rpx;
+}
+
+.inlineTitle{
+  color:#818FAA;
+}
+.inlineContent{
+  color:#666;
+  margin-bottom:30rpx;
+  margin-top:10rpx;
+}
+
+.detailList{
+  margin-bottom:10rpx;
+  border-bottom: 1rpx solid #E3E3E3;
+  margin:30rpx;
+}
+
+.headImg{
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom:10rpx;
+}
+
+.huihuaIcon{
+  width: 40rpx;
+  height: 30rpx;
+  margin-top:40rpx;
+}
+.name{
+  line-height: 50rpx;
+  margin-left:10rpx;
+}
+
+.dataNum{
+  color:#C8C7CC;
+}
+
+.dataNum{
+  color:#C8C7CC;
+  font-size: 30rpx;
+  margin-left:10rpx;
+}
+
+.nameReplay{
+  color:#C8C7CC;
+  font-size: 25rpx;
+  margin-left: 10rpx;
+}
+
+.replyContent{
+  font-size: 30rpx;
+  margin-left:40rpx;
+  margin-bottom:20rpx;
+}
+
+.writeInput{
+  width: 630rpx;
+  height: 60rpx;
+  border:1rpx solid #C8C7CC;
+  margin-left: 20rpx;
+  margin-top: 15rpx;
+  background-color: #fff;
+  font-size:30rpx; 
+  padding-left:10rpx;
+
+}
+.writePl{
+  width: 100%;
+  position: fixed;
+  bottom:4rpx;
+  left: 0;
+  background-color: #E3E3E3;
+  height: 90rpx;
+}
+.replyWarp{
+  padding-bottom:120rpx;
+}
+
+.replayText{
+  line-height: 90rpx;
+  color:#4787F1;
+  margin-left: 10rpx;
+}

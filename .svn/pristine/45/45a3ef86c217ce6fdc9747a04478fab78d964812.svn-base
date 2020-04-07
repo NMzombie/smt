@@ -1,0 +1,167 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.6",
+	"appid": "wx211f53ee5c883179",
+	"projectname": "tykq",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 16,
+			"list": [
+				{
+					"id": 1,
+					"name": "通讯录",
+					"pathName": "pages/home/addressList/addressList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息",
+					"pathName": "pages/home/message/message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "签到首页",
+					"pathName": "pages/signIn/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "签到详情",
+					"pathName": "pages/signIn/signInDetail/signInDetail",
+					"query": "flag= 4& id= 40955",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "团队签到",
+					"pathName": "pages/signIn/teamSignIn/teamSignIn",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "学校签到",
+					"pathName": "pages/signIn/schoolSignIn/schoolSignIn",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的签到",
+					"pathName": "pages/signIn/clockIn/clockIn",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "获取联系人",
+					"pathName": "pages/signIn/linkMan/linkMan",
+					"query": "school=365",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "获取维护分类",
+					"pathName": "pages/signIn/whType/whType",
+					"query": "school=365",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的地图",
+					"pathName": "pages/signIn/getMap/getMap",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "所有日志",
+					"pathName": "pages/diary/allDiary/allDiary",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "日志详情",
+					"pathName": "pages/diary/diaryDetail/diaryDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "写日志",
+					"pathName": "pages/diary/writeDiary/writeDiary",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/home/my/myhome/myhome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "明日计划",
+					"pathName": "pages/diary/addPlan/addPlan",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/home/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "考勤",
+					"pathName": "pages/clockingIn/clockHome/clockHome",
+					"scene": null
+				}
+			]
+		}
+	}
+}

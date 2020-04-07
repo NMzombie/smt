@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "add-pic": "/pages/components/addPic/addPic"
+  },
+  "navigationBarTitleText": "添加设备"
+}

@@ -1,0 +1,60 @@
+/* pages/signIn/signInDetail/signInDetail.wxss */
+
+.headImg{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right:30rpx;
+}
+.mySignIn{
+  width: 90%;
+  margin:30rpx;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 20rpx;
+}
+.myName{
+  color:#333;
+  font-size: 30rpx;
+  display: block;
+  padding-top:15rpx;
+}
+.myTime{
+  color:#9E9E9E;
+  font-size: 25rpx;
+  display: block;
+  padding-top:5rpx;
+}
+.mySignInLinkman{
+  color:#666666;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  width: 630rpx;
+  
+}
+.mySignTitle{
+  color:#333;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  position: relative;
+}
+.detail{
+  background-color: #F8F8F8;
+  padding:20rpx;
+}
+
+.bottomRpx{
+  margin-bottom: 40rpx;
+}
+.addpic{
+  width: 126rpx;
+  height: 126rpx;
+  margin-right:20rpx;
+  margin-bottom:10rpx;
+  margin-left:18rpx;
+}
+
+.update{
+  margin-left: 30rpx;
+  margin-top:30rpx;
+}

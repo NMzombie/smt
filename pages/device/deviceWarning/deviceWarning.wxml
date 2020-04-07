@@ -1,0 +1,49 @@
+<view class="main">
+  <view class="searchWarp">
+    <input class="weui-input" class="searchInput" bindinput="bindKeyInput" confirm-type="search" value="{{searchkey}}" placeholder="输入关键字进行搜索"/>
+    <button size="mini" catchtap="requestData" class="searchHabdel searchButton" type="primary">搜索</button>
+    <button size="mini" class="searchHabdel"  catchtap="cancle">取消</button>
+  </view>
+  <view class="clear">
+    <view class="section left addBottomArrows">
+      <picker bindchange="bindPickerChange"  value="{{statusIndex}}" range-key="{{'name'}}" range="{{statusArr}}">
+        {{statusArr[statusIndex].name}}
+      </picker>
+    </view>
+    <!-- <view class="section left">
+      <picker bindchange="bindPickerChange" value="{{whStatusIndex}}" range-key="{{'name'}}" range="{{whStatusArr}}">
+        {{whStatusArr[whStatusIndex].name}}
+      </picker>
+    </view> -->
+  </view>
+    <scroll-view
+      scroll-y
+      style="height: 1200rpx;"
+      bindscrolltolower="addMore"
+      lower-threshold="200"
+    ><view>
+        <block>
+          <view class="itemWarp clear" wx:for="{{list}}" wx:key="{{index}}" data-kqjid="{{item.kqjid}}" data-schoolcode="{{item.School}}" data-schoolname="{{item.SchoolName}}" catchtap="deviceDetail">
+            <view class="right">
+              <text class="handelItem" data-kqjid="{{item.kqjid}}" data-schoolcode="{{item.School}}" data-schoolname="{{item.SchoolName}}" catchtap="deviceRepair">报修</text>
+            </view>
+            <view class="left">
+              <view class="item-content">所属学校：{{item.SchoolName}}</view>
+              <view class="item-content">设备型号：{{item.UnitType}}</view>
+              <view class="item-content">设备编号：{{item.EquipmentCode}}</view>
+              <view class="item-content">设备状态：{{item.EquipmentStateStr}}</view>
+              <view class="item-content">设备类型：{{item.TypeName}}</view>
+              <view class="item-content">在线状态：{{item.isjkStr}}</view>
+            </view>
+          </view>
+
+          
+
+
+        </block>
+      </view>
+      <view wx:if="{{list.length == 0}}" class="emptyText">暂无数据</view>
+    </scroll-view>
+    
+</view>
+

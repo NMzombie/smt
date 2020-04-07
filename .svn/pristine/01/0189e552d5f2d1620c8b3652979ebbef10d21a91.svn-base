@@ -1,0 +1,14 @@
+<view class="radioWarp main">
+  <view class="searchWarp">
+    <image class="searchIcon" src="/image/icon-mag2.png"></image>
+    <input placeholder="搜索" placeholder-style="placeholderCss" class="searchInput" bindinput="search" value="{{searchVal}}" />
+  </view>
+  <radio-group class="radio-group" catchtap="radioChange" data-index="{{index}}" data-checkinfo="{{item}}" wx:for="{{linkManList}}" wx:key="{{index}}">
+    <label class="linkLabel clear" >
+      <radio class="linkRideo left" value="{{item.Xm}}" color="#4787F1" checked="{{item.checked}}" />
+      <image class="linkImg left" src="{{item.Headpic}}"></image>
+      <text class="linkText left">{{item.Xm}}</text>
+    </label>
+  </radio-group>
+  <view class="finish" catchtap='finish'>完成</view>
+</view>

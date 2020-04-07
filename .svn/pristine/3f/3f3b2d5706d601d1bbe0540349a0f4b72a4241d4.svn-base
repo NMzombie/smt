@@ -1,0 +1,49 @@
+<!--pages/orderForm/orderFormHome/orderFormHome.wxml-->
+<view class="orderForm-wrapper">
+  <view class="tab-box">
+    <view class="{{OrderSelectType == 1 ? 'active' : ''}}" data-type="1" catchtap="switchTab">我的</view>
+    <view class="{{OrderSelectType == 2 ? 'active' : ''}}" data-type="2" catchtap="switchTab">待审批<text class="totalItemCount">{{TotalItemCount}}</text></view>
+    <view class="{{OrderSelectType == 3 ? 'active' : ''}}" data-type="3" catchtap="switchTab">学校</view>
+  </view>
+  <view class="search-bar">
+    <view class="search-bar__input-box">
+      <icon class="icon-search_in-box" type="search" size="14"></icon>
+      <input type="text " class="search-bar__input" placeholder="搜索" value="{{KeyWord}}" bindinput="inputTyping" confirm-type="search" bindconfirm='toSearch' />
+    </view>
+    <view class="search-bar__select-box">
+      <view class="triangle_border_down"></view>
+      <picker data-type="BalanceWayEnum" bindchange="bindPickerChange" range-key="{{'Des'}}" value="{{keyInfo.key1}}" range="{{BalanceWayEnum}}">
+        <view class="picker">
+          {{BalanceWayEnum[keyInfo.key1].Des ? BalanceWayEnum[keyInfo.key1].Des : '结算方式'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="list-box" wx:if="{{list.length > 0}}">
+    <view class="item" wx:for-items="{{list}}" wx:key="{{item.Id}}" bindtap="toDetailsTap" data-type="{{OrderSelectType}}" data-id="{{item.Id}}">
+      <view class="item-top clear">
+        <text class="name left">{{item.DDName}}</text>
+        <view class="stage right">
+          {{item.BalanceWayStr}}
+        </view>
+      </view>
+      <view class="item-content">
+        <view><text>甲方:</text>{{item.PartyA}}</view>
+        <view class="item-marginTop"><text>所属学校:</text>{{item.Schoolname ? item.Schoolname : '暂无学校'}}</view>
+        <view class="item-marginTop"><text>签订日期:</text> {{item.SignTimeStr}}</view>
+      </view>
+      <view class="item-bottom clear" hidden='{{ OrderSelectType == 2 || OrderSelectType == 3}}'>
+        <text class="del-btn btn right" data-item="{{item}}" catchtap="delDD">删除</text>
+      </view>
+      <view class="item-bottom" hidden='{{ OrderSelectType == 1 || OrderSelectType == 3}}'>
+        <text class="approval-btn btn" data-id="{{item.Id}}" catchtap="">审批</text>
+      </view>
+    </view>
+  </view>
+  <view class="list-empty-box" style="height : {{listHeight-100}}px;" wx:if="{{list.length == 0}}">您还没有新建订单哟！</view>
+  <!-- 新建订单 -->
+  <view class="add-btn-box" catchtap="toAddSj" hidden='{{ OrderSelectType == 2 || OrderSelectType == 3}}'>
+    <!-- <view class="iconfont icon-add"></view> -->
+    +
+  </view>    
+</view>

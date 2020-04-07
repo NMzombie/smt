@@ -1,0 +1,60 @@
+<view class="main">
+  <view class="searchWarp">
+    <input class="weui-input" class="searchInput" bindinput="bindKeyInput" confirm-type="search" value="{{diarySearch}}" placeholder="输入关键字进行搜索"/>
+    <button size="mini" catchtap="requestData" class="searchHabdel searchButton" type="primary">搜索</button>
+    <button size="mini" class="searchHabdel"  catchtap="cancle">取消</button>
+  </view>
+  <view class="clear">
+    <view class="section left">
+      <picker bindchange="bindPickerChange" value="{{statusIndex}}" range-key="{{'name'}}" range="{{statusArr}}">
+        {{statusArr[statusIndex].name}}
+      </picker>
+    </view>
+    <!-- <view class="section left">
+      <picker bindchange="bindPickerChange" value="{{whStatusIndex}}" range-key="{{'name'}}" range="{{whStatusArr}}">
+        {{whStatusArr[whStatusIndex].name}}
+      </picker>
+    </view> -->
+  </view>
+    <scroll-view
+      scroll-y
+      style="height: 1000rpx;"
+      bindscrolltolower="addMore"
+      lower-threshold="200"
+    >
+    <view>
+      <block>
+        <view class="itemWarp clear" catchtap="deviceDetail">
+          <view class="right">
+            <text class="handelItem" catchtap="deviceRepair">报修</text>
+          </view>
+          <view class="left">
+            <view class="item-content">所属学校：11</view>
+            <view class="item-content">设备标识：11</view>
+            <view class="item-content">设备名称：11</view>
+            <view class="item-content">在线状态：22</view>
+            <view class="item-content">安装位置：11</view>
+            <view class="item-content">维护预警：11</view>
+          </view>
+        </view>
+
+        <view class="itemWarp clear" catchtap="deviceDetail">
+          <view class="right">
+            <text class="handelItem" catchtap="repairs">报修</text>
+          </view>
+          <view class="left">
+            <view class="item-content">设备编号：11</view>
+            <view class="item-content">设备名称：11</view>
+            <view class="item-content">安装位置：11</view>
+            <view class="item-content">在线状态：22</view>
+            <view class="item-content">维护预警：11</view>
+            <view class="item-content">维护记录：11</view>
+          </view>
+        </view>
+
+
+      </block>
+    </view>
+  </scroll-view>
+</view>
+

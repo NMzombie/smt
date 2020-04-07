@@ -1,0 +1,19 @@
+<!--pages/login/login.wxml-->
+<text class="loginText">账号登录</text>
+<view class="login-main clear">
+  <view class="clear login">
+    <image mode="aspectFill" class="left phoneImg" src="../../image/phone.png"></image>
+    <input placeholder=" 请输入账号" placeholder-class="phonePlace" bindfocus="phonefouse" value="{{phone}}"  bindinput='getPhone' class="phone left"  confirm-type="done" confirm-hold="false"/>
+    <image mode="aspectFill" class="left phoneclear clearText" wx:if="{{isphone}}" catchtap="clearValue" data-type="1" src="../../image/clear.png"></image>
+  </view>
+  <view class="clear login">
+    <image mode="aspectFill" class="left phoneImg"  src="../../image/password.png"></image>
+    <input placeholder=" 请输入密码" placeholder-class="passwordPlace" bindfocus="passfouse" password='{{isshowpwd}}' value="{{password}}" bindinput='getPassword' class="password left"  confirm-type="done" confirm-hold="false"/>
+    <image mode="aspectFill" class="left clearText" wx:if="{{ispass}}" catchtap="clearValue" data-type="2" src="../../image/clear.png"></image>
+  </view>
+  <view class="errorText" wx:if="{{error}}">{{errmessage}}</view>
+  <button open-type="getUserInfo" bindgetuserinfo="loginIn" class="submitInfo {{finish ? 'bgColor' : ''}}">登录</button>
+
+
+</view>
+

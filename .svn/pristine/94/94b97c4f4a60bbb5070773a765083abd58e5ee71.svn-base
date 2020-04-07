@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "school-list": "/pages/components/schoolList/schoolList"
+  }
+}

@@ -1,0 +1,123 @@
+/* pages/signIn/clockIn/clockIn.wxss */
+.list{
+  width: 96%;
+  margin:20rpx;
+  height: 70rpx;
+  border-bottom:1rpx solid #E3E3E3;
+}
+
+.listIcon{
+  width: 10%;
+  height: 10%;
+}
+.iconImg{
+  width: 50rpx;
+  height:50rpx;
+  margin-top:5rpx;
+}
+
+.listName{
+  width: 30%;
+  font-size: 35rpx;
+  line-height: 70rpx;
+  color:#333;
+}
+.listValue{
+  width:390rpx;
+  font-size: 30rpx;
+  line-height: 65rpx;
+  text-align: right;
+  color:#999;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+  padding-right:20rpx;
+}
+.noBorder{
+  border-bottom:none !important;
+}
+
+.needAfter{
+  position: relative;
+}
+.needAfter::after{
+  content: ""; 
+  position: absolute;
+  top: 0rpx; 
+  right: 0rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #C8C7CC; 
+  border-bottom: 1rpx solid #C8C7CC; 
+  width: 18rpx; 
+  height: 18rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+}
+
+.beizhu{
+  height: 200rpx;
+  font-size: 30rpx;
+  color:#333;
+  border-bottom:1rpx solid #C8C7CC;
+  width: 90%;
+  padding:20rpx;
+  margin:0 auto;
+}
+
+.addpicmain{
+  position: relative;
+  margin-top:20rpx;
+}
+.addpic{
+  width: 126rpx;
+  height: 126rpx;
+  margin-right:20rpx;
+  margin-bottom:10rpx;
+  margin-left:18rpx;
+}
+
+.delepic{
+  position: absolute;
+  width: 35rpx;
+  height: 35rpx;
+  left:105rpx;
+  top:10rpx;
+}
+.picBorder{
+  border-radius: 20rpx;
+  border:2rpx solid #a6d2ff;
+}
+.finish{
+  width: 90%;
+  height: 80rpx;
+  position: fixed;
+  left: 5%;
+  font-size: 30rpx;
+  bottom:40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color:#fff;
+  background-color: #4787F1;
+  border-radius: 20rpx;
+}
+
+.addpicWarp{
+  padding-bottom: 200rpx;
+}
+
+.history{
+  position: fixed;
+  bottom:220rpx;
+  right:20rpx;
+}
+
+.writeLinkman{
+  font-size: 30rpx;
+  text-align: right;
+  margin-right: 40rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}

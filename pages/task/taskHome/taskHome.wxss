@@ -1,0 +1,121 @@
+.taskTab{
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 35rpx;
+  border-bottom:1rpx solid #C8C7CC;
+  margin-bottom:20rpx;
+}
+
+.taskItem{
+  display: -webkit-flex;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color:#333;
+  font-size: 30rpx;
+}
+.activeTask{
+  color:#4787F1;
+  border-bottom:1rpx solid #4787F1;
+}
+.timeStyle{
+  background-color: #F7F7F7;
+  width: 220rpx;
+  height: 70rpx;
+  text-align: left;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  position: relative;
+}
+
+.timeStyle:before{
+		content:"";
+		position:absolute;
+		top:30rpx;
+		right:6rpx;
+		border-top:14rpx solid #C8C7CC;
+		border-left:14rpx solid transparent;
+    border-right:14rpx solid transparent;
+	}
+
+.toText{
+  color:#000;
+  font-weight: 400;
+  font-size: 35rpx;
+  line-height:70rpx;
+  margin:0 20rpx;
+}
+
+.startTime{
+  margin-left: 30rpx;
+}
+.headImg{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right:30rpx;
+}
+
+.timeWarp{
+  width: 600rpx;
+  height: 70rpx;
+  background-color: #fff;
+  margin:20rpx auto;
+}
+
+.searchInput{
+  width: 410rpx;
+  font-size: 30rpx;
+  float: left;
+  height: 60rpx;
+  margin-left: 30rpx;
+  background-color: #F7F7F7;
+  padding-left: 10rpx;
+}
+.searchWarp{
+  margin:5rpx auto;
+}
+.searchHabdel{
+  margin-left: 10rpx;
+}
+.button-hover[type=primary]{
+  background-color: #4787F1;
+} 
+button[type=primary]{
+  background-color: #4787F1;
+} 
+
+.warpItem{
+  width: 85%;
+  border:1rpx solid #EEE;
+  padding: 30rpx;
+  font-size: 36rpx;
+  color: #333;
+  margin:10px auto;
+  border-radius: 10rpx;
+}
+
+.itemTitle{
+  display: -webkit-flex;
+  display: flex;
+}
+.school{
+  flex: 2.8;
+  font-size: 32rpx;
+}
+.itemTime{
+  flex: 1.2;
+  font-size: 30rpx;
+  color:#C8C7CC;
+}
+.itemStep{
+  font-size: 32rpx;
+  margin-top: 10rpx;
+  color:#666;
+}

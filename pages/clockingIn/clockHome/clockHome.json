@@ -1,0 +1,4 @@
+{
+  "usingComponents": {"infoItem": "/pages/components/infoItem/infoItem"},
+  "navigationBarTitleText": "考勤"
+}

@@ -1,0 +1,8 @@
+
+<view class="recordItem clear" wx:for="{{diaryList}}" wx:key="{{index}}">
+  <view class="address left">{{item.KqAddress}}</view>
+  <view class="time left">{{item.KqTime}}</view>
+  <view class="status normal left" wx:if="{{item.IfNormal == 1}}">正常</view>
+  <view class="status noStatus left" wx:elif="{{item.IfNormal == 0}}">未签到</view>
+  <view class="status late left" wx:else>{{item.IfInOrOut == 0 ? "迟到":"早退"}}</view>
+</view>

@@ -1,0 +1,224 @@
+
+import { fetch, fetchImg, postFetch} from "./baseApi";
+
+// 登录接口
+export function loginIn(params){
+  return fetch("GET", params, "login", true,true).then( res =>{
+    return res.data;
+  });
+}
+
+
+// 获取通讯录
+export function getMyAddressBook(params) {
+  return fetch("GET", params, "getMyAddressBook").then(res => {
+    return res.data;
+  });
+}
+
+// 获取消息列表
+export function getMyMessage(params) {
+  return fetch("GET", params, "getMyMessage").then(res => {
+    return res.data;
+  });
+}
+
+//获取我的签到信息
+export function getMyQD(params){
+  return fetch("GET", params, "getMyQD").then(res => {
+    return res.data;
+  });
+}
+
+
+//获取团队签到信息
+export function getTeamQdCount(params) {
+  return fetch("GET", params, "getTeamQdCount").then(res => {
+    return res.data;
+  });
+}
+
+
+//获取团队签到信息
+export function getOne(params) {
+  return fetch("GET", params, "getOne").then(res => {
+    return res.data;
+  });
+}
+
+
+
+//获取团队签到记录统计接口
+export function getMyTeamQDTJ(params) {
+  return fetch("POST", params, "getMyTeamQDTJ").then(res => {
+    return res.data;
+  });
+}
+
+
+
+//获取团队签到记录接口
+export function getMyTeamQD(params) {
+  return fetch("POST", params, "getMyTeamQD").then(res => {
+    return res.data;
+  });
+}
+
+
+
+//根据登录人username取得权限范围内的学校地区
+export function getCity(params) {
+  return fetch("POST", params, "getCity").then(res => {
+    return res.data;
+  });
+}
+
+
+//根据登录人username取得权限范围内的学校
+export function getSchool(params) {
+  return fetch("GET", params, "getSchool").then(res => {
+    return res.data;
+  });
+}
+
+
+//签到获取拜访目的接口
+export function getPurpuse(params) {
+  return fetch("POST", params, "getPurpuse").then(res => {
+    return res.data;
+  });
+}
+
+//签到获取学校联系人接口
+export function getSchoolLnkman(params){
+  return fetch("POST", params, "getSchoolLnkman").then(res => {
+    return res.data;
+  });
+}
+
+
+//签到获取维护分类接口
+export function getClass(params) {
+  return fetch("POST", params, "getClass").then(res => {
+    return res.data;
+  });
+}
+
+//上传图片
+export function uploadImg(params,path) {
+  return fetchImg(params, path).then(res => {
+    return JSON.parse(res.data);
+  });
+} 
+
+//提交签到
+export function SubmitQD(params) {
+  return fetch("POST", params, "SubmitQD",false,false).then(res => {
+    return res.data;
+  });
+}
+
+// 获取日报
+export function getMyDiary(params) {
+  return fetch("GET", params, "getMyDiary").then(res => {
+    return res.data;
+  });
+}
+
+//获取周报
+export function getMyWeekReport(params) {
+  return fetch("GET", params, "getMyWeekReport").then(res => {
+    return res.data;
+  });
+}
+
+//获取月报
+export function getMyMonthReport(params) {
+  return fetch("GET", params, "getMyMonthReport").then(res => {
+    return res.data;
+  });
+}
+
+
+//给某个日志写回复
+export function SubmitReplay(params) {
+  return fetch("GET", params, "SubmitReplay").then(res => {
+    return res.data;
+  });
+}
+
+//日报获取本人今日完成工作接口
+export function getMyQDWork(params) {
+  return fetch("GET", params, "getMyQDWork").then(res => {
+    return res.data;
+  });
+}
+
+
+
+//日报获取本人今日完成工作接口
+export function SubmitDiary(params) {
+  return postFetch("POSt", params, "SubmitDiary").then(res => {
+    return res.data;
+  });
+}
+
+
+
+//周报获取本人本周完成工作接口
+export function getMyDiaryWork(params) {
+  return fetch("GET", params, "getMyDiaryWork").then(res => {
+    return res.data;
+  });
+}
+
+
+//提交周报接口
+export function SubmitWeekReport(params) {
+  return postFetch("POST", params, "SubmitWeekReport").then(res => {
+    return res.data;
+  });
+}
+//提交月报接口
+export function SubmitMonthReport(params) {
+  return postFetch("POST", params, "SubmitMonthReport").then(res => {
+    return res.data;
+  });
+}
+
+//提交月报接口
+export function getDiaryReport(params) {
+  return postFetch("GET", params, "getDiaryReport").then(res => {
+    return res.data;
+  });
+}
+
+
+//获取学校签到/未签到统计接口
+export function geSchoolQDCount(params) {
+  return postFetch("GET", params, "geSchoolQDCount").then(res => {
+    return res.data;
+  });
+}
+
+
+//获取部门接口
+export function getBumeng(params) {
+  return postFetch("GET", params, "getBumeng").then(res => {
+    return res.data;
+  });
+}
+
+//获取客户经理使用统计接口
+export function geKhjlQDCount(params) {
+  return postFetch("GET", params, "geKhjlQDCount").then(res => {
+    return res.data;
+  });
+}
+
+//账号解绑
+export function loginout(params) {
+  return postFetch("GET", params, "loginout").then(res => {
+    return res.data;
+  });
+}

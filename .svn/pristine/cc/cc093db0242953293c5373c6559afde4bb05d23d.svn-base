@@ -1,0 +1,66 @@
+var app = getApp();
+import formatTime from "../../../utils/util.js"
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    tomorrowTime:'',                              //选中的时间
+    time: '',                                     //起始时间
+    planArr:[],                                   //计划数组
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    let dd = new Date();
+    dd.setDate(dd.getDate() + 1)
+    
+    this.setData({
+      tomorrowTime: formatTime.formatTime(dd, false),
+      time: formatTime.formatTime(dd, false),
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+  //时间改变
+  chooseDate(e) {
+    this.setData({
+      tomorrowTime: e.detail.value,
+    })
+  },
+  getList(e) {
+    let type = e.currentTarget.dataset.type
+    wx.redirectTo({
+      url: '/pages/signIn/schoolSignIn/schoolSignIn?getItem=true&type=' + type
+    })
+  },
+})

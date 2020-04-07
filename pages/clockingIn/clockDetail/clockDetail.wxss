@@ -1,0 +1,32 @@
+/* pages/clockingIn/clockDetail/clockDetail.wxss */
+.recordItem{
+  width: 94%;
+  padding-bottom:15rpx;
+  padding:15rpx;
+  border-top: 1rpx solid #eee;
+}
+.address{
+  width: 60%;
+  font-size: 30rpx;
+  color:#666;
+}
+.time{
+  color:#666;
+   width: 25%;
+}
+.status{
+  width: 15%
+}
+.time,.status{
+  font-size: 30rpx;
+  text-align: center
+}
+.normal{
+  color:#4787F1;
+}
+.late{
+  color:#f20b0b;
+}
+.noStatus{
+  color:#e5ce10;
+}

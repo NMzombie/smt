@@ -1,0 +1,7 @@
+<view class="mySignIn" catchtap='renderMySignIn' wx:for="{{listInfo}}" wx:key="index" data-mainnum="{{item.Mail_num}}" data-otherusername="{{item.Username}}">
+  <view class="clear">
+    <image class="headImg left" src="{{item.Headpic}}"></image>
+    <text class="myName">{{item.Xm}}</text>
+    <text class="myTime">签到{{item.QDnum}}次 </text>
+  </view>
+</view>

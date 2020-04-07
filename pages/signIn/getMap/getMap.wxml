@@ -1,0 +1,17 @@
+<view class="searchWarp">
+    <image class="searchIcon" src="/image/icon-mag2.png"></image>
+    <input placeholder="搜索" placeholder-style="placeholderCss" class="searchInput" bindinput="bindKeyInput" value="{{searchVal}}" />
+</view>
+<view class="addresslName" catchtap='renderPage' data-school="{{mywxMarkerData[0].address}}" >{{mywxMarkerData[0].address}}</view>
+
+<!-- <view class="section"> 
+  <input placeholder="输入关键字" auto-focus type="text" bindinput="bindKeyInput"/> 
+</view> 
+<view class="sug_info"> 
+  <text>{{sugData}}</text> 
+</view> -->
+
+
+<block wx:for="{{wxMarkerData}}" wx:key="{{index}}">
+  <view class="addresslName" catchtap='renderPage' data-school="{{item.title}}" >{{item.title}}</view>
+</block>

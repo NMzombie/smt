@@ -1,0 +1,73 @@
+<!--pages/sj/followUp/followUp.wxml-->
+<view class="followUp-sj-wrapper">
+  <form bindsubmit="formSubmit">
+    <view class="section">
+      <text class="title">商机编号*:</text>
+      <text>{{SJBH}}</text>
+    </view>
+    <view class="section">
+      <text class="title">商机名称*:</text>
+      <text>{{SJName}}</text>
+    </view>
+    <view class="section marginTop">
+      <text class="title">所属学校:</text>
+      <text>{{SchoolName}}</text>
+    </view>
+    <view class="section">
+      <text class="title width">最后跟进时间:</text>
+      <text>{{LastFollowTime}}</text>
+    </view>
+    <view class="section marginTop">
+      <text class="title">销售阶段:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="SellStepEnum" bindchange="bindPickerChange" range-key="{{'Des'}}" value="{{keyInfo.key1}}" range="{{SellStepEnum}}">
+          <view class="picker">
+            {{SellStepEnum[keyInfo.key1].Des}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">联系情况:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker data-type="SellLinkWayEnum" bindchange="bindPickerChange" range-key="{{'Des'}}" value="{{keyInfo.key2}}" range="{{SellLinkWayEnum}}">
+          <view class="picker">
+            {{SellLinkWayEnum[keyInfo.key2].Des}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <text class="title">跟进时间:</text>
+      <view class="select-box">
+        <view class="iconfont icon-zhankai"></view>
+        <picker mode="date" value="{{date}}" start="2000-01-30" data-dateType="1" end="2050-12-30" bindchange="chooseDate" bindcancel="cancleDate">
+          <view class="picker">
+            {{FollowupTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section-textarea marginTop">
+      <text class="title">跟进说明:</text>
+      <textarea placeholder="请输入说明" value='{{FollowupBz}}' bindinput="inputContent" />
+    </view>
+    <view class="btn-area">
+      <button form-type="submit">提交</button>
+    </view>
+    <!-- 跟进列表 -->
+    <view class="followUp-list" wx:if="{{FollowUpList.length > 0}}">
+      <view class="item" wx:for-items="{{FollowUpList}}" wx:key="{{item.Id}}" data-id="{{item.Id}}">
+        <view class="item-top clear">
+          <text class="name left">{{item.InputMan}}</text>
+          <text class="time right">{{item.FollowupTimeStr}}</text>
+        </view>
+        <view class="item-content">
+          {{item.FollowupBz}}
+        </view>
+      </view>
+    </view>
+  </form>
+</view>

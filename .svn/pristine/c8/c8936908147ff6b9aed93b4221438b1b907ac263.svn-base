@@ -1,0 +1,2 @@
+<school-list id="schoollist" bind:currentSchool="oncurrentSchool">
+</school-list>

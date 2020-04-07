@@ -1,0 +1,58 @@
+<view class="main">
+  <view class="section">
+    <text class="title">报修单号：</text>
+    <text>11</text>
+  </view>
+  <view class="section">
+    <text class="title">所属学校：</text>
+    <text>22</text>
+  </view>
+  <view class="section">
+    <text class="title">设备型号：</text>
+    <text>33</text>
+  </view>
+  <view class="section">
+    <text class="title">设备名称：</text>
+    <text>33</text>
+  </view>
+  <view class="section">
+    <text class="title">设备标识：</text>
+    <text>33</text>
+  </view>
+  <view class="section">
+    <text class="title">安装位置：</text>
+    <text>33</text>
+  </view>
+  <view class="section">
+    <text class="title">连接方式：</text>
+    <text>33</text>
+  </view>
+
+
+  <view class="blodline"></view>
+
+
+  <view class="section top clear">
+    <text class="left title">维修人员：</text>
+    <picker class="left picker" bindchange="bindPickerChange" value="{{wxIndex}}" range-key="{{'name'}}" range="{{wxManArr}}">
+      {{wxManArr[wxIndex].name}}
+    </picker>
+  </view>
+
+
+  <view class="section top clear">
+    <text class="left title">报修人：</text>
+    <picker class="left picker" bindchange="bindPickerChange" value="{{bxIndex}}" range-key="{{'name'}}" range="{{bxManArr}}">
+      {{bxManArr[bxIndex].name}}
+    </picker>
+  </view>
+
+  <view class="clear top">
+    <text class="title left">问题描述：</text>
+    <textarea class="textareaDom left" placeholder="请输入问题描述..."></textarea>
+  </view>
+  <view class="blodline"></view>
+  <add-pic bind:getPicList="getPicList"></add-pic>
+
+  <view class="submit">申请报修并通知</view>
+</view>

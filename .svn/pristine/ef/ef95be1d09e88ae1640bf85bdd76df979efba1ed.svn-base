@@ -1,0 +1,26 @@
+<view class="main">
+  <view class="diaryType clear">
+    <view catchtap='changeTab' data-tab="1" class="tabCom {{tab==1 ? 'check' : ''}}">设备操作手册</view>
+    <view catchtap='changeTab' data-tab="2" class="tabCom {{tab==2 ? 'check' : ''}}">问题解决手册</view>
+  </view>
+
+  <view class="section">
+   
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        {{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}
+      </view>
+    </picker>
+  </view>
+
+
+
+  <view class="item">
+    <view>啥啥啥</view>
+    <view>哈哈哈哈哈哈哈哈</view>
+  </view>
+  <view class="item">
+    <view>啥啥啥</view>
+    <view>哈哈哈哈哈哈哈哈</view>
+  </view>
+</view>

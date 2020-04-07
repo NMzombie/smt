@@ -1,0 +1,85 @@
+/* pages/schoolProfiles/schoolHome/schoolHome.wxss */
+.schoolName{
+  font-size: 40rpx;
+  color:#262727;
+  padding-top: 20rpx;
+  font-weight: 600;
+}
+.schoolWarp{
+  width: 90%;
+  margin:15rpx auto;
+  box-shadow:#eee 5rpx 10rpx 20rpx 2rpx ;
+  height: 500rpx;
+  border-radius: 10rpx;
+}
+
+.warp{
+  padding-bottom: 120rpx; /*bottom值为footer的高*/
+  box-sizing: border-box; /*这里改变盒子模型为怪异盒模型，这样padding值不会增加main的高度*/
+  overflow-y: scroll;
+}
+.itemWarp{
+  width:93%;
+  border: 1rpx solid #C8C8CA;
+  border-radius: 16rpx;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  min-height: 300rpx;
+  position: relative;
+}
+.item-name{
+  padding-top: 20rpx;
+  font-size: 38rpx;
+  color:#4787F1;
+}
+.item{
+  width: 90%;
+  margin:15rpx auto;
+  position: relative;
+  
+}
+
+.item-content{
+  font-size: 30rpx;
+  margin-top:15rpx;
+  color:#262727;
+}
+
+.line{
+  width: 90%;
+  height: 2rpx;
+  background-color: #eee;
+  margin:30rpx auto;
+}
+.lineHeight{
+  line-height: 300rpx;
+}
+
+.addDevice{
+    width: 90%;
+    height: 80rpx;
+    position: fixed;
+    left: 5%;
+    font-size: 30rpx;
+    bottom:40rpx;
+    text-align: center;
+    line-height: 80rpx;
+    color:#fff;
+    background-color: #4787F1;
+    border-radius: 20rpx;
+}
+
+.handelItem{
+  background-color: #4787F1;
+  color:#fff;
+  padding: 8rpx 20rpx;
+  border-radius: 10rpx;
+  margin-left: 8rpx;
+  font-size: 30rpx;
+}
+.help{
+  display: block;
+  margin-top: 200rpx;
+  text-align: right;
+  color:#4787F1;
+}

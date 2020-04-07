@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "school-list": "/pages/components/schoolList/schoolList"
+  },
+  "navigationBarTitleText": "学校列表"
+}

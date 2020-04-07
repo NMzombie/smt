@@ -1,0 +1,128 @@
+.itemWarp{
+  width:86%;
+  border: 1rpx solid #C8C8CA;
+  border-radius: 16rpx;
+  margin: 10rpx auto;
+  padding: 20rpx;
+}
+.item-name{
+  padding-top: 20rpx;
+  font-size: 38rpx;
+}
+.item-name::after{
+  content: ""; 
+  position: absolute;
+  top: 0rpx; 
+  right: 0rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #C8C7CC; 
+  border-bottom: 1rpx solid #C8C7CC; 
+  width: 18rpx; 
+  height: 18rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+}
+.item{
+  width: 90%;
+  margin:15rpx auto;
+  margin-top: 40rpx;
+  position: relative;
+  
+}
+.item-one{
+  width: 10rpx;
+  background-color:#4C84F1;
+  height: 50rpx;
+  display: inline-block;
+  border-radius: 2rpx;
+
+}
+
+.item-two{
+  height: 50rpx;
+  display: inline-block;
+  line-height: 50rpx;
+  margin-left: 20rpx;
+}
+.time{
+  color:#C8C7CC;
+  font-size: 28rpx;
+}
+.item-three{
+  height: 50rpx;
+  display: inline-block;
+  line-height: 50rpx;
+  color:#4C84F1;
+}
+
+.item-content{
+  font-size: 30rpx;
+  margin-top:15rpx;
+  color:#262727;
+}
+.two-name{
+  font-size: 34rpx;
+}
+
+.timeWarp{
+  width: 700rpx;
+  height: 100rpx;
+  background-color: #fff;
+  margin:20rpx auto;
+}
+
+.todayIcon{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top:10rpx;
+  }
+.timeStyle{
+  background-color: #F7F7F7;
+  width: 220rpx;
+  height: 70rpx;
+  text-align: left;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  position: relative;
+}
+
+.timeStyle:before{
+		content:"";
+		position:absolute;
+		top:30rpx;
+		right:6rpx;
+		border-top:14rpx solid #C8C7CC;
+		border-left:14rpx solid transparent;
+    border-right:14rpx solid transparent;
+	}
+
+.toText{
+  color:#000;
+  font-weight: 400;
+  font-size: 35rpx;
+  line-height:70rpx;
+  margin:0 20rpx;
+}
+
+.startTime{
+  margin-left: 30rpx;
+}
+
+.schoolname{
+  font-size: 40rpx;
+  color:#4C84F1;
+  text-align: center;
+}
+
+.scrollView{
+  height: 1100rpx;
+  position: relative;
+  padding-bottom:120rpx;
+}
+page{
+  position: hidden;
+}

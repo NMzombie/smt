@@ -1,0 +1,63 @@
+/* pages/messsage/message.wxss */
+.warp{
+  background-color: #F2F3F5;
+}
+.messageList{
+  width: 95%;
+  height: 255rpx;
+  padding:20rpx;
+  margin:30rpx auto;
+ 
+}
+.writeBg{
+  background-color: #fff;
+  width: 94%;
+  padding: 20rpx;
+  border-radius: 15rpx;
+}
+.messageTitle{
+  color:#262727;
+  font-size: 36rpx;
+}
+.messageTime{
+  color:#262727;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.messageContent{
+  color:#808080;
+  font-size: 32rpx;
+  margin-top:10rpx;
+}
+.checkDetail{
+  color:#0088F5;
+  font-size: 35rpx;
+  position: relative;
+  
+}
+.checkDetail:after{
+  content: ""; 
+  position: absolute;
+  top: -8rpx; 
+  right: -12rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #757575; 
+  border-bottom: 1rpx solid #757575; 
+  width: 20rpx; 
+  height: 20rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+}
+.scrollView{
+  width: 100%;
+  height: 1100rpx;
+}
+
+.emptyMess{
+  text-align: center;
+  line-height: 700rpx;
+}

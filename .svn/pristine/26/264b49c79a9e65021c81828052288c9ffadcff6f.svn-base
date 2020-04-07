@@ -1,0 +1,93 @@
+
+
+.linkLabel{
+  width: 100%;
+  height: 80rpx;
+  display: block;
+  border-bottom:1rpx solid #F7F7F7;
+}
+.radioWarp{
+  width: 90%;
+  margin:20rpx auto;
+}
+.linkRideo{
+  width: 70rpx;
+  height: 70rpx;
+  margin-top:13rpx;
+}
+
+.linkText{
+  line-height: 80rpx;
+  display:block;
+  margin-left: 20rpx; 
+}
+
+.finish{
+  width: 90%;
+  height: 80rpx;
+  position: fixed;
+  left: 5%;
+  font-size: 30rpx;
+  bottom:40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color:#fff;
+  background-color: #4787F1;
+  border-radius: 20rpx;
+}
+
+.searchWarp{
+  width: 100%;
+  height: 90rpx;
+  position: relative;
+  overflow: hidden;
+}
+.searchInput{
+  width: 80%;
+  margin:0rpx auto;
+  height: 70rpx;
+  background-color: #fff;
+  border:1rpx solid #E3E3E3;
+  font-size: 30rpx;
+  padding-left: 70rpx;
+}
+.searchIcon{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 15rpx;
+  left: 60rpx;
+}
+
+.typeList,.bottomIcon{
+  font-size: 30rpx;
+  position: relative;
+  padding-left:20rpx;
+  margin-bottom:30rpx;
+}
+
+.typeList::before{
+  content:"";
+  position:absolute;
+  top:0rpx;
+  left:-5rpx;
+  border-bottom:10px solid transparent;
+  border-top:10px solid transparent;
+  border-right:10px solid transparent;
+  border-left: 10px solid #C9C8CD;
+}
+
+.bottomIcon::before{
+  content:"";
+  position:absolute;
+  top:10rpx;
+  left:-4rpx;
+  border-left:8px solid transparent;
+  border-top:8px solid #C9C8CD;
+  border-right:8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+.bigName{
+  padding-left:14rpx;
+}

@@ -1,0 +1,80 @@
+<!--pages/orderForm/orderFormHome/orderFormHome.wxml-->
+<view class="sj-wrapper" bindtap="closeSelect">
+  <view class="tab-box">
+    <text class="{{type == 0 ? 'active' : ''}}" data-type="0" catchtap="switchTab">我的</text>
+    <text class="{{type == 1 ? 'active' : ''}}" data-type="1" catchtap="switchTab">待审批</text>
+    <text class="{{type == 2 ? 'active' : ''}}" data-type="2" catchtap="switchTab">学校订单</text>
+  </view>
+  <view class="search-bar clear">
+    <view class="search-bar__form left {{inputShowed ? 'search-bar-width__form' : ''}}">
+      <label class="search-bar__label" wx:if="{{!inputShowed}}" catchtap="showInput">
+        <icon class="icon-search" type="search" size="14"></icon>
+        <view class="search-bar__text">输入学校名称</view>
+      </label>
+      <view class='search-bar__box'>
+        <icon class="icon-search_in-box" type="search" size="14"></icon>
+        <input type="text " class="search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" confirm-type="search" bindconfirm='toSearch' />
+        <view class="icon-clear" wx:if="{{inputVal.length > 0}}" catchtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+    </view>
+    <view class="search-bar__cancel-btn right" hidden="{{!inputShowed}}" catchtap="hideInput">取消</view>
+  </view>
+  <view class="other-conditions">
+    <!-- 以下是对一个自定义组件的引用 -->
+    <!-- <view class="flex-box">
+      <text class="sales-stage-text">所属情况:</text>
+      <view class='select-box'>
+        <select id="select" key="-1" list="{{salesStage}}" bind:getSelectedKey="getSelectedKey"></select>
+      </view>
+    </view>
+    <view class="flex-box">
+      <text class="sales-stage-text">所属人:</text>
+      <view class='select-box'>
+        <select id="select" key="-1" list="{{salesStage}}" bind:getSelectedKey="getSelectedKey"></select>
+      </view>
+    </view> -->
+
+  </view>
+  <view class="list-box">
+    <view class="item" bindtap="orderFormDetail" wx:if="{{type != 2}}">
+      <view class="item-content">
+       <view class="item-marginTop">项目名称: 浙江大学</view>
+        <view class="item-marginTop">学校(客户): 浙江大学</view>
+        <view class="item-marginTop">所属人：周杰伦</view>
+        <view class="item-marginTop">结算方式：公司承担</view>
+        <view class="item-marginTop">签订日期：2019-06-06</view>
+      </view>
+      <view class="item-bottom">
+        <text class="edit-btn btn" wx:if="{{type == 0}}" catchtap="modification" data-id="{{item.id}}">修改</text>
+        <text class="edit-btn btn" wx:if="{{type == 1}}" catchtap="approval" data-id="{{item.id}}">审批</text>
+      </view>
+    </view>
+    <view class="schoolItem" wx:else>
+      <view class="item-content">
+        <view class="item-marginTop">学校名称：浙大</view>
+        <view class="item-marginTop">学校编号：111</view>
+      </view>
+      
+    </view>
+    <!-- <view class="item" bindtap="toDetailsTap">
+      <view class="item-content">
+       <view>项目名称: 浙江大学</view>
+        <view>学校(客户): 浙江大学</view>
+        <view class="item-marginTop">所属人：周杰伦</view>
+        <view class="item-marginTop">结算方式：公司承担</view>
+        <view class="item-marginTop">签订日期：2019-06-06</view>
+      </view>
+      <view class="item-bottom">
+        <text wx:if="{{type == 0}}"  class="edit-btn btn" catchtap="editSj" data-id="{{item.id}}">修改</text>
+      </view>
+    </view> -->
+  </view>
+  <view class="list-empty-box" wx:if="{{list.length == 0}}">您还没有新建订单哟！</view>
+  <!-- 新建订单 -->
+  <view class="add-btn-box" catchtap="toAddSj">
+    <view class="iconfont icon-add"></view>
+  </view>    
+</view>
+

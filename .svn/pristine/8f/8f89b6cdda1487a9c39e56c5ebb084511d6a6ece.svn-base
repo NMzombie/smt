@@ -1,0 +1,20 @@
+
+<view class="searchWarp">
+    <image class="searchIcon" src="/image/icon-mag2.png"></image>
+    <input placeholder="搜索" placeholder-style="placeholderCss" class="searchInput" bindinput="search" value="{{searchVal}}" />
+</view>
+<!-- <scroll-view
+  scroll-y
+  bindscrolltolower="addMore"
+  lower-threshold="200"
+  class="scrollView"
+  scroll-top="200"
+>  -->
+  <block wx:for="{{schoolList}}" wx:key="{{index}}">
+    <view wx:if="{{item.School}}"  class="{{city ? 'addresslName' : 'normalAddress'}}" data-school="{{item.School}}" data-schoolname="{{item.Schoolname}}" catchtap='renderPage' data-iteminfo="{{item}}" >{{item.Schoolname}}</view>
+    <view wx:else class="{{city ? 'addresslName' : 'normalAddress'}}" catchtap='renderPage' data-iteminfo="{{item}}">{{item.Purpuse}}</view>
+  </block>
+<!-- </scroll-view> -->
+
+
+

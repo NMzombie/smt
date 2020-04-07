@@ -1,0 +1,42 @@
+.diaryType{
+  width: 540rpx;
+  margin:0 auto;
+}
+
+
+.check{
+  background-color: #4787F1 !important;
+  color:#fff !important;
+}
+
+
+.tabCom{
+  float: left;
+  width: 250rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color:#333;
+  font-size: 30rpx;
+  background-color: #F7F7F7;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+}
+
+.item{
+  padding: 30rpx;
+  font-size: 30rpx;
+  border-bottom:2rpx solid #eee;
+}
+.schoolname{
+  color: #4787F1;
+  margin:20rpx;
+}
+
+.imgItem{
+  width: 210rpx;
+  margin-right: 10rpx;
+  margin-top:20rpx;
+  height: 210rpx;
+}

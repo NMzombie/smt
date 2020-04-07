@@ -1,0 +1,50 @@
+/* pages/home/addressList/addressList.wxss */
+.addressWarp{
+  width: 100%;
+  height: 100%;
+}
+
+.searchWarp{
+  width: 100%;
+  height: 110rpx;
+  background-color: #F9F9F9;
+  position: relative;
+  overflow: hidden;
+}
+.searchInput{
+  width: 80%;
+  margin:20rpx auto;
+  height: 70rpx;
+  background-color: #fff;
+  border:1rpx solid #E3E3E3;
+  font-size: 30rpx;
+  padding-left: 70rpx;
+}
+.searchIcon{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 34rpx;
+  left: 60rpx;
+}
+
+.addressList{
+  width: 100%;
+}
+.addressmain{
+  width: 90%;
+  height:80rpx;
+  margin:30rpx auto;
+  border-bottom:1rpx solid #E3E3E3;
+}
+
+.addressImg{
+  width: 80rpx;
+  height: 80rpx;
+}
+.addressText{
+  color:#333;
+  font-size: 35rpx;
+  line-height: 80rpx;
+  padding-left: 30rpx;
+}

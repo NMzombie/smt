@@ -1,0 +1,6 @@
+{ 
+  "navigationBarTitleText": "维修录入",
+  "usingComponents": {
+    "add-pic": "/pages/components/addPic/addPic"
+  }
+}

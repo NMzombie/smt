@@ -1,0 +1,80 @@
+/* pages/orderForm/orderFormAdd/orderFormAdd.wxss */
+
+.add-orderForm-wrapper {
+  min-height: 100%;
+  font-size: 32rpx;
+  padding-bottom: 41rpx;
+  background: #F2F3F5;
+}
+.section {
+  display: flex;
+  height: 88rpx;
+  align-items: center;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #F2F3F5;
+  background: #FFFFFF;
+}
+.marginTop {
+  margin-top: 11rpx;
+}
+.title {
+  width: 180rpx;
+  color: #808080;
+}
+.width240 {
+  width: 240rpx;
+}
+.money {
+  color: #FF7B12;
+}
+.select-box {
+  flex: 1;
+  position: relative;
+  height: 88rpx;
+  line-height: 88rpx;
+  overflow: hidden;
+}
+.icon-zhankai {
+  position: absolute;
+  right: 10rpx;
+  top: 4rpx;
+  color: #262727;
+}
+.section-textarea {
+  display: flex;
+  padding: 10rpx 30rpx;
+  margin-bottom: 30rpx;
+  background: #FFFFFF;
+  height: 300rpx;
+  overflow: hidden;
+}
+.section-textarea .textarea {
+  height: 280rpx;
+}
+.btn-area {
+  width: 90%;
+  margin: 20rpx auto;
+}
+.btn-area button {
+  background: #0088F5;
+  color: #FFFFFF;
+}
+
+.btn-box {
+  display: flex;
+  padding: 10rpx 30rpx;
+  background: #FFFFFF;
+}
+.btn-box text {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  background: #F2F3F5;
+}
+
+/* switch  */
+switch {
+  zoom: .7;
+}

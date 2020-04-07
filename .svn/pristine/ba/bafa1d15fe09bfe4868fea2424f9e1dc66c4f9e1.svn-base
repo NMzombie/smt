@@ -1,0 +1,209 @@
+<view class="warp">
+  <view class="section borderBottom">
+    <text class="title">所属学校:</text>
+    <text>{{schoolname}}</text>
+  </view>
+  <view class="section borderBottom">
+    <text class="title">学校编号:</text>
+    <text>111</text>
+  </view>
+  <view class="section borderBottom">
+    <text class="title">设备标识:</text>
+    <text>{{deviceDetail.kqjid}}</text>
+  </view>
+  <block wx:if="{{detail}}">
+    <view class="section">
+      <text class="title">设备类型:</text>
+      <picker class="picker" bindchange="bindPickerChangeType" value="{{typeIndex}}" range-key="{{'TypeName'}}" range="{{typeList}}">
+        {{typeList[typeIndex].TypeName}}
+      </picker>
+    </view>
+
+    <view class="section">
+      <text class="title">设备型号:</text>
+      <picker class="picker" bindchange="bindPickerChangeXh" value="{{xhIndex}}" range-key="{{'UnitType'}}" range="{{xhList}}">
+        {{xhList[xhIndex].UnitType}}
+      </picker>
+    </view>
+    
+    <view class="section">
+      <text class="title">视频设备序列号:</text>
+      <input placeholder="请输入" value='{{deviceDetail.DeviceSerial}}' data-value="DeviceSerial" bindinput="bindInput" />
+    </view>
+    
+    <view class="section">
+      <text class="title">考勤设备序列号:</text>
+      <input placeholder="请输入" value='{{deviceDetail.DeviceSerialKQJ}}' data-value="DeviceSerialKQJ" bindinput="bindInput" />
+    </view>
+    
+
+    <view class="section">
+      <text class="title">连接方式:</text>
+      <picker class="picker" bindchange="bindPickerChangeLj" value="{{connecIndex}}" range-key="{{'name'}}" range="{{connecList}}">
+        {{connecList[connecIndex].name}}
+      </picker>
+    </view>
+
+    <view class="section">
+      <text class="title">设备IP:</text>
+      <input placeholder="请输入" value='{{deviceDetail.IPAddress}}' data-value="IPAddress" bindinput="bindInput" />
+    </view>
+    <view class="section">
+      <text class="title">SIM卡号:</text>
+      <input placeholder="请输入" value='{{deviceDetail.SIMtel}}' data-value="SIMtel" bindinput="bindInput" />
+    </view>
+    
+    <view class="clear">
+      <view class="title inputGrounpTitle left">通知号码:</view>
+      <view class="left inputGrounp clear">
+        <view class="clear">
+          <input placeholder="请输入" value='{{deviceDetail.bdtel}}' data-value="bdtel" bindinput="bindInput" class="left"/><text class="left">(10分钟)</text>
+        </view>
+        
+        <view class="clear">
+          <input placeholder="请输入" value='{{deviceDetail.bdtel2}}' data-value="bdtel2" bindinput="bindInput" class="left"/><text class="left">(20分钟)</text>
+        </view>
+        <view class="clear">
+          <input placeholder="请输入" value='{{deviceDetail.bdtel3}}' data-value="bdtel3" bindinput="bindInput" class="left"/><text class="left">(30分钟)</text>
+        </view>
+        <view class="clear">
+          <input placeholder="请输入" value='{{deviceDetail.bdtel4}}' data-value="bdtel4" bindinput="bindInput" class="left"/><text class="left">(40分钟)</text>
+        </view>
+        <view class="clear">
+          <input placeholder="请输入" value='{{deviceDetail.bdtel5}}' data-value="bdtel5" bindinput="bindInput" class="left"/><text class="left">(50分钟)</text>
+        </view>
+        <view class="clear">
+          <input placeholder="请输入" value='{{deviceDetail.bdtel6}}' data-value="bdtel6" bindinput="bindInput" class="left"/><text class="left">(60分钟)</text>
+        </view>
+      </view>
+      
+    </view>
+
+    <view class="section">
+      <text class="title">安装位置:</text>
+      <input placeholder="请输入" disabled="{{!detail}}" value='{{deviceDetail.azPlace}}' data-value="azPlace" bindinput="bindInput" />
+    </view>
+
+    <view class="section">
+      <text class="title">巡更功能:</text>
+      <picker class="picker" bindchange="bindPickerChangeXg" value="{{xgIndex}}" range-key="{{'name'}}" range="{{xgList}}">
+        {{xgList[xgIndex].name}}
+      </picker>
+    </view>
+    <view class="section">
+      <text class="title">考勤机类型:</text>
+      <picker class="picker" bindchange="bindPickerChangeKqj" value="{{kqjIndex}}" range-key="{{'name'}}" range="{{kqjList}}">
+        {{kqjList[kqjIndex].name}}
+      </picker>
+    </view>
+
+    <view class="section">
+      <text class="title">到期时间:</text>
+      <picker mode="date" data-type="WarrantyEndTimeStr" value="{{deviceDetail.WarrantyEndTimeStr}}" start="2019-09-01" end="2050-09-01" bindchange="bindDateChange">
+        {{deviceDetail.WarrantyEndTimeStr}}
+      </picker>
+    </view>
+    <view class="section">
+      <text class="title">安装时间:</text>
+      <picker mode="date" data-type="InstallTimeStr" value="{{deviceDetail.InstallTimeStr}}" start="2019-09-01" end="2050-09-01" bindchange="bindDateChange">
+        {{deviceDetail.InstallTimeStr}}
+      </picker>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="section borderBottom">
+      <text class="title">设备类型:</text>
+      <text>{{typeList[typeIndex].TypeName}}</text>
+    </view>
+
+    <view class="section borderBottom">
+      <text class="title">设备型号:</text>
+      <text>{{xhList[xhIndex].UnitType}}</text>
+    </view>
+    
+    <view class="section borderBottom">
+      <text class="title">视频设备序列号:</text>
+      <text>{{deviceDetail.DeviceSerial}}</text>
+      
+    </view>
+    
+    <view class="section borderBottom">
+      <text class="title">考勤设备序列号:</text>
+      <text>{{deviceDetail.DeviceSerialKQJ}}</text>
+    </view>
+    
+
+    <view class="section borderBottom">
+      <text class="title">连接方式:</text>
+      <text>{{connecList[connecIndex].name}}</text>
+    </view>
+
+    <view class="section borderBottom">
+      <text class="title">设备IP:</text>
+      <text>{{deviceDetail.IPAddress}}</text>
+      
+    </view>
+    <view class="section borderBottom">
+      <text class="title">SIM卡号:</text>
+      <text>{{deviceDetail.SIMtel}}</text>
+    </view>
+    
+    <view class="clear borderBottom">
+      <view class="title inputGrounpTitle left">通知号码:</view>
+
+      <view class="left inputGrounp clear">
+        <view class="clear">
+          <text class="left value">{{deviceDetail.bdtel}}</text><text class="left">(10分钟)</text>
+        </view>
+        
+        <view class="clear">
+         <text class="left value">{{deviceDetail.bdtel2}}</text><text class="left">(20分钟)</text>
+        </view>
+        <view class="clear">
+          <text class="left value">{{deviceDetail.bdtel3}}</text><text class="left">(30分钟)</text>
+        </view>
+        <view class="clear">
+          <text class="left value">{{deviceDetail.bdtel4}}</text><text class="left">(40分钟)</text>
+        </view>
+        <view class="clear">
+          <text class="left value">{{deviceDetail.bdtel5}}</text><text class="left">(50分钟)</text>
+        </view>
+        <view class="clear">
+          <text class="left value">{{deviceDetail.bdtel6}}</text><text class="left">(60分钟)</text>
+        </view>
+      </view>
+      
+    </view>
+
+    <view class="section borderBottom">
+      <text class="title">安装位置:</text>
+      <text>{{deviceDetail.azPlace}}</text>
+    </view>
+
+    <view class="section borderBottom">
+      <text class="title">巡更功能:</text>
+      <text>{{xgList[xgIndex].name}}</text>
+    </view>
+    <view class="section borderBottom">
+      <text class="title">考勤机类型:</text>
+      <text>{{kqjList[kqjIndex].name}}</text>
+    </view>
+
+    <view class="section borderBottom">
+      <text class="title">到期时间:</text>
+      <text>{{deviceDetail.WarrantyEndTimeStr}}</text>
+    </view>
+    <view class="section borderBottom">
+      <text class="title">安装时间:</text>
+      <text>{{deviceDetail.InstallTimeStr}}</text>
+    </view>
+  </block>
+</view>
+
+<view class="blodline"></view>
+<view wx:if="{{!detail && deviceDetail.RepairsList.length > 0}}" class="record">
+<view class="title">维护记录</view>
+<view class="recordItem" wx:for="{{deviceDetail.RepairsList}}" wx:key="index">{{item.RepairsTimeStr}}  {{item.Description}}</view>
+</view>
+
+<view wx:if="{{detail}}" catchtap="submit" class="submitAdd">提交修改</view>

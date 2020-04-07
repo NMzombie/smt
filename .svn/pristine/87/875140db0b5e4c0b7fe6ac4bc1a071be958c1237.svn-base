@@ -1,0 +1,185 @@
+/* pages/login/login.wxss */
+
+
+.login-main{
+  width: 100%;
+  height: 200rex;
+  margin:100rpx auto;
+}
+
+.login{
+ overflow: auto;
+ width: 600rpx;
+ margin:20rpx auto;
+ height: 75rpx;
+}
+.line{
+  width: 90%;
+  height: 2rpx;
+  background-color: #e0e0e0;
+  margin:0 auto;
+}
+input{
+  line-height: 75rpx;
+  margin-top:15rpx;
+  width: 400rpx;
+  margin-left:15rpx;
+}
+.passwordPlace,.phonePlace,.iconfont{
+  color:#999;
+  font-size: 30rpx;
+}
+.iconfont{
+  font-size: 40rpx;
+}
+.phone{
+  font-size: 30rpx;
+}
+.password{
+  font-size: 30rpx;
+}
+
+.submitInfo{
+  width: 635rpx;
+  height: 100rpx;
+  background-color: #a8cbfb;
+  margin:40rpx auto;
+  color:#fff;
+  line-height: 100rpx;
+  border-radius: 40rpx;
+  text-align: center;
+}
+.isactive{
+  color:#000;
+}
+
+.bgColor{
+  background-color: #4487f5;
+}
+
+.errorText{
+  color:#d70915;
+  font-size:26rpx;
+  padding-left:80rpx;
+  padding-top:20rpx;
+}
+
+.phoneImg{
+  width:40rpx;
+  height: 50rpx;
+  margin-top:10rpx;
+}
+.clearText{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top:20rpx;
+}
+
+.phoneclear{
+  margin-left: 80rpx;
+}
+.pwdhidden{
+  width:60rpx;
+  height: 30rpx;
+  margin-top:30rpx;
+  margin-left:30rpx;
+}
+
+.pwdblock{
+  width:50rpx;
+  height: 30rpx;
+  margin-top:30rpx;
+  margin-left:30rpx;
+}
+
+.forgetpwd{
+  float:right;
+  color:#999;
+  margin-right:40rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.fade{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 99;
+}
+
+.fadeform{
+  width: 660rpx;
+  height: 500rpx;
+  background-color: #fff;
+  margin:30% auto;
+  border-radius: 40rpx;
+}
+
+.foundphone{
+  width: 550rpx;
+  height: 86rpx;
+  background-color: #eff1f3;
+  border-radius: 40rpx;
+  margin:20rpx 45rpx 40rpx 45rpx;
+  padding-left: 20rpx;
+  display: block
+}
+
+.foundyzm{
+  width: 270rpx;
+  height: 86rpx;
+  background-color: #eff1f3;
+  border-radius: 40rpx;
+  margin:0rpx 0rpx 20rpx 45rpx;
+  padding-left: 20rpx;
+}
+
+.sendmess{
+  width: 240rpx;
+  height: 86rpx;
+  border-radius: 40rpx;
+  margin-top:40rpx;
+  background-color: #4787f1;
+  text-align: center;
+  color:#fff;
+  line-height: 86rpx;
+}
+
+.fadeclose{
+  width: 30rpx;
+  height: 30rpx;
+  padding-left: 600rpx;
+  padding-top:30rpx;
+}
+
+.fadecomfire{
+  width: 550rpx;
+  height: 86rpx;
+  border-radius: 40rpx;
+  margin-top:40rpx;
+  background-color: #4787f1;
+  text-align: center;
+  color:#fff;
+}
+
+.loginText{
+  font-size: 50rpx;
+  padding-left: 70rpx;
+  margin-top: 80rpx;
+  color:#000;
+  display: block;
+}
+.sendmessDisable{
+  width: 240rpx;
+  height: 86rpx;
+  border-radius: 40rpx;
+  margin-top:40rpx;
+  color: #4787f1;
+  text-align: center;
+  background-color:#eff1f3;
+  line-height: 86rpx;
+  font-size: 33rpx;
+}

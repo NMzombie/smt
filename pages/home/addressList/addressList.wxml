@@ -1,0 +1,20 @@
+<view class="addressWarp">
+  <view class="searchWarp">
+  <image class="searchIcon" src="/image/icon-mag2.png"></image>
+  <input placeholder="搜索" placeholder-style="placeholderCss" class="searchInput" bindinput="search" value="{{searchVal}}" />
+  
+  </view>
+  <view class="addressList">
+  <block wx:if="{{addressList.length != 0}}">
+    <view class="addressmain clear" catchtap='call' data-number="{{item.Tel}}" wx:for="{{addressList}}"  wx:key="{{index}}">
+      <image class="addressImg left" src="{{item.Headpic}}"></image>
+      <text class="addressText left">{{item.Xm}}</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="clear" >
+      <text class="emptyText">请换个姓名进行搜索</text>
+    </view>
+  </block>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<view class="warp">
+  <scroll-view
+    scroll-y
+    bindscrolltolower="addMore"
+    lower-threshold="200"
+    class="scrollView"
+    scroll-top="100"
+  > 
+  <block wx:if="{{messageList.length != 0}}">
+    <view class="messageList" data-flag="{{item.Flag}}" data-id="{{item.Cid}}" catchtap='renderDetail' wx:for="{{messageList}}" wx:key="index">
+      <view class="messageTitle">日报提醒</view>
+      <view class="messageTime">{{item.inputtime}}</view>
+      <view class="messageContent">{{item.Message}}</view>
+      <view class="topline"></view>
+      <view class="checkDetail">立即查看</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="emptyMess">暂无消息</view>
+  </block>
+  </scroll-view>
+</view>

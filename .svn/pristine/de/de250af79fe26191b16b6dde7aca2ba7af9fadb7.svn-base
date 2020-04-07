@@ -1,0 +1,113 @@
+/* pages/schoolProfiles/schoolHome/schoolHome.wxss */
+.schoolName{
+  font-size: 40rpx;
+  color:#262727;
+  padding-top: 20rpx;
+  font-weight: 600;
+}
+.schoolWarp{
+  width: 90%;
+  margin:15rpx auto;
+  box-shadow:#eee 5rpx 10rpx 20rpx 2rpx ;
+  height: 500rpx;
+  border-radius: 10rpx;
+}
+
+.warpLeft{
+  width: 93%;
+  padding-left: 20rpx;
+}
+.warpRight{
+  width: 3%;
+  height: 450rpx;
+  margin-top:25rpx;
+  background-color: #4C84F1;
+  border-top-left-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+}
+.leftInfo{
+  width: 50%;
+  display: inline-block;
+}
+.itemWarp{
+  width:94%;
+  border: 1rpx solid #C8C8CA;
+  border-radius: 16rpx;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  min-height: 300rpx;
+}
+.item-name{
+  padding-top: 20rpx;
+  font-size: 38rpx;
+}
+.item-name::after{
+  content: ""; 
+  position: absolute;
+  top: 15rpx; 
+  right: 0rpx; 
+  margin: 20rpx; 
+  border-right:1rpx solid #C8C7CC; 
+  border-bottom: 1rpx solid #C8C7CC; 
+  width: 18rpx; 
+  height: 18rpx; 
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg); 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg); 
+  -ms-transform: rotate(-45deg);
+}
+.item{
+  width: 90%;
+  margin:15rpx auto;
+  margin-top: 40rpx;
+  position: relative;
+  
+}
+.item-one{
+  width: 10rpx;
+  background-color:#4C84F1;
+  height: 50rpx;
+  display: inline-block;
+  border-radius: 2rpx;
+
+}
+
+.item-two{
+  height: 50rpx;
+  display: inline-block;
+  line-height: 50rpx;
+  margin-left: 20rpx;
+}
+.time{
+  color:#C8C7CC;
+  font-size: 28rpx;
+}
+.item-three{
+  height: 50rpx;
+  display: inline-block;
+  line-height: 50rpx;
+  color:#4C84F1;
+}
+
+.item-content{
+  font-size: 30rpx;
+  margin-top:15rpx;
+  color:#262727;
+}
+.two-name{
+  font-size: 34rpx;
+}
+.line{
+  width: 90%;
+  height: 2rpx;
+  background-color: #eee;
+  margin:30rpx auto;
+}
+.lineHeight{
+  line-height: 300rpx;
+}
+
+.shebei{
+  display: block;
+}
